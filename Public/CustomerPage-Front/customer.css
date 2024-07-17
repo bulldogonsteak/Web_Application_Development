@@ -3,7 +3,7 @@
 
 
 body {
-    background-image: url('Polygon\ Luminary.svg'); /* Replace with the path to your image */
+    background-image: url('../Pictures/background.svg'); /* Replace with the path to your image */
     background-size: cover; /* Ensure the image covers the entire background */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center center; /* Center the image */
