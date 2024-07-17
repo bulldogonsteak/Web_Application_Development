@@ -1,0 +1,480 @@
+/* CLIENT SIDE */
+/* MANAGER LANDING PAGE */
+
+body {
+    background-color: #02273a;
+    margin: 0;
+    padding: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+
+#GraphCake {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 2px;
+    border-radius: 60px;
+    padding-bottom: 20px;
+
+}
+
+.ManagerHello-container {
+    text-align: start;
+    padding: 1.25rem;
+}
+
+h2 {
+    margin: 0;
+    color: white;
+}
+
+p {
+    margin: 0.27rem 0 1.25rem 0;
+    font-size: 0.875rem;
+    color: #fd9e02;
+}
+
+
+
+.Data-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 70px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.DataBox {
+    display: flex;
+    align-items: center;
+    width: 15.75rem;
+    height: 120px;
+    border: 1px solid rgba(126, 126, 126, 0.3);
+    border-radius: 30px;
+    background-color: rgba(239, 239, 239, 0.244);
+    backdrop-filter: blur(20px);
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+.icon {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+}
+
+.text {
+    font-size: 0.875rem;
+    color: #a6a6a6;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.number {
+    font-size: 1.6rem;
+    color: #02273a;
+    text-align: center;
+}
+
+
+.DataBox i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 10px;
+
+}
+
+.DataBox .bi-emoji-smile {
+    background: linear-gradient(to bottom, rgba(149, 215, 227, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
+    color: rgba(0, 193, 231, 0.9);
+}
+
+.DataBox .bi-person-plus-fill {
+    background: linear-gradient(to bottom, rgba(227, 155, 149, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
+    color: rgb(212, 53, 39);
+}
+
+.DataBox .bi-person-workspace {
+    background: linear-gradient(to bottom, rgba(241, 239, 157, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
+    color: rgb(228, 179, 46);
+}
+
+.DataBox .bi-bag-check {
+    background: linear-gradient(to bottom, rgba(174, 227, 149, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
+    color: rgb(97, 210, 45);
+}
+
+
+
+.txt {
+    padding-bottom: 30px;
+}
+
+/* עדכון,שינוי,מחיקת פריט */
+.UpdateItems-grid-container {
+    display: grid;
+    grid-template-rows: 7rem 7rem 7rem;
+    grid-template-columns: auto;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+    padding-bottom: 60px;
+
+}
+
+.Add-Item,
+.Delete-Item {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background: linear-gradient(to left, rgb(255, 208, 126) 20%, rgba(2, 39, 58, 1) 100%);
+    padding: 20px;
+    text-align: center;
+    border-top-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    margin-right: 40%;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    color: white;
+    padding-right: 4rem;
+    font-size: 1.5rem;
+    text-shadow:
+        -1px -1px 0 #ffa33a,
+        1px -1px 0 #ffa33a,
+        -1px 1px 0 #ffa33a,
+        1px 1px 0 #ffa33a;
+}
+
+.Update-Item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(to right, rgb(255, 172, 78) 20%, rgba(2, 39, 58, 1) 100%);
+    padding: 20px;
+    padding-left: 4rem;
+    text-align: center;
+    border-top-left-radius: 4rem;
+    border-bottom-left-radius: 4rem;
+    margin-left: 40%;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    color: white;
+    font-size: 1.5rem;
+    text-shadow:
+        -1px -1px 0 #fb8500,
+        1px -1px 0 #fb8500,
+        -1px 1px 0 #fb8500,
+        1px 1px 0 #fb8500;
+}
+
+.Update-Item:hover {
+    margin-left: 35%;
+}
+
+.Add-Item:hover {
+    margin-right: 35%;
+}
+
+.Delete-Item:hover {
+    margin-right: 35%;
+}
+
+.UpdateItems-grid-container>div a {
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Inherit color from parent */
+}
+
+
+
+#EMP-pic {
+    width: 350px;
+    padding: -30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;
+}
+
+
+.socialMedia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 100px;
+}
+
+.Employee-OfThe-Month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.466);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.Employee-and-Facebook-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 70px; */
+}
+
+.Employee-and-Facebook-grid h4 {
+    color: white;
+    padding-right: 40px;
+    text-align: center;
+    line-height: 2.5rem;
+    transform: skewX(-15deg);
+}
+
+
+
+
+.facebook-post-section {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 500px;
+    max-width: 700px;
+    margin: 0 auto;
+
+
+}
+
+.facebook-post-section h2 {
+    margin-bottom: 20px;
+    color: #fb8500;
+    font-size: 24px;
+    text-align: center;
+}
+
+.facebook-post-section .post-input,
+.facebook-post-section .media-upload,
+.facebook-post-section .link-sharing,
+.facebook-post-section .post-preview,
+.facebook-post-section .schedule-options,
+.facebook-post-section .post-actions,
+.facebook-post-section .post-status,
+.facebook-post-section .post-logs {
+    margin-bottom: 20px;
+}
+
+.facebook-post-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.facebook-post-section textarea,
+.facebook-post-section input[type="file"],
+.facebook-post-section input[type="url"],
+.facebook-post-section input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.facebook-post-section textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.facebook-post-section button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4267B2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.facebook-post-section button:hover {
+    background-color: #365899;
+}
+
+.facebook-post-section .post-status,
+.facebook-post-section .post-logs {
+    background-color: rgba(224, 224, 224, 0.379);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #b1b1b1;
+}
+
+.facebook-post-section .post-status h3,
+.facebook-post-section .post-logs h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.facebook-post-section .post-logs ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.facebook-post-section .post-logs ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.facebook-post-section .post-logs ul li:last-child {
+    border-bottom: none;
+}
+
+
+
+.Orders-conatiner {
+    margin-top: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.Orders-conatiner h2 {
+    align-self: flex-start;
+}
+.card-container .Card {
+    height: 200px;
+    max-width: 200px;
+    position: relative;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    background-color: rgba(255, 255, 255, 0.952);
+    border-radius: 20px;
+    /* box-shadow: 0 5px 202px black; */
+    transition: 0.2s ease-in-out;
+}
+
+.card-container {
+    position: relative;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 35px;
+}
+
+.card-container .Card:hover {
+    height: auto;
+}
+
+
+.card-container .Card .Show-on-hover {
+    position: relative;
+    margin-top: -100px;
+    /* padding: 10px 10px; */
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+
+}
+
+.card-container .Card:hover .Show-on-hover {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 10px;
+    transition-delay: 0.4s;
+}
+
+.info {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+}
+
+#Totalnum {
+    font-size: 24px;
+    align-self: center;
+}
+
+#HoverMe {
+    text-align: center;
+    font-size: 15px;
+    background-color: #ffb803df;
+    border-radius: 10px;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.OrderID-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* margin-bottom: 10px; */
+}
+
+#OrderID {
+    font-size: 24px;
+    align-self: center;
+}
+
+#ordertxt {
+    font-size: 13px;
+    color: #929292;
+}
+
+#TotalPrice {
+    align-self: flex-start;
+    /* מיישר לשמאל */
+    color: #929292;
+    font-size: 13px;
+}
+
+.Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.Show-on-hover ul {
+    /* display: block; */
+   margin-right: 90px;
+}
+
