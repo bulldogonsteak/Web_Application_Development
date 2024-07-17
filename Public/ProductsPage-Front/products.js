@@ -12,7 +12,7 @@ function closeNav() {
     document.getElementById("openBtn").style.display = "block"; // Show the button
 }
 
-
+//adiiiii
 
 function myFunction(textId) {
     var text = document.getElementById(textId);
