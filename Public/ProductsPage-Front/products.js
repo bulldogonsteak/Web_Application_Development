@@ -48,37 +48,37 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
         {
-            imgSrc: 'mainPage/pictures/game1.webp',
+            imgSrc: '../Pictures/game1.webp',
             name: 'Tailored Jeans',
             price: '$19.99',
             
         },
         {
-            imgSrc: 'mainPage/pictures/game2.jpg',
+            imgSrc: '../Pictures/game2.jpg',
             name: 'Cool Shirt',
             price: '$29.99',
           
         },
         {
-            imgSrc: 'mainPage/pictures/game3.jpeg',
+            imgSrc: '../Pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
             
         },
         {
-            imgSrc: 'mainPage/pictures/game3.jpeg',
+            imgSrc: '../Pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
             
         },
         {
-            imgSrc: 'mainPage/pictures/game3.jpeg',
+            imgSrc: '../Pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
             
         },
         {
-            imgSrc: 'mainPage/pictures/game3.jpeg',
+            imgSrc: '../Pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
             
