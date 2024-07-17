@@ -1,31 +1,23 @@
 /* CLIENT SIDE */
 /* MAIN PAGE */
 
-
 body {
     background-color: #02273a;
-    /* Set the background color of the body */
     margin: 0;
-    /* Remove default margin */
     padding: 0;
-    /* Remove default padding */
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', sans-serif;
 }
-
-
 
 /* MAIN PAGE TOP MENU */
 
-
-
 .topNav {
     position: fixed;
-    top: 1; /* Changed top value from 1 to 1px */
+    top: 1;
     height: 70px;
-    border: 1px black solid;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 50vh;
     z-index: 1000;
     border-radius: 50px;
     width: 50%;
@@ -33,6 +25,7 @@ body {
     background-color: rgba(52, 52, 52, 0.416);
     padding-left: 20px;
     box-sizing: border-box;
+    margin-left: 50vh;
 }
 
 .topNav i {
@@ -50,11 +43,11 @@ body {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-right: 20px; /* Adjust spacing between dropdowns */
+    margin-right: 20px;
 }
 
 .dropbtn {
-    background-color: transparent; /* Match background color to the navbar */
+    background-color: transparent;
     color: rgb(255, 255, 255);
     padding: 16px;
     font-size: 16px;
@@ -63,7 +56,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 16px; /* Ensure the font size is consistent */
+    font-size: 16px;
 }
 
 .dropdown-content {
@@ -91,13 +84,14 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .dropbtn i {
-    margin-right: 8px; /* Adjust margin between icon and text */
+    margin-right: 8px;
 }
+
 .dropdown:hover .dropbtn {
-    
-    background-color: transparent; /* Slight background color change on hover */
-    box-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;  /* Slight background color change on hover */
+    background-color: transparent;
+    box-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;
 }
 
 #searchCircle {
@@ -123,14 +117,11 @@ body {
     height: 100%;
     border-radius: 50px;
     justify-content: flex-start;
-    /* Align items to the start */
-    /* padding-left: 10px; */
 }
 
 .search-icon {
     color: white;
     margin-left: -10px;
-    /* Color of the search icon */
 }
 
 .search-input {
@@ -147,7 +138,6 @@ body {
     display: block;
 }
 
-
 .TOPnav {
     height: 50px;
     position: relative;
@@ -157,8 +147,6 @@ body {
     justify-content: space-between;
     text-align: center;
 }
-
-
 
 .bi-person-circle {
     color: black;
@@ -176,18 +164,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* Aligns items to the end of the flex container */
     flex-grow: 1;
 }
-
 
 .aTAGS {
     display: flex;
     align-items: center;
     margin-left: 50vh;
-    /* Adjust margin as needed */
     justify-content: space-around;
-    /* Distribute items evenly */
     color: white;
 }
 
@@ -198,18 +182,12 @@ body {
     text-decoration: none;
     margin-left: 20px;
     padding: 0 60px;
-    /* Add padding between items */
 }
 
-
-/* main page img  */
 .image-container {
-
     height: 50vh;
-    /* 50% of the viewport height */
     display: flex;
     justify-content: center;
-    /* Center the image horizontally */
     align-items: center;
 }
 
@@ -229,7 +207,6 @@ body {
     justify-content: center;
 }
 
-
 .col {
     flex: 1 1 calc(33.333% - 20px);
     max-width: calc(33.333% - 20px);
@@ -239,7 +216,6 @@ body {
     color: white;
     text-align: left;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .bi-chevron-compact-right {
@@ -247,27 +223,21 @@ body {
     margin-left: 10px;
     font-size: 25px;
     font-weight: bolder;
-
 }
 
 .trending {
     width: 90%;
     margin: 20px auto;
-    /* Center the container horizontally */
     text-align: center;
     padding-bottom: 6rem;
 }
 
 .card {
     width: 100%;
-    /* Make cards 100% width initially */
     max-width: 38rem;
     max-height: 22rem;
     border-radius: 12px;
-    /* Limit maximum width of cards */
     margin: 10px auto;
-    /* Center cards horizontally and add margin */
-    object-fit: cover;
     background-color: #101436;
 }
 
@@ -279,8 +249,6 @@ body {
 #imgCard {
     object-fit: cover;
     width: 100%;
-    /* max-width: 380px;
-    height: 220px; */
     border-radius: 12px;
     max-width: 38rem;
     max-height: 22rem;
@@ -294,15 +262,12 @@ body {
     margin-bottom: 10px;
 }
 
-
 .reviews-container {
     display: flex;
     align-items: center;
     border: 1px solid black;
     background-color: rgb(28, 28, 28);
     height: 20rem;
-
-
 }
 
 .manIMG {
@@ -320,13 +285,11 @@ body {
 .starsANDtxt-container {
     display: flex;
     align-items: center;
-    /* justify-content: space-around; */
     padding: 0 20px;
     flex-direction: column;
     text-align: center;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
 }
 
 .stars-container {
@@ -335,13 +298,7 @@ body {
     justify-content: center;
 }
 
-
-
-
-
-
 .bottomMenu {
-
     display: grid;
     grid-template-rows: 60vh 1vh;
     grid-template-columns: 33.3333% 33.3333% 33.333%;
@@ -379,13 +336,11 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-
 }
 
 .item4 {
     grid-row: 2/2;
     grid-column: 1/4;
-
 }
 
 #greenstars {
@@ -405,7 +360,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 }
 
 .bi-controller,
@@ -415,32 +369,24 @@ body {
     flex-direction: row;
     font-size: 1.5rem;
 }
+
 .glow-text {
-    text-decoration: none; /* Remove default underline */
-    color: inherit; /* Inherit color from parent */
-    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition */
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .glow-text:hover {
-    color: orange; /* Change text color to orange on hover */
-    text-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange; /* Glow effect */
+    color: orange;
+    text-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;
 }
 
-
-.item2ICONS1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-}
-
+.item2ICONS1,
 .item2ICONS2 {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-
 }
 
 .item3 a {
@@ -448,102 +394,78 @@ body {
     justify-content: center;
     align-items: center;
     width: 50px;
-    /* Base width */
     height: 50px;
-    /* Base height */
     border-radius: 50%;
-    /* Makes the element round */
     text-decoration: none;
-    /* Removes underline from the link */
     font-size: 24px;
-    /* Base icon size */
     margin: 10px;
-    /* Space between icons */
 }
 
 .item3 .Dis {
     background-color: rgba(137, 126, 255, 0.532);
     color: rgb(128, 93, 255);
-    /* Icon color */
 }
 
 .item3 .Dis:hover {
     background-color: #563cff;
-    /* Optional: Darken the background color on hover */
 }
 
 .item3 .Insta {
     background-color: rgba(255, 195, 126, 0.532);
     color: rgb(210, 173, 109);
-    /* Icon color */
 }
 
 .item3 .Insta:hover {
     background-color: #b98842;
-    /* Optional: Darken the background color on hover */
 }
 
 .item3 .facebook {
     background-color: rgba(114, 213, 255, 0.532);
     color: rgb(124, 186, 233);
-    /* Icon color */
 }
 
 .item3 .facebook:hover {
     background-color: #4a93ce;
-    /* Optional: Darken the background color on hover */
 }
 
 .item3 .youtube {
     background-color: rgba(255, 157, 157, 0.582);
     color: rgb(163, 41, 41);
-    /* Icon color */
 }
 
 .item3 .youtube:hover {
     background-color: #ea3f3f;
-    /* Optional: Darken the background color on hover */
 }
-
 
 @media (min-width: 768px) {
     .item3 a {
         width: 70px;
-        /* Larger width */
         height: 70px;
-        /* Larger height */
         font-size: 32px;
-        /* Larger icon size */
     }
 }
 
 @media (min-width: 1024px) {
     .item3 a {
         width: 70px;
-        /* Even larger width */
         height: 70px;
-        /* Even larger height */
         font-size: 30px;
-        /* Even larger icon size */
     }
 }
-
-
-
 
 .image_container {
     position: relative;
     width: 100%;
     height: auto;
     overflow: hidden;
-  }
-  
-  .image_container img {
+}
+
+.image_container img {
     width: 100%;
     display: block;
-  }
-  
-  .image_container video {
+}
+
+.image_container video {
     position: absolute;
     top: 0;
     left: 0;
@@ -552,43 +474,39 @@ body {
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.3s ease;
-  }
-  
-  .image_container:hover video {
+}
+
+.image_container:hover video {
     opacity: 1;
-  }
+}
 
-  
-
-  
 .nav-link {
-    text-decoration: none; /* Remove default underline */
-    color: inherit; /* Inherit color from parent */
-    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition */
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .nav-link:hover {
-    color: orange; /* Change text color to orange on hover */
-    text-shadow: 0 0 10px rgb(255, 145, 0), 0 0 20px rgb(255, 132, 0), 0 0 30px rgb(255, 132, 0); /* Glow effect */
+    color: orange;
+    text-shadow: 0 0 10px rgb(255, 145, 0), 0 0 20px rgb(255, 132, 0), 0 0 30px rgb(255, 132, 0);
 }
 
 .icon-link i {
-    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition */
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .icon-link:hover i {
-    color: white; /* Change icon color to white on hover */
-    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; /* White glow effect */
+    color: white;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
 }
 
-
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.05); /* Scale the card to 105% of its original size */
-    box-shadow: 0 0 15px white; /* White glow effect */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px white;
 }
 
 .image_container {
@@ -601,7 +519,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 0.3s ease; /* Smooth transition */
+    transition: opacity 0.3s ease;
 }
 
 .image_container:hover .play-button {
@@ -614,7 +532,6 @@ body {
     display: block;
 }
 
-
 /* Dropdown Button */
 .dropbtn {
     background-color: transparent;
@@ -622,46 +539,103 @@ body {
     padding: 16px;
     font-size: 16px;
     border: none;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+}
+
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+}
 
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
+.dropdown:hover .dropbtn {
+    background-color: transparent;
+}
 
+/* Responsive Design */
 
+@media (max-width: 1200px) {
+    .col {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+    .topNav {
+        margin-left: 20vh;
+        width: 80%;
+    }
+    .aTAGS {
+        margin-left: 20vh;
+        padding: 0;
+    }
+    .image-container {
+        height: 40vh;
+    }
+}
 
+@media (max-width: 800px) {
+    .col {
+        flex: 1 1 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+    .topNav {
+        margin-left: 10vh;
+        width: 90%;
+    }
+    .aTAGS {
+        margin-left: 10vh;
+        padding: 0;
+    }
+    .image-container {
+        height: 30vh;
+    }
+    .item3 a {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
 
-
-  
+@media (max-width: 600px) {
+    .topNav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .dropdown {
+        margin-right: 10px;
+    }
+    .aTAGS {
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .image-container {
+        height: 20vh;
+    }
+    .item3 a {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
