@@ -1,0 +1,252 @@
+/* CLIENT SIDE */
+/* PRODUCTS PAGE */
+
+
+body {
+    background-color: #02273a;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.logo {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 120px;
+    
+}
+
+#logo {
+    width: 200px;
+    height: auto;
+    margin-top: -30px;
+}
+
+.SortMenu {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.sidepanel {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    background-color: #111111da;
+    overflow-x: hidden;
+    padding-top: 100px;
+    transition: 0.5s;
+}
+
+.sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidepanel a:hover {
+    color: #f1f1f1;
+}
+
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #fb8500;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    margin-top: -50px;
+    position: fixed;
+    z-index: 1000;  
+}
+
+.openbtn:hover {
+    background-color: #ffb703;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    font-size: 25px;
+    border: none;
+    outline: none;
+    color: #fb8500;
+    padding: 8px 8px 8px 32px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #ffffff18;
+    min-width: 160px;
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: hidden;
+}
+
+.dropdown-content a {
+    color: white;
+    font-size: 13px;
+    padding: 5px 5px 5px 30px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #fb8500;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+.CheckBoxes div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 2px solid #818181;
+    border-radius: 3px;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #fb8500;
+    border-color: #fb8500;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+} 
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensures 3 columns */
+    gap: 16px; /* Adjust the gap between cards as needed */
+    padding: 16px; /* Optional: Adds some padding around the container */
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 97%; /* Full width of the grid column */
+    text-align: center;
+    background-color: #02273a00;
+    border-radius: 10px;
+}
+
+.card img {
+    border-radius: 10px;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px; /* Optional: Adds some padding to the sides */
+}
+
+.product-name {
+    flex: 1;
+    text-align: left;
+    margin: 0;
+    color: white;
+    padding: 8px 0; /* Adjust as needed for spacing */
+}
+
+.price {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    padding: 8px 0; /* Adjust as needed for spacing */
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 5px;
+    color: white;
+
+    background: linear-gradient(to bottom right, #ffb703, #fb8500);
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 20px;
+    border: 3px groove rgb(255, 136, 0);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+button.add-to-cart:hover {
+        transform: scale(1.1);
+    
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 1200px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 800px) {
+    .card-container {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
