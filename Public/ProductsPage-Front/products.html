@@ -77,10 +77,15 @@
 
 
         <div class="card-container" id="cardContainer">
-            <!-- The template for a card -->
             <template id="cardTemplate">
                 <div class="card">
-                    <img src="" alt="Product Image" class="product-image" style="width:100%">
+                    <div class="media-container">
+                        <img src="" alt="Product Image" class="product-image" style="width:100%">
+                        <video class="product-video" muted>
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                     <div class="product-details">
                         <h4 class="product-name"></h4>
                         <p class="price"></p>
@@ -90,7 +95,7 @@
             </template>
         </div>
     
-        <script src="product.js"></script>
+        <script src="products.js"></script>
     </body>
     </html>
     
