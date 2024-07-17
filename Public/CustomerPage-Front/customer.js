@@ -22,3 +22,21 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchContainer = document.querySelector('.search-container');
+  const searchIcon = document.querySelector('#searchCircle');
+  const searchInput = document.querySelector('#searchInput');
+
+  searchIcon.addEventListener('click', function() {
+      searchContainer.classList.toggle('expanded');
+      searchInput.focus();
+  });
+
+  searchInput.addEventListener('blur', function() {
+      searchContainer.classList.remove('expanded');
+  });
+});
+  
