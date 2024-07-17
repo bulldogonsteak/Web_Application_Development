@@ -3,6 +3,7 @@
 
 
 body {
+    /* TODO Create a folder which contains all IMG */
     background-image: url('Polygon\ Luminary.svg'); /* Replace with the path to your image */
     background-size: cover; /* Ensure the image covers the entire background */
     background-repeat: no-repeat; /* Prevent the image from repeating */
