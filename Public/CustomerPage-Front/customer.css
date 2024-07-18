@@ -93,8 +93,6 @@ body {
 }
 
 
-
-
 /* Create an active/current tablink class */
 .tab button.active {
     background-color: #dddddd59;
@@ -163,7 +161,6 @@ body {
 .tabcontent h3 {
     color: orange;
 }
-
 
 
 .topNav {
@@ -322,7 +319,6 @@ body {
 }
 
 
-
 .bi-person-circle {
     color: white;
     font-size: 22px;
@@ -417,6 +413,7 @@ body {
 .card p {
     color: white;
 }
+
 .card a {
     color: rgb(255, 255, 255);
 }

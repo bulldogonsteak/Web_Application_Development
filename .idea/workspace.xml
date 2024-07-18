@@ -13,6 +13,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "bulldogonsteak"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/bulldogonsteak/Web_Application_Development.git",
+    "accountId": "31510547-6f59-4095-b826-9c839f14b0d4"
+  }
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -28,32 +40,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Admin/Adiel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.qodana",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "ts.external.directory.path": "C:\\Users\\WIN10\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="C:\Users\WIN10\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
-        <option name="reportGuid" value="6c2c260e-6760-4105-8f96-6fe46c7741e1" />
-        <option name="reportName" value="Web_Application_Development/qodana/2024-07-18" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\WIN10\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="6c2c260e-6760-4105-8f96-6fe46c7741e1" reportId="Web_Application_Development/qodana/2024-07-18" />
-    </option>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -71,6 +68,7 @@
       <updated>1721217760624</updated>
       <workItem from="1721217762316" duration="586000" />
       <workItem from="1721328572684" duration="96000" />
+      <workItem from="1721328721124" duration="812000" />
     </task>
     <task id="LOCAL‎-00001" summary="Code Review - customer.css">
       <option name="closed" value="true" />

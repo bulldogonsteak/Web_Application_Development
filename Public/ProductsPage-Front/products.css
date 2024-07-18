@@ -14,7 +14,7 @@ body {
     flex-grow: 1;
     text-align: center;
     margin-right: 120px;
-    
+
 }
 
 #logo {
@@ -78,7 +78,7 @@ body {
     border: none;
     margin-top: -50px;
     position: fixed;
-    z-index: 1000;  
+    z-index: 1000;
 }
 
 .openbtn:hover {
@@ -137,8 +137,6 @@ body {
 }
 
 
-
-
 .CheckBoxes div {
     display: flex;
     align-items: center;
@@ -175,7 +173,7 @@ input[type="checkbox"]:checked::after {
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
-} 
+}
 
 .card-container {
     display: grid;
@@ -183,6 +181,7 @@ input[type="checkbox"]:checked::after {
     gap: 16px; /* Adjust the gap between cards as needed */
     padding: 16px; /* Optional: Adds some padding around the container */
 }
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 97%; /* Full width of the grid column */
@@ -234,8 +233,8 @@ input[type="checkbox"]:checked::after {
 }
 
 button.add-to-cart:hover {
-        transform: scale(1.1);
-    
+    transform: scale(1.1);
+
 }
 
 /* Responsive Design for Smaller Screens */
