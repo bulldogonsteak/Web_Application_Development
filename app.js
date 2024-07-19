@@ -18,7 +18,6 @@ require('custom-env').env(process.env.NODE_ENV, './config');
 //                                         {useNewUrlParser: true,
 //                                                 useUnifiedTopology: true});
 
-
 // Create a server
 const app = express();
 
