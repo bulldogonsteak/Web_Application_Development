@@ -24,10 +24,10 @@ function myFunction(textId) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const genres = ["Action", "Adventure", "Arcade", "Multiplayer", "Fantasy", "Racing", "Sports", "Strategy", "Wargame"];
     const sortBy = ["Bestsellers", "Price: Low to High", "Price: High to Low", "Lowest Rated"];
-    const systems = ["PlayStation 4","PlayStation 5","Xbox One", "Xbox Series X|S", "Nintendo", "PC"];
+    const systems = ["PlayStation 4", "PlayStation 5", "Xbox One", "Xbox Series X|S", "Nintendo", "PC"];
 
     populateDropdown("genresDropdown", genres);
     populateDropdown("sortByDropdown", sortBy);
@@ -51,37 +51,37 @@ document.addEventListener('DOMContentLoaded', () => {
             imgSrc: 'mainPage/pictures/game1.webp',
             name: 'Tailored Jeans',
             price: '$19.99',
-            
+
         },
         {
             imgSrc: 'mainPage/pictures/game2.jpg',
             name: 'Cool Shirt',
             price: '$29.99',
-          
+
         },
         {
             imgSrc: 'mainPage/pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
-            
+
         },
         {
             imgSrc: 'mainPage/pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
-            
+
         },
         {
             imgSrc: 'mainPage/pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
-            
+
         },
         {
             imgSrc: 'mainPage/pictures/game3.jpeg',
             name: 'Cool Shirt',
             price: '$29.99',
-            
+
         }
         // Add more product objects as needed
     ];
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardClone.querySelector('.product-image').src = product.imgSrc;
         cardClone.querySelector('.product-name').textContent = product.name;
         cardClone.querySelector('.price').textContent = product.price;
-        
+
 
         cardContainer.appendChild(cardClone);
     });
