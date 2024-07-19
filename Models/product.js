@@ -1,7 +1,13 @@
+/***********************************************************************************************************************
+ *  Server Side - app.js
+ *  Main Server application
+ **********************************************************************************************************************/
+
+//import express from 'express';
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-app.listen(port, () => {})
+
+//import bodyParser from 'body-parser';
+const bodyParser = require('body-parser');
+
+//import mongoose from 'mongoose';
+const mongoose = require('mongoose');
