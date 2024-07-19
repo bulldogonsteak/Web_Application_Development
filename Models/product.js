@@ -1,13 +1,4 @@
 /***********************************************************************************************************************
- *  Server Side - app.js
- *  Main Server application
+ *  Server Side - Models - product.js
+ *  Product Model Main Schema
  **********************************************************************************************************************/
-
-//import express from 'express';
-const express = require('express');
-
-//import bodyParser from 'body-parser';
-const bodyParser = require('body-parser');
-
-//import mongoose from 'mongoose';
-const mongoose = require('mongoose');
