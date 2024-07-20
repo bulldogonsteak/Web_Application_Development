@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8037987-c5e9-4972-aaaa-f2470264804e" name="Changes" comment="product.js Initialization V1 Schema">
+    <list default="true" id="c8037987-c5e9-4972-aaaa-f2470264804e" name="Changes" comment="product.js Initialization Schema MainFrame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/Models/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +79,8 @@
       <workItem from="1721328572684" duration="96000" />
       <workItem from="1721328721124" duration="1367000" />
       <workItem from="1721391821868" duration="1310000" />
+      <workItem from="1721477156488" duration="25000" />
+      <workItem from="1721496672501" duration="2349000" />
     </task>
     <task id="LOCAL‎-00001" summary="Code Review - customer.css">
       <option name="closed" value="true" />
@@ -137,7 +138,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1721396404463</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL‎-00008" summary="product.js Initialization Schema MainFrame">
+      <option name="closed" value="true" />
+      <created>1721396898654</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721396898654</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +160,7 @@
     <MESSAGE value="Initialization of Server within the app, Definitions" />
     <MESSAGE value="First Main Frame of app.js (Server-Side)" />
     <MESSAGE value="product.js Initialization V1 Schema" />
-    <option name="LAST_COMMIT_MESSAGE" value="product.js Initialization V1 Schema" />
+    <MESSAGE value="product.js Initialization Schema MainFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="product.js Initialization Schema MainFrame" />
   </component>
 </project>
