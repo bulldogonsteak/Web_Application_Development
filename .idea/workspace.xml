@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8037987-c5e9-4972-aaaa-f2470264804e" name="Changes" comment="Initialization of app.js (Server-Side)">
+    <list default="true" id="c8037987-c5e9-4972-aaaa-f2470264804e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +79,9 @@
       <workItem from="1721328572684" duration="96000" />
       <workItem from="1721328721124" duration="1367000" />
       <workItem from="1721391821868" duration="1310000" />
+      <workItem from="1721477156488" duration="25000" />
+      <workItem from="1721496672501" duration="3909000" />
+      <workItem from="1721505220915" duration="588000" />
     </task>
     <task id="LOCAL‎-00001" summary="Code Review - customer.css">
       <option name="closed" value="true" />
@@ -115,7 +115,47 @@
       <option name="project" value="LOCAL‎" />
       <updated>1721393762007</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎-00005" summary="Initialization of Server within the app, Definitions">
+      <option name="closed" value="true" />
+      <created>1721394419954</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721394419954</updated>
+    </task>
+    <task id="LOCAL‎-00006" summary="First Main Frame of app.js (Server-Side)">
+      <option name="closed" value="true" />
+      <created>1721394932320</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721394932320</updated>
+    </task>
+    <task id="LOCAL‎-00007" summary="product.js Initialization V1 Schema">
+      <option name="closed" value="true" />
+      <created>1721396404463</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721396404463</updated>
+    </task>
+    <task id="LOCAL‎-00008" summary="product.js Initialization Schema MainFrame">
+      <option name="closed" value="true" />
+      <created>1721396898654</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721396898654</updated>
+    </task>
+    <task id="LOCAL‎-00009" summary="updated additional packages for http promise and middleware additional features">
+      <option name="closed" value="true" />
+      <created>1721500601466</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721500601466</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +166,11 @@
     <MESSAGE value="Code Review - Adjusted Code Format" />
     <MESSAGE value="Updated libraries for server side implementation" />
     <MESSAGE value="Initialization of app.js (Server-Side)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialization of app.js (Server-Side)" />
+    <MESSAGE value="Initialization of Server within the app, Definitions" />
+    <MESSAGE value="First Main Frame of app.js (Server-Side)" />
+    <MESSAGE value="product.js Initialization V1 Schema" />
+    <MESSAGE value="product.js Initialization Schema MainFrame" />
+    <MESSAGE value="updated additional packages for http promise and middleware additional features" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated additional packages for http promise and middleware additional features" />
   </component>
 </project>
