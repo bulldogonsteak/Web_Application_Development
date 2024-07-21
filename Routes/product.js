@@ -9,8 +9,12 @@ const productController = require('../controllers/productController'); // Import
 
 router.route('/products') // URL request for homepage for products
     .get(productController.getProducts) // GET method - Get a list of products
-    .post(productController.createProduct) // POST method - Create a product
+    .post(productController.createProduct); // POST method - Create a product
 
 router.route('/products/:id') // URL request for a specific product with id
-    .get(productController.getProduct) // Get method - Get a specific product within given an id
-    .put(productController.updateProduct)// PUT method -
+    .get(productController.getProduct) // GET method - Get a specific product within given an id
+    .put(productController.updateProduct)// PUT method - Update a specific product with the given id
+    // TODO need to check the validity of the id within the models
+    .delete(productController.deleteProduct); // DELETE method - Delete a specific product within the given id
+
+module.exports = router; // Exporting the routes included within this file router
