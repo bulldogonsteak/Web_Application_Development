@@ -19,7 +19,21 @@ const createProduct = async (productData) => {
         return await product.save();
     } // End of TRY
 
-    catch(error){ // In case of any error
+    catch (error) { // In case of any error
+        console.log("Error creating product");
         throw new Error(`Error creating product: ${error.message}`);
     }
 }; // End of createProduct function
+
+
+// Get a product by a given id
+
+
+// const getProductById = async (id) => {
+//     // Try to find a product with given id
+//     try {
+//         return await product.findById(id);
+//     } catch (error) {
+//         throw new Error(`Error getting product: ${error.message}`);
+//     }
+// }
