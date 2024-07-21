@@ -17,7 +17,7 @@ body {
 
 .topNav {
     position: fixed;
-    top: 1; /* Changed top value from 1 to 1px */
+    top: 1px; /* Changed top value from 1 to 1px */
     height: 70px;
     border: 1px black solid;
     display: flex;
