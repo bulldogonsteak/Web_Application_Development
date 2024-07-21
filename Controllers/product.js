@@ -19,3 +19,7 @@ const createProduct = async (req, res) => {
         return await res.status(400).json({}); // returns Empty Object with Error Status 400
     }
 }
+
+module.exports ={
+    createProduct,
+}
