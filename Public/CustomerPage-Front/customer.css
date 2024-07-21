@@ -3,8 +3,7 @@
 
 
 body {
-    /* TODO Create a folder which contains all IMG */
-    background-image: url('Polygon\ Luminary.svg'); /* Replace with the path to your image */
+    background-image: url('../Pictures/background.svg'); /* Replace with the path to your image */
     background-size: cover; /* Ensure the image covers the entire background */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center center; /* Center the image */
@@ -93,6 +92,8 @@ body {
 }
 
 
+
+
 /* Create an active/current tablink class */
 .tab button.active {
     background-color: #dddddd59;
@@ -161,6 +162,7 @@ body {
 .tabcontent h3 {
     color: orange;
 }
+
 
 
 .topNav {
@@ -319,6 +321,7 @@ body {
 }
 
 
+
 .bi-person-circle {
     color: white;
     font-size: 22px;
@@ -413,7 +416,6 @@ body {
 .card p {
     color: white;
 }
-
 .card a {
     color: rgb(255, 255, 255);
 }
