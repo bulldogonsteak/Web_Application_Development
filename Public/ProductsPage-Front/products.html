@@ -1,99 +1,120 @@
 <!-- CLIENT SIDE -->
-<!-- PRODUCTS PAGE -->
+ <!-- PRODUCTS PAGE -->
 
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="icon" href="pictures/onlyLogo.png">
+    <link rel="icon" href="../Pictures/onlyLogo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="Products.css">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="products.css">
 </head>
 
 <body>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sort Menu with Dropdown</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="SortMenu">
-    <div class="header">
-        <button class="openbtn" onclick="openNav()">&#9776; Sort</button>
-        <div class="logo">
-            <img src="mainPage/pictures/logooo.png" id="logo" alt="Logo">
+    <!-- <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sort Menu with Dropdown</title>
+        <link rel="stylesheet" href="styles.css">
+    </head> -->
+    <body>
+        <div class="SortMenu">
+            <div class="header">
+                <button class="openbtn" onclick="openNav()">&#9776; Sort</button>
+                <div class="logo">
+                    <img src="../Pictures/logooo.png" id="logo" alt="Logo">
+                </div>
+            </div>
+            <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="CheckBoxes">
+                    <div>
+                        <input type="checkbox" id="myCheck2" onclick="myFunction('text2')"> Most Viewed
+                    </div>
+                    <div>
+                        <input type="checkbox" id="myCheck3" onclick="myFunction('text3')"> Highest Rated
+                    </div>
+                    <div>
+                        <input type="checkbox" id="myCheck4" onclick="myFunction('text4')"> Lowest Rated
+                    </div>
+                </div>
+              
+               
+                
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Genres</a>
+                    <div class="dropdown-content" id="genresDropdown">
+                        <!-- Dynamic genres will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Sort By</a>
+                    <div class="dropdown-content" id="sortByDropdown">
+                        <!-- Dynamic sort by options will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Systems</a>
+                    <div class="dropdown-content" id="systemsDropdown">
+                        <!-- Dynamic systems will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="CheckBoxes">
-            <div>
-                <input type="checkbox" id="myCheck2" onclick="myFunction('text2')"> Most Viewed
-            </div>
-            <div>
-                <input type="checkbox" id="myCheck3" onclick="myFunction('text3')"> Highest Rated
-            </div>
-            <div>
-                <input type="checkbox" id="myCheck4" onclick="myFunction('text4')"> Lowest Rated
-            </div>
+
+
+
+
+
+        <div class="card-container" id="cardContainer">
+            <template id="cardTemplate">
+                <div class="card">
+                    <div class="media-container">
+                        <img src="" alt="Product Image" class="product-image" style="width:100%">
+                        <video class="product-video" muted>
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="product-details">
+                        <h4 class="product-name"></h4>
+                        <p class="price"></p>
+                    </div>
+                    <p><button class="add-to-cart">Add to Cart</button></p>
+                </div>
+            </template>
         </div>
+    
+        <script src="products.js"></script>
+    </body>
+    </html>
+    
 
 
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Genres</a>
-            <div class="dropdown-content" id="genresDropdown">
-                <!-- Dynamic genres will be inserted here by JavaScript -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Sort By</a>
-            <div class="dropdown-content" id="sortByDropdown">
-                <!-- Dynamic sort by options will be inserted here by JavaScript -->
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Systems</a>
-            <div class="dropdown-content" id="systemsDropdown">
-                <!-- Dynamic systems will be inserted here by JavaScript -->
-            </div>
-        </div>
-    </div>
-</div>
 
 
-<div class="card-container" id="cardContainer">
-    <!-- The template for a card -->
-    <template id="cardTemplate">
-        <div class="card">
-            <img src="" alt="Product Image" class="product-image" style="width:100%">
-            <div class="product-details">
-                <h4 class="product-name"></h4>
-                <p class="price"></p>
-            </div>
-            <p>
-                <button class="add-to-cart">Add to Cart</button>
-            </p>
-        </div>
-    </template>
-</div>
-
-<script src="scripts.js"></script>
-</body>
-</html>
 
 
-<script src="Products.js"></script>
+
+
+
+
+
+
+
+
+
+    <script src="Products.js"></script>
 </body>
 
 </html>
