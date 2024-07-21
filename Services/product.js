@@ -3,13 +3,15 @@
  *  Product Services Methods
  **********************************************************************************************************************/
 
-const product = require(`../Models/product.js`); // Import product Model for this file
+ const product = require(`../Models/product.js`);
+const mongoose = require("mongoose"); // Import product Model for this file
 
 // TODO need to check within debugging session about this function
 // Create a product asynchronous function
 const createProduct = async (productData) => {
     // Try to create a new product object
     try {
+        // TODO need to selfcheck if the product data is allready within the database
         // Create a new product object
         const product = new product({
             ...productData, // Usage of spread operator which assign all fields accordingly from the productData
@@ -25,7 +27,6 @@ const createProduct = async (productData) => {
     }
 }; // End of createProduct function
 
-
 // Get a product by a given id
 
 
@@ -37,3 +38,8 @@ const createProduct = async (productData) => {
 //         throw new Error(`Error getting product: ${error.message}`);
 //     }
 // }
+
+
+module.exports = { // Export all of this file methods
+    createProduct,
+}
