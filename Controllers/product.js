@@ -41,27 +41,29 @@ const getAllProducts = async (req,res) => {
     }
 }
 
+
 // Get a Product with a given ID - GET Methods Handler
 const getProductById = async (req, res) => {
     // Try to get a product with given id
     try{
+        // Get a product with product-Services API
         const product = await productService.getProductById(req.params.id);
         if (!product) {
-            console.error(`Product with productId ${req.params.id} not found`);
+            console.error(`Product with productId ${req.params.id} not found`); // TODO Self Debugging
             return res.status(404).json({error: `Product with productId ${req.params.id} not found`});
         }
 
-        console.log(`Product with productId: ${product.productId} is found`);
+        console.log(`Product with productId: ${product.productId} is found`); // TODO Self Debugging
         return await res.status(200).json(product);
     }
     catch(err){
-        console.log(err);
+        console.log(err); // TODO Self Debugging
         return await res.status(500).json({error: err.message});
     }
 }
 
 
-
+// Exporting function of this file to the other files to be importing this file
 module.exports = {
     createProduct,
     getAllProducts,

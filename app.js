@@ -30,9 +30,13 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 
 // Create a server
 const app = express();
+console.log("Server Created")
 
-app.use(express.static('public')); // Use Public as static file
+// app.use
+app.use(express.static('Public')); // Use Public as static file
+console.log("express.static('Public') was uploaded")
 app.use(cors()); // Initialize MiddleWare
+console.log("using cors")
 app.use(bodyParser.urlencoded({extended: true})); // MiddleWare parsing Url-Encoded Data from incoming requests
 app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming requests
 
@@ -40,6 +44,7 @@ app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming r
 ///////////////////////////////////////////////////////
 const productRoutes = require('./Routes/product.js');
 app.use('/', productRoutes);
+console.log("app.use / as productRoutes")
 ///////////////////////////////////////////////////////
 
 // Main Server Listening Port
