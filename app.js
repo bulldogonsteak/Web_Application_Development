@@ -42,6 +42,6 @@ app.use('/products', productRoutes);
 ///////////////////////////////////////////////////////
 
 // Main Server Listening Port
-app.listen(process.env.PORT || 3000, ()=>{
-    console.log(`Server running on http://localhost:${process.env.PORT || 3000}`);
+app.listen(process.env.PORT || 27017, ()=>{
+    console.log(`Server running on http://localhost:${process.env.PORT || 27017}`);
 });
