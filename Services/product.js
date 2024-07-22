@@ -5,6 +5,8 @@
 
 const Product = require(`../Models/product.js`);
 
+
+/*************************************************** POST Method ******************************************************/
 // Create a product asynchronous function - POST method
 const createProduct = async (productData) => {
     // Checks if the product already exists within the Database
@@ -20,6 +22,8 @@ const createProduct = async (productData) => {
 }// End of createProduct function
 
 
+
+/**************************************************** GET Method ******************************************************/
 // Get a product by a given id - GET method with a given id
 const getProductById = async (id) => {
     // Finds Product with the given id
@@ -35,7 +39,6 @@ const getProductById = async (id) => {
 
 // Get all products - Get the list of all general products within the stock
 const getAllProducts = async () => {
-
     return await Product.find({});
 }
 
