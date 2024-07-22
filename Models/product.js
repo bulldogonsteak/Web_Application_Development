@@ -6,7 +6,7 @@
 const mongoose = require('mongoose'); // Import mongoose library
 const Schema = mongoose.Schema; // Import mongoose Schema
 
-const product = new Schema({
+const productSchema = new Schema({
    productId: { // Product ID (injective key)
         type: String,
         required: true,
@@ -86,4 +86,4 @@ const product = new Schema({
 
 })
 
-module.exports = mongoose.model('Product', product); // Exporting Product as a Schema to other files
+module.exports = mongoose.model('Product', productSchema); // Exporting Product as a Schema to other files

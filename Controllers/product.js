@@ -63,6 +63,8 @@ const getProductById = async (req, res) => {
 }
 
 
+
+
 // Exporting function of this file to the other files to be importing this file
 module.exports = {
     createProduct,

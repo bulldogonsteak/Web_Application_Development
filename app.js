@@ -43,11 +43,11 @@ app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming r
 
 ///////////////////////////////////////////////////////
 const productRoutes = require('./Routes/product.js');
-app.use('/', productRoutes);
+app.use('/products', productRoutes);
 console.log("app.use / as productRoutes")
 ///////////////////////////////////////////////////////
 
 // Main Server Listening Port
-app.listen(process.env.PORT || 3000, ()=>{
-    console.log(`Server running on http://localhost:${process.env.PORT || 3000}`);
+app.listen(process.env.PORT, ()=>{
+    console.log(`Server running on http://localhost:${process.env.PORT}`);
 });
