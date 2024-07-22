@@ -6,7 +6,7 @@
 
 const productService = require("../Services/product.js"); // Import Services File to product
 
-// Create a product
+// Create a product - POST Method Handler
 const createProduct = async (req, res) => {
     // Try to Create a new Product
     try {
@@ -20,6 +20,24 @@ const createProduct = async (req, res) => {
     }
 }
 
-module.exports ={
+
+// Get all Articles - GET Methods Handlers
+const getAllProducts = async (req,res) => {
+    // Try to get all Products within the current stock
+    try{
+        const products = await productService.getAllProducts();
+        await res.status(200).json(products);
+    }
+    catch (error) {
+        console.log("Error getting all products");
+        return await res.status(400).json({errors: error.message});
+    }
+}
+
+
+
+module.exports = {
     createProduct,
+    getAllProducts,
+
 }

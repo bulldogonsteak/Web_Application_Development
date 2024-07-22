@@ -10,8 +10,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors') // MiddleWare
+const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
-// Config Environment File path
+// Config Environment File path for current process
 require('custom-env').env(process.env.NODE_ENV, './config');
 
 ////////////////////////////////////////////////////////////////////
@@ -20,7 +21,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     useUnifiedTopology: true
 })
     .then(() => {
-        console.log('Connected to MongoDB')
+        console.log('Connected to MongoDB') // TODO conencted to mongoDB
     })// Check if connection attend to succeed
     .catch(err => {
         console.log('Could not connect to MongoDB',err)
@@ -38,10 +39,10 @@ app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming r
 
 ///////////////////////////////////////////////////////
 const productRoutes = require('./Routes/product.js');
-app.use('/products', productRoutes);
+app.use('/', productRoutes);
 ///////////////////////////////////////////////////////
 
 // Main Server Listening Port
-app.listen(process.env.PORT || 27017, ()=>{
-    console.log(`Server running on http://localhost:${process.env.PORT || 27017}`);
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log(`Server running on http://localhost:${process.env.PORT || 3000}`);
 });
