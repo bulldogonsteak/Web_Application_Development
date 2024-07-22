@@ -9,28 +9,54 @@ const productService = require("../Services/product.js"); // Import Services Fil
 // Create a product - POST Method Handler
 const createProduct = async (req, res) => {
     // Try to Create a new Product
-    try {
-        // TODO need to search if the product already exists if not needs to create it
-        const newProduct = await productService.createProduct(req.body); // Create a new article // TODO in Body most be the parameters for a new product
-        console.log(newProduct);
-        return await res.status(201).json(newProduct); // Returns the new product back to the Client
-    } catch (error) {
-        console.log("Error creating product"); // TODO self debugging
-        return await res.status(400).json({}); // returns Empty Object with Error Status 400
+    try{
+        // Create a new product
+        const newProduct = await productService.createProduct(req.body);
+        if (!newProduct) {
+            console.error("Product creation failed");// TODO Self Debugging
+            return await res.status(400).json({error: "Product creation failed"});
+        }
+        // Product successfully saved
+        console.log("product was created successfully"); // TODO Self Debugging
+        return await res.status(201).json(newProduct);
+    }
+    catch(err){
+        console.error(err);// TODO Self Debugging
+        return await res.status(500).json({error: err.message});
+    }
+};
+
+
+// Get all Products - GET Methods Handlers
+const getAllProducts = async (req,res) => {
+    // Try to Create a new product
+    try{
+        const Products = await productService.getAllProducts();
+        console.log(Products); // TODO Self Debugging
+        return await res.status(200).json(Products);
+    }
+    catch(err){
+        console.log(err); // TODO Self Debugging
+        return await res.status(500).json({error: err.message});
     }
 }
 
-
-// Get all Articles - GET Methods Handlers
-const getAllProducts = async (req,res) => {
-    // Try to get all Products within the current stock
+// Get a Product with a given ID - GET Methods Handler
+const getProductById = async (req, res) => {
+    // Try to get a product with given id
     try{
-        const products = await productService.getAllProducts();
-        await res.status(200).json(products);
+        const product = await productService.getProductById(req.params.id);
+        if (!product) {
+            console.error(`Product with productId ${req.params.id} not found`);
+            return res.status(404).json({error: `Product with productId ${req.params.id} not found`});
+        }
+
+        console.log(`Product with productId: ${product.productId} is found`);
+        return await res.status(200).json(product);
     }
-    catch (error) {
-        console.log("Error getting all products");
-        return await res.status(400).json({errors: error.message});
+    catch(err){
+        console.log(err);
+        return await res.status(500).json({error: err.message});
     }
 }
 
@@ -39,5 +65,5 @@ const getAllProducts = async (req,res) => {
 module.exports = {
     createProduct,
     getAllProducts,
-
+    getProductById,
 }
