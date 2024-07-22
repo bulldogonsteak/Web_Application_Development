@@ -42,14 +42,18 @@ const productSchema = new Schema({
     },
     price: { // Product's price value
         type: Number, // TODO can be dollar need to check if it is string
+        min:0,
         required: true,
     },
     discount: { // Product's discount ? discount : 0
         type: Number,
+        min: 0,
+        max: 100,
         default: 0,
     },
     stock: { // Product's availability within the stock market
         type: Number,
+        min: 0,
         required: true,
     },
     rating: { // Product's rating 0-5 limitation. 0 - very bad, 5 - very good
