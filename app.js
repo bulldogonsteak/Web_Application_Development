@@ -15,27 +15,22 @@ const dotenv = require('dotenv'); // Import dotenv to load environment variables
 // Config Environment File path for current process
 require('custom-env').env(process.env.NODE_ENV, './config');
 
-////////////////////////////////////////////////////////////////////
-mongoose.connect(process.env.CONNECTION_STRING, {
+mongoose.connect(process.env.CONNECTION_STRING, { // Mongoose Connection is settled with the script
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => {
+    .then(() => { // After connection do prompt a message to the console for successful operation
         console.log('Connected to MongoDB') // TODO conencted to mongoDB
     })// Check if connection attend to succeed
-    .catch(err => {
-        console.log('Could not connect to MongoDB',err)
+    .catch(err => { // Exception for DB connection
+        console.log('Could not connect to MongoDB', err)
     });
-/////////////////////////////////////////////////////////////////////////
+
 
 // Create a server
 const app = express();
 console.log("Server Created")
 
-
-
-
-/////////////////////////////////////////////////////////////////////////
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file
@@ -44,12 +39,12 @@ app.use(bodyParser.urlencoded({extended: true})); // MiddleWare parsing Url-Enco
 app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming requests
 
 
-///////////////////////////////////////////////////////
+// Set Object Routes
 const productRoutes = require('./Routes/product.js');
-app.use('/products', productRoutes); // TODO WENT ON PRODUCTS
-///////////////////////////////////////////////////////
+app.use('/products', productRoutes);
+
 
 // Main Server Listening Port
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT, () => {
     console.log(`Server running on http://localhost:${process.env.PORT}`);
 });
