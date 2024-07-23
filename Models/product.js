@@ -7,7 +7,12 @@ const mongoose = require('mongoose'); // Import mongoose library
 const Schema = mongoose.Schema; // Import mongoose Schema
 
 const productSchema = new Schema({
-   productId: { // Product ID (injective key)
+    _id: { // Override MongoDB _id index
+        type: String,
+        required: true,
+        unique: true
+    },
+    productId: { // Product ID (injective key)
         type: String,
         required: true,
         unique: true,
@@ -42,7 +47,7 @@ const productSchema = new Schema({
     },
     price: { // Product's price value
         type: Number, // TODO can be dollar need to check if it is string
-        min:0,
+        min: 0,
         required: true,
     },
     discount: { // Product's discount ? discount : 0

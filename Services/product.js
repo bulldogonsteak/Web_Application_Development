@@ -3,21 +3,30 @@
  *  Product Services Methods
  **********************************************************************************************************************/
 
-const Product = require(`../Models/product.js`);
+ const Product = require(`../Models/product.js`);
+const mongoose = require("mongoose");
 
 
 /*************************************************** POST Method ******************************************************/
 // Create a product asynchronous function - POST method
 const createProduct = async (productData) => {
-    // Checks if the product already exists within the Database
-    const existingProduct = await Product.findOne({productId: productData.productId});
-    if (existingProduct) {
-        console.log("The product is already in use within _id of " + productData.productId);
-        throw new Error(`Product already exists with productId ${productData.productId}`);
+
+    if (!productData) {
+        // TODO edge case
     }
 
+    // Checks if the product already exists within the Database
+    const existingProduct = await Product.findOne({_id: productData._id});
+    if (existingProduct) {
+        console.log("The product is already in use within _id of " + productData._id);
+        throw new Error(`Product already exists with productId ${productData._id}`);
+    }
     // The given product is a new one
-    const newProduct = new Product({_id: productData.productId,...productData});
+    const newProduct = new Product(productData);
+
+    // Set newProduct._id to be the same as the given productID (to settle conflict in mongoDB)
+    newProduct._id = productData.productId;
+
     return await newProduct.save();
 }// End of createProduct function
 
