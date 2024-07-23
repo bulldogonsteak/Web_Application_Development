@@ -69,7 +69,7 @@ const updateProduct = async (productId, productData) => {
 
     // Find the product with the given ID, then use the $set operator to specify the fields within (using the spread operator)
     // Use await to ensure all updates are finished before proceeding
-    await product.findByIdAndUpdate(productId, {$set: {...productData}}, {new: true})
+    const updatedProduct =  await Product.findByIdAndUpdate(productId, {$set: {...productData}}, {new: true})
         .then(updatedProduct => {
             if (!updatedProduct) { // If the product was not found
                 throw new Error(`Product with id ${productId} not found`);
@@ -92,25 +92,57 @@ const updateProduct = async (productId, productData) => {
 
 // Delete a product with a given product ID - DELETE method
 const deleteProduct = async (productId) => {
+    // Check if the given productId exists
+    const isValidProduct = await Product.findOne({_id: productId});
+
+    // Product is not exists
+    if (!isValidProduct) {
+        throw new Error(`Product with id ${productId} not found`);
+    }
 
     // Use await to ensure the remove is finished before proceeding
-    await Product.findByIdAndDelete(productId)
-        .then(deletedProduct => {
+    const removedProduct = await Product.findByIdAndDelete(productId)
+        .then(removedProduct => {
 
-            if (!deletedProduct) { // In case when product is not found
+            if (!removedProduct) { // In case when product is not found
                 console.log(`Product with id ${productId} not found`); // TODO self Debugging
                 throw new Error(`Product with id ${productId} not found`);
 
             } else { // Product is found
                 console.log(`Product with id ${productId} deleted`);// TODO self Debugging
-                return deletedProduct; // Returned value back to the controller
+                return removedProduct; // Returned value back to the controller
             }
         })
         .catch(err => { // In any case of exception
             console.error(`Error deleting product with id ${productId}`);
             throw err;
         });
+
+
+
+
+//     // Find the product with the given ID, then use the $set operator to specify the fields within (using the spread operator)
+//     // Use await to ensure all removals are finished before proceeding
+// // const removedProduct = await Product.findByIdAndDelete(productId)
+//             if (!updatedProduct) { // If the product was not found
+//                 throw new Error(`Product with id ${productId} not found`);
+//             } else { // Product was found
+//                 console.log(`Product with id ${productId} is updated`); // TODO need to check with successful status
+//                 return updatedProduct; // Returns the updated product
+//             }
+//         })
+//         .catch(err => { // In any case of exception
+//             console.error(`Error updating product with id ${productId} not found`);
+//             throw err;
+//         });
+//
+//     // Return the updated product to the controller
+//     return product;
+//
+
 } // END of deleteProduct Function
+
+
 
 
 module.exports = { // Export all of this file methods

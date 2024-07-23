@@ -106,14 +106,14 @@ const deleteProduct = async (req, res) => {
 
         // Delete a product
         const removedProduct = await productService.deleteProduct(productId);
-        if (!removedProduct) {
-            console.error(`Product with id ${productId} not found`);
-            return await res.status(400).json({error: `Product with id ${productId} not found`});
+        if (removedProduct !== undefined) {
+            console.error(`Product with id ${productId} could not be deleted`);
+            return await res.status(400).json({error: `Product with id ${productId} could not be deleted`});
         }
 
         // Product removed successfully
-        console.log(`Product with id: ${removedProduct.productId} was deleted successfully`);
-        return await res.status(200).json(removedProduct);
+        console.log(`Product with id: ${req.params.productId} was deleted successfully`);
+        return await res.status(200).json(`Product with id: ${req.params.productId} was deleted successfully`);
 
     } catch (err) { // In any case of exception
         console.error(`Product with id ${req.params.productId} could not be deleted`);
