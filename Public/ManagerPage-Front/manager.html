@@ -65,8 +65,35 @@
     <div class="UpdateItems-grid-container">
         <div class="Add-Item">
             <a href="#" id="showManagerForm">Manager Actions</a>
-        </div>        
+        </div>
     </div>
+
+    <div class="card-container" id="managerActionForm" style="display: none;">
+        <h2 id="h2">Manager Action Form</h2>
+        <div class="selector">
+            <label for="action">Select action:</label>
+            <select id="action">
+                <option value="create">Create</option>
+                <option value="update">Update</option>
+                <option value="delete">Delete</option>
+            </select>
+            <label for="type">Select type:</label>
+            <select id="type">
+                <option value="customer">Customer</option>
+                <option value="product">Product</option>
+                <option value="supplier">Supplier</option>
+            </select>
+            <div id="inputContainer">
+                <input type="text" id="inputField" placeholder="Enter email or product ID">
+            </div>
+            <button id="fetchDetailsBtn">Fetch Details</button>
+        </div>
+    
+        <div id="form-container">
+            <!-- Forms will be dynamically inserted here -->
+        </div>
+    </div>
+
 
     <div class="Orders-conatiner">
         <h2>View latest orders</h2>
@@ -210,6 +237,8 @@
         </div>
 
     </div>
+        <script src="manager.js"></script>
+
 </body>
 
 </html>
