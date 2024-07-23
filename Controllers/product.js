@@ -20,7 +20,7 @@ const createProduct = async (req, res) => {
         console.log("product was created successfully"); // TODO Self Debugging
         return await res.status(201).json(newProduct);
     }
-    catch(err){
+    catch(err){ // Exception Handler
         console.error(err);// TODO Self Debugging
         return await res.status(500).json({error: err.message});
     }
@@ -61,8 +61,6 @@ const getProductById = async (req, res) => {
         return await res.status(500).json({error: err.message});
     }
 }
-
-
 
 
 // Exporting function of this file to the other files to be importing this file
