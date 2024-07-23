@@ -3,7 +3,7 @@
  *  Product Services Methods
  **********************************************************************************************************************/
 
- const Product = require(`../Models/product.js`);
+const Product = require(`../Models/product.js`);
 const mongoose = require("mongoose");
 
 
@@ -31,7 +31,6 @@ const createProduct = async (productData) => {
 }// End of createProduct function
 
 
-
 /**************************************************** GET Method ******************************************************/
 // Get a product by a given id - GET method with a given id
 const getProductById = async (productId) => {
@@ -52,8 +51,13 @@ const getAllProducts = async () => {
 }
 
 
+
+
+
+
 module.exports = { // Export all of this file methods
     createProduct,
     getProductById,
     getAllProducts,
+
 }
