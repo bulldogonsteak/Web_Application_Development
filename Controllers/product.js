@@ -20,7 +20,7 @@ const createProduct = async (req, res) => {
         console.log("product was created successfully"); // TODO Self Debugging
         return await res.status(201).json(newProduct);
     }
-    catch(err){
+    catch(err){ // Exception Handler
         console.error(err);// TODO Self Debugging
         return await res.status(500).json({error: err.message});
     }
@@ -47,13 +47,13 @@ const getProductById = async (req, res) => {
     // Try to get a product with given id
     try{
         // Get a product with product-Services API
-        const product = await productService.getProductById(req.params.id);
+        const product = await productService.getProductById(req.params.productId);
         if (!product) {
-            console.error(`Product with productId ${req.params.id} not found`); // TODO Self Debugging
-            return res.status(404).json({error: `Product with productId ${req.params.id} not found`});
+            console.error(`Product with id ${req.params.productId} not found`); // TODO Self Debugging
+            return res.status(404).json({error: `Product with id ${req.params.productId} not found`});
         }
 
-        console.log(`Product with productId: ${product.productId} is found`); // TODO Self Debugging
+        console.log(`Product with id: ${product.productId} is found`); // TODO Self Debugging
         return await res.status(200).json(product);
     }
     catch(err){
@@ -61,8 +61,6 @@ const getProductById = async (req, res) => {
         return await res.status(500).json({error: err.message});
     }
 }
-
-
 
 
 // Exporting function of this file to the other files to be importing this file
