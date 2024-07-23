@@ -68,15 +68,14 @@ const getProductById = async (req, res) => {
 const updateProduct = async (req, res) => {
     // Try to update a product with a given id
     try {
-
         // Check if productId is within the body request
-        const productId = req.body.productId;
+        const productId = req.params.productId;
         if (!productId) {
-            return await res.status(400).json({error: `Product ID is requested to update product`});
+            return await res.status(400).json({error: `Product ID is requested to update a product`});
         }
 
         // Update the product
-        const updatedProduct = await productService.updateProduct(req.body.productId, req.body);
+        const updatedProduct = await productService.updateProduct(req.params.productId, req.body);
         if (!updatedProduct) {
             console.error(`Product with id ${req.body.productId} not found`);
             return await res.status(404).json({error: `Product with id ${req.body.productId} not found`});
@@ -91,10 +90,42 @@ const updateProduct = async (req, res) => {
 };
 
 
+// TODO update many
+
+
+/**************************************** Controllers - Delete Methods ************************************************/
+// Delete a Product with a given id - Delete method
+const deleteProduct = async (req, res) => {
+    // Try to delete a product with a given id
+    try {
+        // Check if productId is within the body request
+        const productId = req.params.productId;
+        if (!productId) {
+            return await res.status(400).json({error: `Product ID is requested to delete a product`});
+        }
+
+        // Delete a product
+        const removedProduct = await productService.deleteProduct(productId);
+        if (!removedProduct) {
+            console.error(`Product with id ${productId} not found`);
+            return await res.status(400).json({error: `Product with id ${productId} not found`});
+        }
+
+        // Product removed successfully
+        console.log(`Product with id: ${removedProduct.productId} was deleted successfully`);
+        return await res.status(200).json(removedProduct);
+
+    } catch (err) { // In any case of exception
+        console.error(`Product with id ${req.params.productId} could not be deleted`);
+        return await res.status(500).json({error: err.message});
+    }
+};
+
 // Exporting function of this file to the other files to be importing this file
 module.exports = {
     createProduct,
     getAllProducts,
     getProductById,
     updateProduct,
+    deleteProduct,
 }
