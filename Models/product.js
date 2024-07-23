@@ -54,7 +54,7 @@ const productSchema = new Schema({
     stock: { // Product's availability within the stock market
         type: Number,
         min: 0,
-        required: true,
+        //required: true,
     },
     rating: { // Product's rating 0-5 limitation. 0 - very bad, 5 - very good
         type: Number,
@@ -64,7 +64,7 @@ const productSchema = new Schema({
     },
     images: { // Product's images
         type: [String], // Array of URLs for images
-        required: true,
+        //required: true,
     },
     videos: { // Product's videos
         type: [String], // Array of URLs for videos
@@ -90,4 +90,5 @@ const productSchema = new Schema({
 
 })
 
-module.exports = mongoose.model('Product', productSchema); // Exporting Product as a Schema to other files
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product; // Exporting Product as a Schema to other files
