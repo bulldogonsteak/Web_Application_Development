@@ -1,6 +1,5 @@
 // CLIENT SIDE
-//MAIN PAGE
-
+// MAIN PAGE
 
 document.addEventListener('DOMContentLoaded', function () {
   const imageContainers = document.querySelectorAll('.image_container');
@@ -19,9 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
   const searchContainer = document.querySelector('.search-container');
   const searchIcon = document.querySelector('#searchCircle');
@@ -36,3 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
     searchContainer.classList.remove('expanded');
   });
 });
+
+// Google Maps Initialization
+function initMap() {
+  var mapOptions = {
+      center: new google.maps.LatLng(37.7749, -122.4194),
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
