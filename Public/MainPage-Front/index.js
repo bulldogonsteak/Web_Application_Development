@@ -36,3 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
     searchContainer.classList.remove('expanded');
   });
 });
+
+
+
+
+
+
+
+// מעביר לדף של הפריט הבודד בעת לחיצה על אחד מהפריטים
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.getElementsByClassName('card');
+  for (let card of cards) {
+      card.addEventListener('click', function() {
+          window.location.href = '../Product-Front/product.html';  // Replace with the actual path to your product page
+      });
+  }
+});
