@@ -639,3 +639,60 @@ body {
         font-size: 16px;
     }
 }
+
+#map {
+    margin-top: 20px;
+    height: 500px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Animated heading style */
+.heading-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.animated-heading {
+    font-size: 2.5rem;
+    color: #ffb20b;
+    animation: slideIn 2s ease-in-out infinite alternate;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Contact information style */
+.contact-container {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.contact-container h3 {
+    margin-bottom: 10px;
+    color: #ffb20b;
+}
+
+.contact-container .highlight {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.contact-container a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-container a:hover {
+    text-decoration: underline;
+}
