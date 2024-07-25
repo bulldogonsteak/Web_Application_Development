@@ -52,7 +52,6 @@ async function register(userData) {
     return newUser; // return the newUser info
 }
 
-
 // Function to log in a user to the system with the given means of identification
 async function login(emailAddress, password) {
     // Validity Checks to insure valid Data
