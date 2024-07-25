@@ -36,7 +36,7 @@ const userSchema = new Schema({
             message: props => `${props.value} is not a valid email address`,
         }
     },
-    password: { // User's password 
+    password: { // User's password // TODO need to add additional encryptions for password high security level
         type: String,
         required: true,
     },
