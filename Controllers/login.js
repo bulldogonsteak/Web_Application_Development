@@ -20,8 +20,61 @@ function isLoggedIn(req, res, next) {
 
 // Function to render the profile view and passes the username from the session to the view.
 // Used as the name foo within the course studies
-function CustomerProfiler(req,res){
+function CustomerProfiler(req, res) {
     res.render('customerPage', {emailAddress: req.session.emailAddress});
+}
+
+// Function to log out a User from his personal page
+// Should be synchronous in order to complete the logout procedure until total end of the User's session
+function logout(req, res) {
+
+    // Destroy current User page and redirecting the user to the login page
+    req.session.destroy(() => {
+        res.redirect('/login');
+    });
+}
+
+
+// Function to connecting a User to his personal Customer Page
+// Should be asynchronous in order to not delay other incoming req to the server while the server deals with the database
+async function login(req, res) {
+
+    // Try to log in into the customer system
+    try {
+        // Multiple Initialization
+        const {emailAddress, password} = req.body;
+
+        // Log in attempt with given means of identifications
+        const result = await loginService.login(emailAddress, password);
+
+        // In case when the result is valid, user is not recognized in the system connection
+        if (result) {
+
+            // Approves the session by storing the email address
+            req.session.emailAddress = emailAddress;
+
+            // Redirects to the user's profile page after successful login
+            res.redirect('/');
+        }
+        else{ // Result is invalid
+
+            // Redirect back to the login page with error indicator
+            res.redirect('/login?error=1');
+        }
+    } catch (err) {
+        console.log(err); // TODO self-debugging
+        return await res.status(500).json({error: err.message});
+    }
+
+}
+
+
+module.exports = {
+    isLoggedIn,
+    CustomerProfiler,
+    logout,
+    login,
+
 }
 
 
