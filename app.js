@@ -31,6 +31,11 @@ mongoose.connect(process.env.CONNECTION_STRING, { // Mongoose Connection is sett
 const app = express();
 console.log("Server Created")
 
+// const session = require('express-session'); // Import express-session library for login
+// app.use(session({
+//
+// }))
+
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file
