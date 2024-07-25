@@ -76,7 +76,6 @@ const userSchema = new Schema({
         type: Boolean,
         required: true,
     },
-
 });
 
 // Define encryption password hashing (encryption from the server to the MongoDB by password hashing) with middleware
