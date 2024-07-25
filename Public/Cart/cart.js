@@ -50,3 +50,18 @@
     // Initial check in case the cart starts empty
     updateCartSummary();
 
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select the buttons
+        const continueBtn = document.querySelector(".continue-btn");
+        const discoverGamesBtn = document.querySelector(".btn-light");
+    
+        // Add click event listeners
+        continueBtn.addEventListener("click", continueShopping);
+        discoverGamesBtn.addEventListener("click", continueShopping);
+    });
+    
+    function continueShopping() {
+        // Redirect to the products page
+        window.location.href = '../ProductsPage-Front/products.html'; // Replace with your products page URL
+    }
