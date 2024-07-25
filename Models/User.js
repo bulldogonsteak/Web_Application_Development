@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
- *  Server Side - Models - User.js
+ *  Server Side - Models - login.js
  *  User Model Main Schema
  **********************************************************************************************************************/
 
@@ -24,6 +24,7 @@ const bcrypt = require("bcrypt"); // Import encryption library for user's passwo
  *
  ***/
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/; // Regex expression to insure email template is inserted
+
 
 
 /***
