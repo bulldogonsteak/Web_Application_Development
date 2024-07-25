@@ -1,10 +1,10 @@
 /***********************************************************************************************************************
- *  Server Side - Services - User.js
- *  User Services Methods
+ *  Server Side - Services - Login.js
+ *  Login Services Methods
  **********************************************************************************************************************/
 
 // Imported Files
-const User = require('../Models/User'); // Import User Model
+const Login = require('../Models/User'); // Import Login Model
 const bcrypt = require('bcrypt'); // Import encryption Library
 
 // Defined Regex according to the Model
@@ -22,7 +22,7 @@ function isPasswordValid(password) {
     return passwordRegex.test(password);
 }
 
-// Function to register a new User to the system
+// Function to register a new Login to the system
 // Should be asynchronous - not to delay client interaction with the server while the server communicates with the DB
 async function register(userData) {
 
@@ -38,7 +38,7 @@ async function register(userData) {
     }
 
     // Check if the user is already registered
-    const isUserExists = await User.findOne({emailAddress: userData.emailAddress});
+    const isUserExists = await Login.findOne({emailAddress: userData.emailAddress});
 
     // In Case the user is Exist
     if (isUserExists) {
@@ -46,9 +46,9 @@ async function register(userData) {
         throw new Error(`User already exists`);
     }
 
-    // The User is new to the system
-    const newUser = new User({userData})
-    await newUser.save(); // Save User's data within DB
+    // The Login is new to the system
+    const newUser = new Login({userData})
+    await newUser.save(); // Save Login's data within DB
     return newUser; // return the newUser info
 }
 
@@ -61,12 +61,12 @@ async function login(emailAddress, password) {
     }
 
     if (!isPasswordValid(password)) {
-        console.log('User (login) password is invalid'); // TODO self-debugging
+        console.log('Login (login) password is invalid'); // TODO self-debugging
         throw new Error(`User's password is invalid`);
     }
 
     // Checks if the user exists in the system
-    const isUserExists = await User.findOne({emailAddress: emailAddress});
+    const isUserExists = await Login.findOne({emailAddress: emailAddress});
     return isUserExists != null; // isUserExists != null ? true : false
 }
 
