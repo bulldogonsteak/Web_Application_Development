@@ -16,7 +16,7 @@ router.route('/') // URL request for homepage for products
 // Pages of a specific ID
 router.route('/:productId') // URL segment request for a specific product with id
     .get(productController.getProductById) // GET method - Get a specific product within given an id
-    .post(productController.createProduct)
+    .post(productController.createProduct) // POST method - Create a new product with a given request body
     .patch(productController.updateProduct)// PATCH method - Update a specific product with the given id
     .delete(productController.deleteProduct); // DELETE method - Delete a specific product within the given id
 
