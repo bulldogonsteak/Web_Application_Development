@@ -26,6 +26,7 @@ const bcrypt = require("bcrypt"); // Import encryption library for user's passwo
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/; // Regex expression to insure email template is inserted
 
 
+
 /***
  * Regex explanation for validating password format:
  * - ^ := Assert the start of the string
