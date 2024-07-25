@@ -5,7 +5,6 @@
 
 // Imported Files
 const loginService = require('../Services/login.js'); // Import Login Services File
-const expressSession = require('express-session'); // Import express-session Library
 
 // Function to check if user session is active - Middleware to log in incoming req to session
 function isLoggedIn(req, res, next) {
@@ -103,7 +102,6 @@ module.exports = {
     logout,
     login,
     register,
-
 }
 
 
