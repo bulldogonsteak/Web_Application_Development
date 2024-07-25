@@ -52,9 +52,6 @@ const getAllProducts = async () => {
 }
 
 
-// TODO get product by name -- need to use regex for it
-
-
 /******************************************* Services - Update Methods ************************************************/
 // Update a product by a given id -
 const updateProduct = async (productId, productData) => {

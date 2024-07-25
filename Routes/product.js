@@ -13,7 +13,7 @@ router.route('/') // URL request for homepage for products
     .get(productController.getAllProducts) // GET method - Get a list of products
 
 
-
+// Pages of a specific ID
 router.route('/:productId') // URL segment request for a specific product with id
     .get(productController.getProductById) // GET method - Get a specific product within given an id
     .post(productController.createProduct)
