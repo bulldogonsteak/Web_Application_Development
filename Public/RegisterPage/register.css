@@ -1,0 +1,217 @@
+body {
+    background-color: #101436;
+}
+
+#rightside {
+    width: 120%;
+    display: flex;
+    justify-content: end;
+    overflow: hidden;
+}
+
+.logo {
+    width: 30%;
+}
+
+
+form.input {
+    margin-top: 10%;
+}
+
+#agree {
+    color: white;
+    margin-left: -5%;
+    margin-top: -2.7%;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; 
+    margin-left: -6%;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 100px; /* Adjust the width as needed */
+    height: 18px; /* Adjust the height as needed */
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+
+.leftside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+
+
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+
+input, #option {
+    border-radius: 5px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    width: 40%;
+    background-color: rgba(52, 52, 52, 0.416);
+    margin-bottom: 15px;
+    margin-inline: 10px;
+}
+
+.input :hover {
+    border: 2px solid #ffb20b;
+}
+
+#option :hover {
+    border: 2px solid #ffb20b;
+
+}
+
+input[type="submit"] {
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(to bottom, #ffb20b, #ff4800);
+    color: white;
+    cursor: pointer;
+    width: 84%;
+}
+
+input[type="submit"]:hover {
+    background-color:linear-gradient(to bottom, #ffb20b, #ff4800);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .col:last-child {
+        justify-content: center;
+    }
+
+    #rightside {
+        width: 100%;
+    }
+}
+
+
+
+
+
+.Employee-and-Facebook-grid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.facebook-post-section {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.facebook-post-section h2 {
+    margin-bottom: 20px;
+    color: #fb8500;
+    font-size: 24px;
+    text-align: center;
+}
+
+.facebook-post-section .customer-form {
+    margin-bottom: 20px;
+}
+
+.facebook-post-section .form-group {
+    margin-bottom: 20px;
+}
+
+.facebook-post-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.facebook-post-section input[type="email"],
+.facebook-post-section input[type="password"],
+.facebook-post-section input[type="text"],
+.facebook-post-section select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.facebook-post-section button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4267B2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.facebook-post-section button:hover {
+    background-color: #365899;
+}
+
+.facebook-post-section .customer-status,
+.facebook-post-section .customer-logs {
+    background-color: rgba(224, 224, 224, 0.379);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #b1b1b1;
+}
+
+.facebook-post-section .customer-status h3,
+.facebook-post-section .customer-logs h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.facebook-post-section .customer-logs ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.facebook-post-section .customer-logs ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.facebook-post-section .customer-logs ul li:last-child {
+    border-bottom: none;
+}
+
