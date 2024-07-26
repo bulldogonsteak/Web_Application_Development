@@ -80,7 +80,7 @@ body {
     outline: none;
     cursor: pointer;
     border-radius: 20px;
-    width: 200px;
+    width: 180px;
     padding: 14px 16px;
     transition: 0.3s;
 }
@@ -418,4 +418,190 @@ body {
 }
 .card a {
     color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+
+
+
+.trash {
+    color: #f60; /* Adjust color as needed */
+    cursor: pointer;
+    font-size: 30px;
+    margin-top: 20%;
+    margin-left: 75px;
+}
+
+.trash:hover {
+    color: #ff4800; /* Change color on hover if desired */
+}
+
+.product{
+    display: flex;
+}
+.empty-message {
+    text-align: center;
+    font-size: 18px;
+    color: grey;
+    display: flex;
+}
+
+.emptyCart{
+    font-size: 40px;
+color: white;
+}
+
+#emptyMessage button {
+    background: linear-gradient(to bottom, #ffb20b, #ff4800);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#emptyMessage button:hover {
+    background: linear-gradient(to bottom, #ff4800, #ffb20b);
+}
+
+
+
+
+
+
+
+
+.rightside {
+    margin-left: 30%;
+    color: white;
+  }
+  
+  #summary {
+      background-color: rgba(52, 52, 52, 0.416);
+      padding: 20px;
+      border-radius: 12px;
+      width: 350px;
+      text-align: center;
+      border: 1px solid white;
+  
+  }
+  
+  #summary h2 {
+      margin-bottom: 20px;
+  }
+  
+  .details {
+      margin-bottom: 20px;
+  }
+  
+  
+  .subtotal {
+      display: inline;
+  }
+  
+  .payment-btn {
+      background: linear-gradient(to bottom, #ffb20b, #ff4800);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: not-allowed;
+      width: 100%;
+      margin-bottom: 10px;
+  }
+  .payment-card h2{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .containerForData{
+    display: flex;
+    justify-content: center;
+  }
+  .payment-card {
+      padding: 20px;
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      color: white;
+  }
+  #paymentForm{
+    margin-top: 30px;
+  }
+  
+  .payment-card .form-label {
+      color: white;
+  }
+  
+  .payment-card .form-control {
+      background-color: rgba(52, 52, 52, 0.5);
+      color: white;
+  }
+  
+  
+  .payment-card .btn-primary {
+      background: linear-gradient(to bottom, #ffb20b, #ff4800);
+      border: none;
+      width: 100%;
+      margin-top: 10px;
+  }
+  
+  .or-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+      
+  }
+  
+  .or-divider span {
+      padding: 0 10px;
+  }
+  
+  .or-divider:before,
+  .or-divider:after {
+      content: "";
+      display: block;
+      height: 1px;
+      background: white;
+      flex-grow: 1;
+  }
+  
+  .continue-btn {
+      background: none;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+  }
+  
+  .continue-btn:hover {
+     color: #ffb20b;
+  }
+  
+  .continue-btn:before {
+      content: "<";
+      margin-right: 5px;
+  }
+  
+
+
+  .row-subtotal{
+    display: flex;
+    justify-content: center;
+    font-size:larger;
+  }
+  .row-subtotal p:first-child {
+    margin-right: 20px; /* Adjust spacing as needed */
 }
