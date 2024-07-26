@@ -236,3 +236,19 @@ form.input {
         width: 100%;
     }
 }
+
+
+
+
+
+.ToReturn {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    color: white; /* Or any color that contrasts with the image */
+    font-size: 30px; /* Adjust as needed */
+    cursor: pointer; /* Optional: Add a pointer cursor */
+    display: flex;
+    margin-top: 10px;
+    margin-left: 15px;
+}

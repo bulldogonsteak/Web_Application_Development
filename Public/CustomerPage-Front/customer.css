@@ -340,6 +340,10 @@ body {
     justify-content: flex-end;
     /* Aligns items to the end of the flex container */
     flex-grow: 1;
+    color: white;
+    font-size: 25px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 

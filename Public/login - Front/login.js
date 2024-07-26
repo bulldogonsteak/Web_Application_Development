@@ -10,3 +10,11 @@
             window.location.href = '../CustomerPage-Front/customer.html';
         }
     });
+
+
+
+
+    document.querySelector('.ToReturn').addEventListener('click', function() {
+        window.location.href = '../MainPage-Front/index.html'; // Replace 'mainpage.html' with the actual URL of your main page
+    });
+    
