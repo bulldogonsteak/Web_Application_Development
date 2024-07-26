@@ -41,7 +41,7 @@ app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming r
 
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
-app.use('/products', productRoutes);
+app.get('/products', productRoutes);
 
 
 // Main Server Listening Port
