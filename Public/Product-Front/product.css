@@ -1,64 +1,48 @@
 body {
     background-color: #02273a;
-    /* Set the background color of the body */
     margin: 0;
-    /* Remove default margin */
     padding: 0;
-    /* Remove default padding */
 }
+
 .logo {
     position: absolute;
     top: 0;
     left: 10px;
-    z-index: 10; /* Ensure the logo is above other elements */
+    z-index: 10;
 }
 
 #logo {
-    width: 200px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 200px;
+    height: auto;
 }
-
-
-
-/* MAIN PAGE TOP MENU */
-
-
 
 .topNav {
     position: fixed;
-    /* Fixed position */
     top: 1;
     height: 70px;
     border: 1px black solid;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* position: relative; */
     margin-left: 50vh;
     z-index: 1000;
-    border-radius: 50px;
-    width: 50%;
+    border-radius: 55px;
+    width: 52%;
     color: white;
     background-color: rgba(52, 52, 52, 0.416);
     padding-left: 20px;
-    /* Add padding to align content with left edge */
     box-sizing: border-box;
 }
 
 .topNav i {
     font-size: 24px;
-    /* Adjust icon size as needed */
-    /* Adjust margin between icon and text */
     margin-left: -5px;
 }
-
-
 
 .topNav a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    /* Adjust text size as needed */
     padding-right: 75px;
     margin-left: 8px;
 }
@@ -68,28 +52,21 @@ body {
 }
 
 .search-container {
-    width: 70px;
-    /* Adjust size of the circle */
-    height: 70px;
-    /* Adjust size of the circle */
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    /* Makes it round */
     background: linear-gradient(to bottom, #ffb20b, #ff4800);
-    /* Background color of the circle */
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     right: 0;
     border: 0.5px solid rgb(94, 94, 94);
-    /* margin-right: -27px; */
 }
 
 .search-icon {
     color: white;
-    /* Color of the search icon */
 }
-
 
 .TOPnav {
     height: 50px;
@@ -99,10 +76,7 @@ body {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-
 }
-
-
 
 .bi-person-circle {
     color: black;
@@ -120,22 +94,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* Aligns items to the end of the flex container */
     flex-grow: 1;
 }
-.CartLOGIN i {
-    color: white; /* This specifically targets the icons and sets their color to white */
-    font-size: 24px; /* Optional: Adjust the size of the icons */
-}
 
+.CartLOGIN i {
+    color: white;
+    font-size: 24px;
+}
 
 .aTAGS {
     display: flex;
     align-items: center;
     margin-left: 50vh;
-    /* Adjust margin as needed */
     justify-content: space-around;
-    /* Distribute items evenly */
     color: white;
 }
 
@@ -146,43 +117,13 @@ body {
     text-decoration: none;
     margin-left: 20px;
     padding: 0 60px;
-    /* Add padding between items */
 }
-
-
-/* main page img  */
-
 
 .image-container {
     height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-
-#mainPic {
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-    margin-top: 10vh;
-    clip-path: polygon(100% 0, 100% 100%, 0% 90%, 0% 0);
-    position: relative;
-
-}
-
-
-.image-container {
-    height: 50vh;
-    /* 50% of the viewport height */
-    display: flex;
-    justify-content: center;
-    /* Center the image horizontally */
-    align-items: center;
-    /* Center the image vertically */
-    position: relative;
-    /* Ensure relative positioning for absolute children */
 }
 
 #mainPic {
@@ -205,19 +146,28 @@ body {
 }
 
 .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 70%;
-    /* Adjust card width as needed */
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
     margin: 20px;
     margin-top: 1px;
     background-color: rgba(48, 48, 45, 0.43);
-    /* Semi-transparent background color */
     margin-left: 20%;
 }
 
-
+.product-card .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
 
 .imageOfproduct img {
     width: 140%;
@@ -240,14 +190,12 @@ body {
     margin-top: 2%;
 }
 
-
 .stock {
     top: 1;
     height: 50px;
     border: 1px black solid;
     display: flex;
     align-items: center;
-    /* position: relative; */
     margin-left: 20%;
     margin-top: 5%;
     z-index: 1000;
@@ -256,18 +204,13 @@ body {
     color: white;
     background-color: rgba(52, 52, 52, 0.416);
     padding-left: 20px;
-    /* Add padding to align content with left edge */
     box-sizing: border-box;
 }
 
 .stock i {
     font-size: 24px;
-    /* Adjust icon size as needed */
-    /* Adjust margin between icon and text */
     margin-left: 7px;
 }
-
-
 
 .stock a {
     text-decoration: none;
@@ -275,12 +218,9 @@ body {
     margin-left: 5px;
 }
 
-
 .onlineUsers {
     display: flex;
-    /* Use flexbox to align items in a row */
     align-items: center;
-    /* Center items vertically */
     color: white;
     margin-left: 30%;
     margin-top: 5%;
@@ -288,18 +228,12 @@ body {
 
 .onlineUsers i {
     margin-right: 10px;
-    /* Adjust margin between icon and text */
     color: #ffb20b;
-    /* Fallback color */
     background: linear-gradient(to bottom, #ffb20b, #ff4800);
-    /* Gradient background */
     -webkit-background-clip: text;
-    /* Clip text to background gradient */
     -webkit-text-fill-color: transparent;
-    /* Hide original text color */
     margin-top: -4.5%;
 }
-
 
 .product-price {
     font-size: 45px;
@@ -307,8 +241,10 @@ body {
     margin-left: 35%;
 }
 
-
 .product-card button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     padding: 10px 20px;
     border: none;
@@ -316,42 +252,37 @@ body {
     color: black;
     cursor: pointer;
     margin-bottom: 4%;
-    margin-left: 5%;
-    justify-content: center;
 }
 
 .favorite {
     width: 15%;
     color: black;
-    height: 17%;
+    height: 50px;
 }
-
-
 
 .cart {
     width: 65%;
+    height: 50px;
 }
 
-.Description{
+.Description {
     color: white;
-    margin-top: 14%;
+    margin-top: 20%;
     margin-left: 10%;
     margin-right: 20%;
 }
 
-.UserTags{
+.UserTags {
     display: flex;
     margin-top: 1%;
     margin-left: 10%;
 }
 
-.UserTags p{
+.UserTags p {
     color: white;
-    
 }
 
-
-.UserTags .btn{
+.UserTags .btn {
     background-color: rgba(52, 52, 52, 0.416);
     margin-left: 1%;
     font-size: 12px;
@@ -361,15 +292,12 @@ body {
     justify-content: center;
 }
 
-
-
 .video-container {
-    width: 50%; /* Full width of the container */
-    /* max-width: 200px; Maximum width of the video */
-    margin: 0 auto; /* Center the video horizontally */
-    position: relative; /* For any absolute positioning within */
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-    overflow: hidden; /* Hide overflow content */
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
     margin-top: 5%;
     margin-left: 10%;
 }
@@ -380,32 +308,22 @@ body {
     left: 0;
     width: 100%;
     height: 50%;
-    border-radius: 8px; /* Rounded corners (optional) */
+    border-radius: 8px;
 }
 
-
-
-
-
-
-
-.similarProducts{
+.similarProducts {
     color: white;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: -20%;
 }
 
-
 .card {
     width: 100%;
-    /* Make cards 100% width initially */
     max-width: 380px;
     height: 220px;
     border-radius: 12px;
-    /* Limit maximum width of cards */
     margin: 10px auto;
-    /* Center cards horizontally and add margin */
     object-fit: cover;
     background-color: #101436;
 }
@@ -423,23 +341,13 @@ body {
     border-radius: 12px;
 }
 
-
-.card-body{
+.card-body {
     font-size: 15px;
     display: flex;
     justify-content: space-between;
     color: white;
     margin-left: -12px;
 }
-
-
-
-
-
-
-
-
-
 
 .comments-container {
     width: 82%;
@@ -461,7 +369,7 @@ h3 {
 }
 
 .comment-card {
-    background-color: rgba(52, 52, 52, 0.416);    
+    background-color: rgba(52, 52, 52, 0.416);
     padding: 20px;
     border-radius: 10px;
     border: 1px black solid;
@@ -474,8 +382,8 @@ h3 {
 }
 
 #logo-user {
-    font-size: 30px; /* Adjust the size as needed */
-    margin-right: 10px; /* Add some spacing between the logo and the name */
+    font-size: 30px;
+    margin-right: 10px;
 }
 
 .user-rating span {
@@ -488,22 +396,15 @@ h3 {
     font-size: 14px;
 }
 
-.comment-card .name{
+.comment-card .name {
     color: #b0b0b0;
     margin-left: 5%;
     margin-top: 2%;
 }
 
-.card-text{
+.card-text {
     color: #b0b0b0;
-
 }
-
-
-
-
-
-
 
 .bottomMenu {
     display: grid;
@@ -740,7 +641,6 @@ h3 {
     display: block;
 }
 
-/* Dropdown Button */
 .dropbtn {
     background-color: transparent;
     color: white;
@@ -759,7 +659,7 @@ h3 {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -781,8 +681,6 @@ h3 {
 .dropdown:hover .dropbtn {
     background-color: transparent;
 }
-
-/* Responsive Design */
 
 @media (max-width: 1200px) {
     .col {
