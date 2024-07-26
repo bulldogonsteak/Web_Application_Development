@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <script>
+        function validateRegisterForm() {
+            const email = document.getElementById('emailAddress').value;
+            const password = document.getElementById('password').value;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const country = document.getElementById('country').value;
+            const agreedToTerms = document.getElementById('agreedToTermsPolicy').checked;
+
+            if (!email || !password || !firstName || !lastName || !country || !agreedToTerms) {
+                alert('Please fill in all fields and agree to the terms.');
+                return false;
+            }
+
+            // Additional validation can be added here
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+<form action="/register" method="POST" onsubmit="return validateRegisterForm()">
+    <label for="emailAddress">Email:</label>
+    <input type="email" id="emailAddress" name="emailAddress" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+    <br>
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" required>
+    <br>
+    <label for="agreedToTermsPolicy">Agree to Terms:</label>
+    <input type="checkbox" id="agreedToTermsPolicy" name="agreedToTermsPolicy" required>
+    <br>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

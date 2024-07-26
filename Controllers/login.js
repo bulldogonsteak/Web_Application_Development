@@ -17,11 +17,23 @@ function isLoggedIn(req, res, next) {
     }
 }
 
+// Function for testing
+function foo(req, res) {
+    res.render('fooTest',{emailAddress: req.session.emailAddress});
+}
+
 // Function to render the profile view and passes the username from the session to the view.
 // Used as the name foo within the course studies
 function CustomerProfiler(req, res) {
     res.render('customerPage', {emailAddress: req.session.emailAddress});
 }
+
+// Function to render the loginForm
+function loginForm(req, res) {res.render('loginTest',{});} // Adjust the name if necessary
+
+// Function to render the registration form
+function registerForm(req, res) {res.render('registerTest', {});} // Adjust the name if necessary
+
 
 // Function to log out a User from his personal page
 // Should be synchronous in order to complete the logout procedure until total end of the User's session
@@ -98,6 +110,9 @@ async function register(req, res) {
 
 module.exports = {
     isLoggedIn,
+    loginForm,
+    registerForm,
+    foo,
     CustomerProfiler,
     logout,
     login,
