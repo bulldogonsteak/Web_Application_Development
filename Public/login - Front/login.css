@@ -58,9 +58,7 @@ body {
     position: relative;
     display: inline-block;
     width: 80%;
-    max-width: 300px;
     height: 50px;
-    margin-left: 15%; /* Moves the switch to the right */
     margin-right: 0; /* Ensures it aligns with the right edge */
 }
 
@@ -250,5 +248,4 @@ form.input {
     cursor: pointer; /* Optional: Add a pointer cursor */
     display: flex;
     margin-top: 10px;
-    margin-left: 15px;
 }
