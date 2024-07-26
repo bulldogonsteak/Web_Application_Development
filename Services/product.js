@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
 const createProduct = async (productData) => {
 
     if (!productData) {
-        // TODO edge case
+        throw new Error("Product Data is not found");
     }
 
     // Checks if the product already exists within the Database
@@ -27,7 +27,6 @@ const createProduct = async (productData) => {
 
     // Set newProduct._id to be the same as the given productID (to settle conflict in mongoDB)
     newProduct._id = productData.productId;
-
     return await newProduct.save();
 }// End of createProduct function
 
@@ -50,9 +49,6 @@ const getProductById = async (productId) => {
 const getAllProducts = async () => {
     return await Product.find({});
 }
-
-
-// TODO get product by name -- need to use regex for it
 
 
 /******************************************* Services - Update Methods ************************************************/
@@ -117,28 +113,6 @@ const deleteProduct = async (productId) => {
             console.error(`Error deleting product with id ${productId}`);
             throw err;
         });
-
-
-
-
-//     // Find the product with the given ID, then use the $set operator to specify the fields within (using the spread operator)
-//     // Use await to ensure all removals are finished before proceeding
-// // const removedProduct = await Product.findByIdAndDelete(productId)
-//             if (!updatedProduct) { // If the product was not found
-//                 throw new Error(`Product with id ${productId} not found`);
-//             } else { // Product was found
-//                 console.log(`Product with id ${productId} is updated`); // TODO need to check with successful status
-//                 return updatedProduct; // Returns the updated product
-//             }
-//         })
-//         .catch(err => { // In any case of exception
-//             console.error(`Error updating product with id ${productId} not found`);
-//             throw err;
-//         });
-//
-//     // Return the updated product to the controller
-//     return product;
-//
 
 } // END of deleteProduct Function
 

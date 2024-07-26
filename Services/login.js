@@ -6,6 +6,7 @@
 // Imported Files
 const Login = require('../Models/User'); // Import Login Model
 const bcrypt = require('bcrypt'); // Import encryption Library
+const mongoose = require('mongoose');
 
 // Defined Regex according to the Model
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/; // Email Regex
