@@ -35,7 +35,7 @@ console.log("Server Created")
 // Create sessions within the server
 const session = require('express-session');
 app.use(session({
-    secret: 'CustomerProfiler', // sign the session ID cookie
+    secret: 'foo', // sign the session ID cookie
     saveUninitialized: true, // session middleware will create new session for every new request
     resave: true, // session middleware will ensure session data is refreshed and not lost
 }))
@@ -54,6 +54,9 @@ app.use(express.urlencoded({extended: false})); // use URL-ENCODED for define ke
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
 app.use('/products', productRoutes);
+
+const loginRoutes = require('./Routes/login.js');
+app.use('/',loginRoutes);
 
 
 // Main Server Listening Port
