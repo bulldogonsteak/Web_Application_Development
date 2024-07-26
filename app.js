@@ -32,16 +32,31 @@ const app = express();
 console.log("Server Created")
 
 
+// Create sessions within the server
+const session = require('express-session');
+app.use(session({
+    secret: 'foo', // sign the session ID cookie
+    saveUninitialized: true, // session middleware will create new session for every new request
+    resave: true, // session middleware will ensure session data is refreshed and not lost
+}))
+
+// app.set
+app.set('view engine', 'ejs') // Set ejs engine in server to insure render functionally
+
+
 // app.use
 app.use(express.static('Public')); // Use Public as static file
 app.use(cors()); // Initialize MiddleWare
 app.use(bodyParser.urlencoded({extended: true})); // MiddleWare parsing Url-Encoded Data from incoming requests
 app.use(express.json()); // MiddleWare for parsing JSON payloads from incoming requests
-
+app.use(express.urlencoded({extended: false})); // use URL-ENCODED for define key-value structure for incoming requests
 
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
 app.get('/products', productRoutes);
+
+const loginRoutes = require('./Routes/login.js');
+app.use('/',loginRoutes);
 
 
 // Main Server Listening Port

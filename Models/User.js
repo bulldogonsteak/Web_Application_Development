@@ -42,6 +42,11 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.com$/; // Regex expression to insure email
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/
 
 const userSchema = new Schema({
+    _id: { // Override MongoDB _id index
+        type: String,
+        required: true,
+        unique: true
+    },
     emailAddress: { // User emailAddress will be used as a unique key for his account
         type: String,
         required: true,
@@ -73,10 +78,9 @@ const userSchema = new Schema({
         required: true,
     },
     agreedToTermsPolicy: { // User's agreement to the terms of use and the privacy policy
-        type: Boolean,
+        type: String,
         required: true,
     },
-
 });
 
 // Define encryption password hashing (encryption from the server to the MongoDB by password hashing) with middleware
