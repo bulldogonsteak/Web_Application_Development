@@ -24,6 +24,7 @@ body {
 .ManagerHello-container {
     text-align: start;
     padding: 1.25rem;
+    display: flex;
 }
 h2 {
     margin: 0;
@@ -33,6 +34,8 @@ p {
     margin: 0.27rem 0 1.25rem 0;
     font-size: 0.875rem;
     color: #fd9e02;
+    margin-left: 20px;
+    margin-top: -10px;
 }
 
 
@@ -687,4 +690,18 @@ button:hover {
 
 #fetchDetailsBtn:hover {
     background-color: #365899;
+}
+
+
+
+.LogOut {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Aligns items to the end of the flex container */
+    flex-grow: 1;
+    color: white;
+    font-size: 25px;
+    margin-top: 20px;
+    cursor: pointer;
 }
