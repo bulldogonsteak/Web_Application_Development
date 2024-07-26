@@ -4,7 +4,7 @@
  **********************************************************************************************************************/
 
 // Imported Files
-const Login = require('../Models/User'); // Import Login Model
+const User = require('../Models/User.js'); // Import Login Model
 const bcrypt = require('bcrypt'); // Import encryption Library
 const mongoose = require('mongoose');
 
@@ -39,7 +39,7 @@ async function register(userData) {
     }
 
     // Check if the user is already registered
-    const isUserExists = await Login.findOne({emailAddress: userData.emailAddress});
+    const isUserExists = await User.findOne({emailAddress: userData.emailAddress});
 
     // In Case the user is Exist
     if (isUserExists) {
@@ -48,9 +48,10 @@ async function register(userData) {
     }
 
     // The Login is new to the system
-    const newUser = new Login({userData})
-    await newUser.save(); // Save Login's data within DB
-    return newUser; // return the newUser info
+    const newUser = new User(userData)
+    newUser._id = userData.emailAddress;
+    return await newUser.save(); // Save Login's data within DB
+     // return the newUser info
 }
 
 
@@ -68,7 +69,7 @@ async function login(emailAddress, password) {
     }
 
     // Checks if the user exists in the system
-    const isUserExists = await Login.findOne({emailAddress: emailAddress});
+    const isUserExists = await User.findOne({emailAddress: emailAddress});
     return isUserExists != null; // isUserExists != null ? true : false
 }
 
