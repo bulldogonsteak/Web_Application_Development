@@ -11,6 +11,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors') // MiddleWare
 const dotenv = require('dotenv'); // Import dotenv to load environment variables
+const session = require('express-session');
+const connectMongoDBSession = require('connect-mongodb-session');
+
 
 // Config Environment File path for current process
 require('custom-env').env(process.env.NODE_ENV, './config');
@@ -31,13 +34,30 @@ mongoose.connect(process.env.CONNECTION_STRING, { // Mongoose Connection is sett
 const app = express();
 console.log("Server Created")
 
+const MongoDBStore = connectMongoDBSession(session);
+
+const store = new MongoDBStore({
+    uri: process.env.CONNECTION_STRING,
+    collection: 'sessions',
+})
+
+store.on('error', (err) => {
+    console.log(err);
+})
 
 // Create sessions within the server
-const session = require('express-session');
+
 app.use(session({
     secret: 'foo', // sign the session ID cookie
-    saveUninitialized: true, // session middleware will create new session for every new request
-    resave: true, // session middleware will ensure session data is refreshed and not lost
+    saveUninitialized: false, // session middleware will create new session for every new request
+    resave: false, // session middleware will ensure session data is refreshed and not lost
+    store: store,
+    cookie:{
+        secure: false, // Set to true if using HTTPS
+        sameSite: 'Lax',
+        httpOnly: true,
+        maxAge: 60000,// 1 minute
+    },
 }))
 
 // app.set

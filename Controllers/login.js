@@ -19,7 +19,12 @@ function isLoggedIn(req, res, next) {
 
 // Function for testing
 function foo(req, res) {
-    res.render('fooTest',{emailAddress: req.session.emailAddress});
+    if (req.session.emailAddress != null) {
+        return res.json({emailAddress:req.session.emailAddress})
+    }
+    else{
+        res.redirect('/login');
+    }
 }
 
 // Function to render the profile view and passes the username from the session to the view.
