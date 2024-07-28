@@ -81,6 +81,36 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    cart:[{ // Array of products objects to order within the cart
+        productId: String,
+        quantity:{
+            type: Number,
+            default: 0,
+            min: 0,
+        },
+    }],
+    orders:[{ // Array of orders objects to create history of orders of the user
+        orderDate:{
+            type: Date,
+            default: Date.now,
+        },
+        items:[{ // Array of items the user ordered within
+            productId:String,
+            quantity:{
+                type: Number,
+                min: 1,
+            },
+            totalPrice:{
+                type: Number,
+                min: 0,
+            }
+        }]
+    }],
+    sessionId:{ // User session id within the website
+        type: String,
+        default: null,
+    }
+
 });
 
 // Define encryption password hashing (encryption from the server to the MongoDB by password hashing) with middleware
