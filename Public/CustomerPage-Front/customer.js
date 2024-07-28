@@ -23,12 +23,6 @@ function openTab(evt, tabName) {
 
 
 
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   const searchContainer = document.querySelector('.search-container');
   const searchIcon = document.querySelector('#searchCircle');
@@ -52,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+//show the payment form when clicking on the "go to payment" button
 document.querySelector('.payment-btn').addEventListener('click', function () {
     // Show the payment card
     document.getElementById('paymentCard').style.display = 'block';
@@ -61,8 +55,9 @@ document.querySelector('.payment-btn').addEventListener('click', function () {
 });
 
 
+
+// Remove the product from the cart
 function removeProduct(element) {
-    // Remove the product from the cart
     var product = element.closest('.product');
     product.remove();
 
@@ -99,20 +94,23 @@ function updateCartSummary() {
         emptyMessage.style.display = 'none';
     }
 }
+
 updateCartSummary();
 
 
+
+// Select the buttons and Add click event listeners
 document.addEventListener("DOMContentLoaded", function() {
-    // Select the buttons
     const continueBtn = document.querySelector(".continue-btn");
     const discoverGamesBtn = document.querySelector(".btn-light");
 
-    // Add click event listeners
     continueBtn.addEventListener("click", continueShopping);
     discoverGamesBtn.addEventListener("click", continueShopping);
 });
 
+
+
+// Redirect to the products page
 function continueShopping() {
-    // Redirect to the products page
-    window.location.href = '../ProductsPage-Front/products.html'; // Replace with your products page URL
+    window.location.href = '../ProductsPage-Front/products.html';
 }

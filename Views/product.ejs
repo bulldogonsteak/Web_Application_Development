@@ -50,8 +50,9 @@
 
     <div class="image-container">
         <div class="gradient-overlay"></div>
-        <img src="/pictures/9093.jpg" id="mainPic">
+        <img src="<%= imagePath %>" id="mainPic">
     </div>
+    
 
     <br><br>
 
@@ -60,7 +61,7 @@
             <img src="<%= product.image %>" alt="Product Image">
         </div>
         <div class="product-card">
-            <h3 class="product-name"><%= product.name %></h3>
+            <h3 id="product-name" class="product-name"><%= product.name %></h3>
             <div class="stock">
                 <i class="bi bi-check-lg"></i>
                 <a id="pcTag">In stock</a>
