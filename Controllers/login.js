@@ -49,34 +49,24 @@ function registerForm(req, res) {
 
 const logout = async (req, res) => {
     try {
-       const status =  await User.findByIdAndUpdate(req.session.emailAddress, { sessionId: null });
-       if(status){
-           req.session.destroy(() => {
-               res.redirect('/login');
-           });
-       }
-       else{
-           return await res.status(500).json({message: 'User logging out attempt failed'});
-       }
+        const status = await User.findByIdAndUpdate(req.session.emailAddress, {sessionId: null});
+        if (status) {
+            req.session.destroy(() => {
+                res.redirect('/login');
+            });
+        } else {
+            return await res.status(500).json({message: 'User logging out attempt failed'});
+        }
     } catch (err) {
         console.error(err);
-        return await res.status(500).json({ error: err.message });
+        return await res.status(500).json({error: err.message});
     }
 };
 
 
-// function logout(req, res) {
-//     User.findByIdAndUpdate(req.session.emailAddress, {sessionId: null},)
-//     // Destroy current User page and redirecting the user to the login page
-//     req.session.destroy(() => {
-//         res.redirect('/login');
-//     });
-// }
-
-
 // Function to connecting a User to his personal Customer Page
 // Should be asynchronous in order to not delay other incoming req to the server while the server deals with the database
-async function login(req, res) {
+const login = async (req, res) => {
 
     // Try to log in into the customer system
     try {
@@ -95,6 +85,7 @@ async function login(req, res) {
 
         // In case when the result is valid, user is not recognized in the system connection
         if (result) {
+            // Initialize current sessionID to login
             const sessionId = req.sessionID
             // Approves the session by storing the email address
             req.session.emailAddress = emailAddress;
@@ -102,6 +93,7 @@ async function login(req, res) {
             // Update The new session of the user
             const status = await User.findByIdAndUpdate(emailAddress, {sessionId});
 
+            // Check status of User Update
             if (status) {
                 // Redirects to the user's profile page after successful login
                 res.redirect('/');
@@ -122,7 +114,7 @@ async function login(req, res) {
 
 // Function to register a new user to his personal Customer Page
 // Should be asynchronous in order to not delay other incoming req to the server while the server deals with the database
-async function register(req, res) {
+const register = async (req, res) => {
 
     // Edge case
     if (!req.body) {
@@ -139,6 +131,7 @@ async function register(req, res) {
 
             // Creates a login session of the current user
             const sessionId = req.sessionID;
+
             // Approve the session with the according key value
             req.session.emailAddress = req.body.emailAddress;
 
@@ -149,6 +142,8 @@ async function register(req, res) {
                 // Redirect the user for this homepage
                 res.redirect('/');
             } else {
+
+                // Prompt error message to the client-side
                 console.log('User not logged in'); // TODO self-Debugging
                 return await res.status(403).json({error: 'User not logged in'});
             }
