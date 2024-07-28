@@ -57,7 +57,7 @@ app.use(express.urlencoded({extended: false})); // use URL-ENCODED for define ke
 
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
-app.get('/products', productRoutes);
+app.use('/products', productRoutes);
 
 const loginRoutes = require('./Routes/login.js');
 app.use('/',loginRoutes);

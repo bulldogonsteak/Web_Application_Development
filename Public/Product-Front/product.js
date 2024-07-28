@@ -1,3 +1,8 @@
+
+
+
+
+
 // מעביר לדף של הפריט הבודד בעת לחיצה על אחד מהפריטים
 //לבדוק אם עובד על מוצר אחר
 document.addEventListener("DOMContentLoaded", function() {
@@ -8,3 +13,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
