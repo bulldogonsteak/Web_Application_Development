@@ -13,8 +13,8 @@
 
 
 
-
+    // clicking on the X icon redirects to the main page
     document.querySelector('.ToReturn').addEventListener('click', function() {
-        window.location.href = '../MainPage-Front/index.html'; // Replace 'mainpage.html' with the actual URL of your main page
+        window.location.href = '../MainPage-Front/index.html';
     });
     
