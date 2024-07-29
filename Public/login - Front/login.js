@@ -45,10 +45,16 @@
                 email: email,
                 password: password,
                 userType: userType
-            };
-    
-            // Send data using fetch
-            fetch('http://localhost:8088/login', { // Adjust URL to your server endpoint
+            }
+
+
+            /********
+             http://localhost:8088/ - root path
+             /LoginHome - login homepage
+             /
+            *******/
+            // Send data using fetch,
+            fetch('http://localhost:8088/LoginHome', { // Adjust URL to your server endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,7 +66,7 @@
                 console.log('Success:', data);
                 // Handle successful login response
                 if (data.success) {
-                    window.location.href = `http://localhost:8088/customerpage/${data.id}`; // Redirect on successful login
+                    window.location.href = `http://localhost:8088/LoginHome/${data.id}`; // Redirect on successful login
                 } else {
                     alert('Login failed: ' + data.message);
                 }

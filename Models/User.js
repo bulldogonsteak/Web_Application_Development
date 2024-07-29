@@ -73,6 +73,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    date:{
+      type: Date,
+      required: true,
+    },
     country: { // The country where the user lives
         type: String, // select from a list of countries
         required: true,
