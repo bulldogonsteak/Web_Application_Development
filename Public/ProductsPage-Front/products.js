@@ -116,27 +116,46 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   //////////////////////////////////////////////////////////////////////////////////////////
+  
+  //  בקשת עדכון, הוספה ומחיקת מוצר מתבצעת דרך הדף נחיתה של המנהל 
+  
+  //GET request
   document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.getElementById('cardContainer');
     const cardTemplate = document.getElementById('cardTemplate').content;
 
     // Function to fetch and display products
     function loadProducts() {
-        fetch('/api/products') // Adjust URL to your server endpoint
+        fetch('/api/products') // Adjust URL to your server endpoint //////////////////לעדכן
             .then(response => response.json())
             .then(data => {
+                // Sort products by release date to get the latest ones
+                const sortedProducts = data.products.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+                const latestProducts = sortedProducts.slice(0, 6); // Get the latest 6 products
+
                 // Clear existing products
                 cardContainer.innerHTML = '';
 
                 // Create product cards dynamically
-                data.products.forEach(product => {
+                latestProducts.forEach(product => {
                     const card = document.importNode(cardTemplate, true);
 
-                    card.querySelector('.product-image').src = product.image;
-                    card.querySelector('.product-video').src = product.video;
+                    if (product.image) {
+                        card.querySelector('.product-image').src = product.image;
+                        card.querySelector('.product-image').style.display = 'block';
+                        card.querySelector('.product-video').style.display = 'none';
+                    }
+
+                    if (product.video) {
+                        card.querySelector('.product-video source').src = product.video;
+                        card.querySelector('.product-video').load();
+                        card.querySelector('.product-video').style.display = 'block';
+                        card.querySelector('.product-image').style.display = 'none';
+                    }
+
                     card.querySelector('.product-name').textContent = product.name;
                     card.querySelector('.price').textContent = `$${product.price}`;
-                    
+
                     // Add event listener for "Add to Cart" button
                     card.querySelector('.add-to-cart').addEventListener('click', () => {
                         addToCart(product.id);
@@ -148,7 +167,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching products:', error));
     }
 
-    // Function to handle adding product to cart
+    
+    // Function to handle adding product to cart - POST request
     function addToCart(productId) {
         fetch('/api/cart', { // Adjust URL to your server endpoint
             method: 'POST',
@@ -168,20 +188,5 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Error adding product to cart:', error));
     }
 
-    // // Initialize products on page load
-    // loadProducts();
-
-    // // Sorting and filtering functionality
-    // window.openNav = function() {
-    //     document.getElementById("mySidepanel").style.width = "250px";
-    // }
-
-    // window.closeNav = function() {
-    //     document.getElementById("mySidepanel").style.width = "0";
-    // }
-
-    // window.myFunction = function(id) {
-    //     // Implement sorting or filtering logic here based on the checkbox status
-    //     console.log(id + ' checkbox clicked');
-    // }
+    loadProducts(); // Call function to load products when the page loads
 });

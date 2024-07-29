@@ -42,13 +42,13 @@
             const userType = document.getElementById('userType').checked ? 'manager' : 'customer';
         
             const data = {
-                email: email,
+                emailAddress: email,
                 password: password,
                 userType: userType
             };
     
             // Send data using fetch
-            fetch('http://localhost:8088/login', { // Adjust URL to your server endpoint
+            fetch('http://localhost:8088/users/login', { // Adjust URL to your server endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
