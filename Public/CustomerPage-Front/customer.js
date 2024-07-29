@@ -114,3 +114,56 @@ document.addEventListener("DOMContentLoaded", function() {
 function continueShopping() {
     window.location.href = '../ProductsPage-Front/products.html';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+ 
+//send a request when the form is submitted
+ const paymentForm = document.getElementById('paymentForm');
+ if (paymentForm) {
+     paymentForm.addEventListener('submit', (event) => {
+         event.preventDefault(); // Prevent default form submission
+
+         // Gather payment data
+         const paymentData = {
+             cardName: document.getElementById('cardName').value,
+             cardNumber: document.getElementById('cardNumber').value,
+             expiryDate: document.getElementById('expiryDate').value,
+             cvv: document.getElementById('cvv').value
+         };
+
+         // Send data using fetch
+         fetch('/api/payment', { // Adjust URL to your server endpoint
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(paymentData)
+         })
+         .then(response => response.json())
+         .then(data => {
+             console.log('Success:', data);
+             // Handle successful payment response
+             if (data.success) {
+                 alert('Payment successful!');
+                 window.location.href = '/thank-you'; // Redirect on successful payment
+             } else {
+                 alert('Payment failed: ' + data.message);
+             }
+         })
+         .catch((error) => {
+             console.error('Error:', error);
+         });
+     });
+ }

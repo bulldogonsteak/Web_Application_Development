@@ -96,14 +96,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-// מעביר לדף של הפריט הבודד בעת לחיצה על אחד מהפריטים
+// מעביר לדף של המוצר הבודד בעת לחיצה על אחד מהמוצרים
 document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.getElementsByClassName('card');
+    const cards = document.getElementsByClassName('media-container');
     for (let card of cards) {
         card.addEventListener('click', function() {
-            window.location.href = '../Product-Front/product.html';  // Replace with the actual path to your product page
+            window.location.href = '../Product-Front/product.html';
         });
     }
   });
+
+
+
+
+
+
+
+
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+  document.addEventListener('DOMContentLoaded', () => {
+    const cardContainer = document.getElementById('cardContainer');
+    const cardTemplate = document.getElementById('cardTemplate').content;
+
+    // Function to fetch and display products
+    function loadProducts() {
+        fetch('/api/products') // Adjust URL to your server endpoint
+            .then(response => response.json())
+            .then(data => {
+                // Clear existing products
+                cardContainer.innerHTML = '';
+
+                // Create product cards dynamically
+                data.products.forEach(product => {
+                    const card = document.importNode(cardTemplate, true);
+
+                    card.querySelector('.product-image').src = product.image;
+                    card.querySelector('.product-video').src = product.video;
+                    card.querySelector('.product-name').textContent = product.name;
+                    card.querySelector('.price').textContent = `$${product.price}`;
+                    
+                    // Add event listener for "Add to Cart" button
+                    card.querySelector('.add-to-cart').addEventListener('click', () => {
+                        addToCart(product.id);
+                    });
+
+                    cardContainer.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error fetching products:', error));
+    }
+
+    // Function to handle adding product to cart
+    function addToCart(productId) {
+        fetch('/api/cart', { // Adjust URL to your server endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ productId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Product added to cart!');
+            } else {
+                alert('Failed to add product to cart.');
+            }
+        })
+        .catch(error => console.error('Error adding product to cart:', error));
+    }
+
+    // // Initialize products on page load
+    // loadProducts();
+
+    // // Sorting and filtering functionality
+    // window.openNav = function() {
+    //     document.getElementById("mySidepanel").style.width = "250px";
+    // }
+
+    // window.closeNav = function() {
+    //     document.getElementById("mySidepanel").style.width = "0";
+    // }
+
+    // window.myFunction = function(id) {
+    //     // Implement sorting or filtering logic here based on the checkbox status
+    //     console.log(id + ' checkbox clicked');
+    // }
+});
