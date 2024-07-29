@@ -123,10 +123,6 @@ function continueShopping() {
 
 
 
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////////
 
 //send a request when the form is submitted
@@ -137,14 +133,23 @@ if (paymentForm) {
 
         // Gather payment data
         const paymentData = {
-            cardName: document.getElementById('cardName').value,
+            cardName: document.getElementById('cardName').value,///////////////////למחוק???
             cardNumber: document.getElementById('cardNumber').value,
             expiryDate: document.getElementById('expiryDate').value,
             cvv: document.getElementById('cvv').value
         };
 
-        // Send data using fetch
-        fetch('/api/payment', { // Adjust URL to your server endpoint//////////////////לחכות לעדיאל
+        // Gather product data
+        const productIds = document.getElementById('productIds').value.split(',');
+        const quantities = document.getElementById('quantities').value.split(',');
+
+        if (productIds.length !== quantities.length) {
+            alert('Mismatch between product IDs and quantities.');
+            return;
+        }
+
+        // Send payment data to the server
+        fetch('/api/payment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -152,19 +157,45 @@ if (paymentForm) {
             body: JSON.stringify(paymentData)
         })
             .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // Handle successful payment response
-                if (data.success) {
-                    alert('Payment successful!');
-                    window.location.href = '/thank-you'; // Redirect on successful payment
+            .then(paymentResponse => {
+                if (paymentResponse.success) {
+                    // Payment was successful, now update the product stock
+                    updateProductStocks(productIds, quantities);
                 } else {
-                    alert('Payment failed: ' + data.message);
+                    alert('Payment failed: ' + paymentResponse.message);
                 }
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
+    });
+}
+
+// Function to update product stocks
+function updateProductStocks(productIds, quantities) {
+    const updates = productIds.map((productId, index) => ({
+        productId,
+        quantity: -quantities[index] // Decrease stock by the quantity purchased
+    }));
+
+    fetch('/api/products/update-stocks', { // Adjust URL to your server endpoint
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ updates })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Product stocks updated!');
+            window.location.href = '/thank-you'; // Redirect on successful stock update
+        } else {
+            alert('Failed to update product stocks: ' + data.message);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
     });
 }
 

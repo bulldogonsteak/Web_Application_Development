@@ -309,8 +309,8 @@ function attachFormSubmitListener(action, type) {
 
 
 
-
-
+//request to the server
+//get the latest orders (GET Request)
 function fetchLatestOrders() {
     fetch('https://api.yourwebsite.com/latest-orders') // Replace with your actual API endpoint
         .then(response => response.json())
@@ -322,6 +322,9 @@ function fetchLatestOrders() {
 }
 
 
+
+//request to the server
+//update the latest orders (PUT Request)
 function updateOrder(orderId, updatedData) {
     fetch(`https://api.yourwebsite.com/orders/${orderId}`, { // Replace with your API endpoint
         method: 'PUT',
@@ -339,3 +342,39 @@ function updateOrder(orderId, updatedData) {
 }
 
 
+// Function to update the UI with the fetched data
+function updateOrderCards(orders) {
+    const cardContainer = document.querySelector('.card-container');
+
+    // Clear existing cards
+    cardContainer.innerHTML = '';
+
+    orders.forEach(order => {
+        const card = document.createElement('div');
+        card.className = 'Card';
+
+        card.innerHTML = `
+            <div class="info">
+                <div class="OrderID-container">
+                    <a id="ordertxt">order No.</a>
+                    <a id="OrderID">#${order.id}</a>
+                </div>
+                <div class="price-container">
+                    <a id="TotalPrice">Total</a>
+                    <a id="Totalnum">${order.totalPrice}$</a>
+                </div>
+                <a id="HoverMe">Hover me to watch purchased items</a>
+            </div>
+            <div class="Show-on-hover">
+                <ul>
+                    ${order.items.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+
+        cardContainer.appendChild(card);
+    });
+}
+
+// Call the function to fetch latest orders on page load
+document.addEventListener('DOMContentLoaded', fetchLatestOrders);
