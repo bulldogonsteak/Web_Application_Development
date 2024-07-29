@@ -234,3 +234,108 @@ document.addEventListener('DOMContentLoaded', () => {
         inputField.value = "";
     }); 
 });
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+//Logout Request
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.LogOut').addEventListener('click', () => {
+        fetch('http://localhost:8088/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/login.html'; // Redirect to login page or another page
+            } else {
+                console.error('Failed to log out');
+            }
+        })
+        .catch(error => console.error('Error during logout:', error));
+    });
+});
+
+
+
+
+//update, create, remove requests - manager actions
+function attachFormSubmitListener(action, type) {
+    const formId = `${type}-form`;
+    const form = document.getElementById(formId);
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        // Gather form data
+        const formData = new FormData(form);
+        
+        // Construct the URL for the API endpoint
+        //When you use const url = form.action; in your JavaScript code, 
+        //you're dynamically retrieving the action URL of the form. 
+        //This URL is where the form data will be sent when the form is submitted.
+        const url = form.action;
+        
+        try {
+            // Send the form data to the server using fetch
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                // Handle success
+                form.parentElement.style.display = 'none';
+                managerActionForm.style.display = 'none';
+
+                confirmationIcon.style.display = 'block';
+                const h3 = confirmationIcon.getElementsByTagName('h3')[0]; // show if the action completed
+                h3.textContent = `${capitalizeFirstLetter(type)} successfully ${action}d`;
+            } else {
+                // Handle error
+                console.error('Server response was not OK.');
+            }
+        } catch (error) {
+            // Handle network or other errors
+            console.error('An error occurred:', error);
+        }
+    });
+}
+
+
+
+
+
+
+
+function fetchLatestOrders() {
+    fetch('https://api.yourwebsite.com/latest-orders') // Replace with your actual API endpoint
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Process the data as needed
+            updateOrderCards(data); // Function to update the UI with the fetched data
+        })
+        .catch(error => console.error('Error fetching orders:', error));
+}
+
+
+function updateOrder(orderId, updatedData) {
+    fetch(`https://api.yourwebsite.com/orders/${orderId}`, { // Replace with your API endpoint
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedData) // Convert the updated data to a JSON string
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Order updated:', data); // Handle the response data
+        fetchLatestOrders(); // Refresh the list of orders
+    })
+    .catch(error => console.error('Error updating order:', error));
+}
+
+

@@ -37,18 +37,18 @@
             event.preventDefault(); // Prevent the default form submission
     
             // Gather form data
-            const formData = new FormData(loginForm);
-            const data = {};
-            formData.forEach((value, key) => {/////..................////////לתקן
-                data[key] = value;
-            });
-    
-            // Optional: Check if the manager checkbox is checked
-            const isManager = document.getElementById('userType').checked;
-            data.userType = isManager ? 'manager' : 'customer';
+            const email = document.getElementById('input1').value;
+            const password = document.getElementById('input2').value; 
+            const userType = document.getElementById('userType').checked ? 'manager' : 'customer';
+        
+            const data = {
+                email: email,
+                password: password,
+                userType: userType
+            };
     
             // Send data using fetch
-            fetch('http:localhost:8088/login', { // Adjust URL to your server endpoint
+            fetch('http://localhost:8088/login', { // Adjust URL to your server endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,7 +60,7 @@
                 console.log('Success:', data);
                 // Handle successful login response
                 if (data.success) {
-                    window.location.href = 'http:localhost:8088/customrpage ${id}'; // Redirect on successful login.................לתקן
+                    window.location.href = `http://localhost:8088/customerpage/${data.id}`; // Redirect on successful login
                 } else {
                     alert('Login failed: ' + data.message);
                 }
@@ -71,4 +71,7 @@
         });
     });
     
+
+
+ 
     
