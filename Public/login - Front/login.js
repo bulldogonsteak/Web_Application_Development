@@ -1,6 +1,6 @@
     document.getElementById('loginForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the form from submitting normally
-        var userType = document.getElementById('userType').checked;
+        const userType = document.getElementById('userType').checked;
 
         if (userType) {
             // If "I am a manager" is checked, redirect to the manager landing page
