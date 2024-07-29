@@ -234,3 +234,28 @@ document.addEventListener('DOMContentLoaded', () => {
         inputField.value = "";
     }); 
 });
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+//Logout Request
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.LogOut').addEventListener('click', () => {
+        fetch('http://localhost:8088/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/login.html'; // Redirect to login page or another page
+            } else {
+                console.error('Failed to log out');
+            }
+        })
+        .catch(error => console.error('Error during logout:', error));
+    });
+});

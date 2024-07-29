@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Success:', data);
             // Handle successful registration response
             if (data.success) {
-                window.location.href = '/login'; // Redirect on successful registration
+                window.location.href = 'http:localhost:8088/mainpage'; // Redirect on successful registration
             } else {
                 alert('Registration failed: ' + data.message);
             }
