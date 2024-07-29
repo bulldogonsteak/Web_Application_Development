@@ -10,6 +10,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors') // MiddleWare
+const session = require('express-session'); // Import express-session to create session ID
 const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
 // Config Environment File path for current process
@@ -33,11 +34,14 @@ console.log("Server Created")
 
 
 // Create sessions within the server
-const session = require('express-session');
 app.use(session({
     secret: 'foo', // sign the session ID cookie
     saveUninitialized: true, // session middleware will create new session for every new request
-    resave: true, // session middleware will ensure session data is refreshed and not lost
+    resave: false, // session middleware will ensure session data is refreshed and not lost
+    cookie:{
+        httpOnly: true,
+        maxAge: 80000000, // cookie saves for 1 min
+    }
 }))
 
 // app.set
@@ -56,7 +60,7 @@ const productRoutes = require('./Routes/product.js');
 app.get('/products', productRoutes);
 
 const loginRoutes = require('./Routes/login.js');
-app.use('/',loginRoutes);
+app.use('/loginHome',loginRoutes);
 
 
 // Main Server Listening Port

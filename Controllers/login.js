@@ -4,6 +4,7 @@
  **********************************************************************************************************************/
 
 // Imported Files
+const User = require('../Models/User.js'); // Import User Model for updating sessionId
 const loginService = require('../Services/login.js'); // Import Login Services File
 
 // Function to check if user session is active - Middleware to log in incoming req to session
@@ -19,7 +20,11 @@ function isLoggedIn(req, res, next) {
 
 // Function for testing
 function foo(req, res) {
-    res.render('fooTest',{emailAddress: req.session.emailAddress});
+    if (req.session.emailAddress != null) {
+        return res.json({emailAddress: req.session.emailAddress})
+    } else {
+        res.redirect('/login');
+    }
 }
 
 // Function to render the profile view and passes the username from the session to the view.
@@ -29,47 +34,76 @@ function CustomerProfiler(req, res) {
 }
 
 // Function to render the loginForm
-function loginForm(req, res) {res.render('loginTest',{});} // Adjust the name if necessary
+function loginForm(req, res) {
+    res.render('loginTest', {});
+} // Adjust the name if necessary
 
 // Function to render the registration form
-function registerForm(req, res) {res.render('registerTest', {});} // Adjust the name if necessary
+function registerForm(req, res) {
+    res.render('registerTest', {});
+} // Adjust the name if necessary
 
 
 // Function to log out a User from his personal page
 // Should be synchronous in order to complete the logout procedure until total end of the User's session
-function logout(req, res) {
 
-    // Destroy current User page and redirecting the user to the login page
-    req.session.destroy(() => {
-        res.redirect('/login');
-    });
-}
+const logout = async (req, res) => {
+    try {
+        const status = await User.findByIdAndUpdate(req.session.emailAddress, {sessionId: null});
+        if (status) {
+            req.session.destroy(() => {
+                res.redirect('/loginHome/login');
+            });
+        } else {
+            return await res.status(500).json({message: 'User logging out attempt failed'});
+        }
+    } catch (err) {
+        console.error(err);
+        return await res.status(500).json({error: err.message});
+    }
+};
 
 
 // Function to connecting a User to his personal Customer Page
 // Should be asynchronous in order to not delay other incoming req to the server while the server deals with the database
-async function login(req, res) {
+const login = async (req, res) => {
 
     // Try to log in into the customer system
     try {
         // Multiple Initialization
         const {emailAddress, password} = req.body;
 
+        // Finds if the user is register in the system
+        const user = await User.findOne({emailAddress: emailAddress});
+
+        if (user && (user.sessionId != null)) {
+            return await res.status(403).json({error: 'User already logged in'});
+        }
+
         // Log in attempt with given means of identifications
         const result = await loginService.login(emailAddress, password);
 
         // In case when the result is valid, user is not recognized in the system connection
         if (result) {
-
+            // Initialize current sessionID to login
+            const sessionId = req.sessionID
             // Approves the session by storing the email address
             req.session.emailAddress = emailAddress;
 
-            // Redirects to the user's profile page after successful login
-            res.redirect('/');
+            // Update The new session of the user
+            const status = await User.findByIdAndUpdate(emailAddress, {sessionId});
+
+            // Check status of User Update
+            if (status) {
+                // Redirects to the user's profile page after successful login
+                res.redirect('/loginHome/user');
+            } else {
+                return await res.status(403).json({error: 'User not logged in'});
+            }
         } else { // Result is invalid
 
             // Redirect back to the login page with error indicator
-            res.redirect('/login?error=1');
+            res.redirect('loginHome/login?error=1');
         }
     } catch (err) {
         console.log(err); // TODO self-debugging
@@ -80,7 +114,7 @@ async function login(req, res) {
 
 // Function to register a new user to his personal Customer Page
 // Should be asynchronous in order to not delay other incoming req to the server while the server deals with the database
-async function register(req, res) {
+const register = async (req, res) => {
 
     // Edge case
     if (!req.body) {
@@ -94,9 +128,25 @@ async function register(req, res) {
 
         // New User is created
         if (result) {
+
+            // Creates a login session of the current user
+            const sessionId = req.sessionID;
+
             // Approve the session with the according key value
             req.session.emailAddress = req.body.emailAddress;
-            res.redirect('/');
+
+            // Creates the sessionID for the user
+            const status = await User.findByIdAndUpdate(req.body.emailAddress, {sessionId});
+
+            if (status) {
+                // Redirect the user for his homepage
+                res.redirect('/loginHome/user');
+            } else {
+
+                // Prompt error message to the client-side
+                console.log('User not logged in'); // TODO self-Debugging
+                return await res.status(403).json({error: 'User not logged in'});
+            }
         } else {
             // Prompts an error message, and indicates an error to the client-side
             return await res.status(405).json({error: `Could not register (${req.session.emailAddress}) into the system`});

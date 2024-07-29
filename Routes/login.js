@@ -11,12 +11,13 @@ const loginController = require('../Controllers/login.js');
 const router = express.Router();
 
 // Define Routes
+// http://localhost:8088/users
 router.post('/register', loginController.register); // Handle registration
 router.get('/register', loginController.registerForm); // Show register form
 router.post('/login', loginController.login); // Handle login
-router.get('/login', loginController.loginForm); // Show login form
-router.get(`/logout`,loginController.logout); // Handle logout
-router.get('/', loginController.isLoggedIn, loginController.foo); // Main page or profile page
+router.get('/login', loginController.loginForm); // Show login Home Page
+router.get(`/user/logout`,loginController.logout); // Handle logout
+router.get(`/user`, loginController.isLoggedIn, loginController.foo); // Main page or profile page
 
 
 module.exports = router; // Export the login.js router
