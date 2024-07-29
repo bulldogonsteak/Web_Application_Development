@@ -1,6 +1,3 @@
-//CLIENT SIDE
-//CUSTOMER LANDING PAGE
-
 function openTab(evt, tabName) {
     // Get all elements with class="tabcontent" and hide them
     const tabcontent = document.getElementsByClassName("tabcontent");
@@ -20,9 +17,6 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   const searchContainer = document.querySelector('.search-container');
   const searchIcon = document.querySelector('#searchCircle');
@@ -38,23 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-
-
-
-
-
-
-
-//show the payment form when clicking on the "go to payment" button
+// Show the payment form when clicking on the "go to payment" button
 document.querySelector('.payment-btn').addEventListener('click', function () {
     // Show the payment card
     document.getElementById('paymentCard').style.display = 'block';
-
-
 });
-
-
 
 // Remove the product from the cart
 function removeProduct(element) {
@@ -64,8 +46,6 @@ function removeProduct(element) {
     // Update the cart summary after removal
     updateCartSummary();
 }
-
-
 
 function updateCartSummary() {
     // Get all product elements
@@ -97,8 +77,6 @@ function updateCartSummary() {
 
 updateCartSummary();
 
-
-
 // Select the buttons and Add click event listeners
 document.addEventListener("DOMContentLoaded", function() {
     const continueBtn = document.querySelector(".continue-btn");
@@ -108,62 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
     discoverGamesBtn.addEventListener("click", continueShopping);
 });
 
-
-
 // Redirect to the products page
 function continueShopping() {
     window.location.href = '../ProductsPage-Front/products.html';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////
- 
-//send a request when the form is submitted
- const paymentForm = document.getElementById('paymentForm');
- if (paymentForm) {
-     paymentForm.addEventListener('submit', (event) => {
-         event.preventDefault(); // Prevent default form submission
-
-         // Gather payment data
-         const paymentData = {
-             cardName: document.getElementById('cardName').value,
-             cardNumber: document.getElementById('cardNumber').value,
-             expiryDate: document.getElementById('expiryDate').value,
-             cvv: document.getElementById('cvv').value
-         };
-
-         // Send data using fetch
-         fetch('/api/payment', { // Adjust URL to your server endpoint
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(paymentData)
-         })
-         .then(response => response.json())
-         .then(data => {
-             console.log('Success:', data);
-             // Handle successful payment response
-             if (data.success) {
-                 alert('Payment successful!');
-                 window.location.href = '/thank-you'; // Redirect on successful payment
-             } else {
-                 alert('Payment failed: ' + data.message);
-             }
-         })
-         .catch((error) => {
-             console.error('Error:', error);
-         });
-     });
- }
