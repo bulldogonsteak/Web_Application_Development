@@ -40,7 +40,7 @@ app.use(session({
     resave: false, // session middleware will ensure session data is refreshed and not lost
     cookie:{
         httpOnly: true,
-        maxAge: 60000, // cookie saves for 1 min
+        maxAge: 80000000, // cookie saves for 1 min
     }
 }))
 
