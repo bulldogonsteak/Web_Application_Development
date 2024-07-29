@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function fetchProductById(productId) {
     try {
-        const response = await fetch(`http://localhost:8088/products/2`,{}); // Adjust the URL as needed
+        const response = await fetch(`http://localhost:8088/products/2`,{
+            method: "GET",
+        }); // Adjust the URL as needed
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -19,19 +21,7 @@ async function fetchProductById(productId) {
     }
 }
 
-function displayProductDetails(product) {
-    const productDetailsContainer = document.getElementById('product-details');
-    productDetailsContainer.innerHTML = `
-        <div class="product-card">
-            <div class="product-info">
-                <h3 class="product-name">${product.name}</h3>
-                <p class="product-description">${product.description}</p>
-                <p class="product-price">$${product.price}</p>
-                <button class="cart" onclick="addToCart('${product._id}')">Add to cart</button>
-            </div>
-        </div>
-    `;
-}
+
 
 
 
