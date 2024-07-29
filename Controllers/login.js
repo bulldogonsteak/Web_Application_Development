@@ -140,7 +140,7 @@ const register = async (req, res) => {
 
             if (status) {
                 // Redirect the user for this homepage
-                res.redirect('/');
+                res.redirect('/users/login');
             } else {
 
                 // Prompt error message to the client-side
