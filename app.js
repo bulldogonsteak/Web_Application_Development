@@ -60,7 +60,7 @@ const productRoutes = require('./Routes/product.js');
 app.use('/products', productRoutes);
 
 const loginRoutes = require('./Routes/login.js');
-app.use('/',loginRoutes);
+app.use('/users',loginRoutes);
 
 
 // Main Server Listening Port
