@@ -158,6 +158,8 @@ const register = async (req, res) => {
 }
 
 
+
+
 module.exports = {
     isLoggedIn,
     loginForm,
