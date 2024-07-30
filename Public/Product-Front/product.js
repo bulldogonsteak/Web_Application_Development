@@ -17,39 +17,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //send a request when the "Add to cart" button is clicked
 document.addEventListener('DOMContentLoaded', () => {
-
     const addToCartButton = document.querySelector('.cart');
     addToCartButton.addEventListener('click', () => {
-      // Define the data to be sent
-      const productData = {
-        name: document.querySelector('#product-name').innerText,
-        price: document.querySelector('.product-price').innerText,
-      };
-  
-      // Send the request
-      fetch('http://localhost:8088/cart', {////////////////////////////////לעדכן
-        method: 'POST', // Use POST method for sending data
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(productData) // Convert data to JSON
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        // Optionally, update the UI or handle the response here
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+
+        const productCard = document.querySelector('.product-card');
+        const productID = productCard.getAttribute('data-id');
+
+        // Define the data to be sent
+        const productData = {
+            _id: productID, // Include the product ID
+            name: document.querySelector('#product-name').innerText,
+            price: document.querySelector('.product-price').innerText,
+        };
+
+        // Send the request
+        fetch('http://localhost:8088/cart/add', {//////////////////////////////לעדכן
+            method: 'POST', // Use POST method for sending data
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productData) // Convert data to JSON
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Optionally, update the UI or handle the response here
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     });
-  });
+});
+
 
 
 
 
     
-  //GET request for a product
+  //GET request for a product+ his comments
   document.addEventListener('DOMContentLoaded', () => {
     // Function to get query parameters from the URL
     function getQueryParam(param) {
@@ -141,41 +146,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-////////////////////////////////////////מוותרים?????????///////////////////////////////////////
-  //send a request when the "Favorite" button is clicked
-  document.addEventListener('DOMContentLoaded', () => {
-    const favoriteButton = document.getElementById('favoriteButton');
+// ////////////////////////////////////////מוותרים?????????///////////////////////////////////////
+//   //send a request when the "Favorite" button is clicked
+//   document.addEventListener('DOMContentLoaded', () => {
+//     const favoriteButton = document.getElementById('favoriteButton');
 
-    favoriteButton.addEventListener('click', () => {
-        // Retrieve product ID and user ID from data attributes
-        const productId = favoriteButton.getAttribute('data-product-id');
-        const userId = favoriteButton.getAttribute('data-user-id');
+//     favoriteButton.addEventListener('click', () => {
+//         // Retrieve product ID and user ID from data attributes
+//         const productId = favoriteButton.getAttribute('data-product-id');
+//         const userId = favoriteButton.getAttribute('data-user-id');
 
-        // Example URL for your server endpoint
-        const url = 'http://example.com/api/favorite';
+//         // Example URL for your server endpoint
+//         const url = 'http://example.com/api/favorite';
 
-        // Data to send with the request
-        const data = {
-            productId: productId,
-            userId: userId
-        };
+//         // Data to send with the request
+//         const data = {
+//             productId: productId,
+//             userId: userId
+//         };
 
-        // Send a POST request to the server
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response from the server
-            console.log('Success:', data);
-            // Optionally update the button UI or state here
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    });
-});
+//         // Send a POST request to the server
+//         fetch(url, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(data)
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             // Handle the response from the server
+//             console.log('Success:', data);
+//             // Optionally update the button UI or state here
+//         })
+//         .catch((error) => {
+//             console.error('Error:', error);
+//         });
+//     });
+// });

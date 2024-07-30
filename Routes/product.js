@@ -9,6 +9,7 @@ const router = express.Router(); // Create a router for incoming requests from C
 const productController = require('../Controllers/product.js'); // Import file product Controller Version
 
 // Home Page of products
+// http://localhost:8088/
 router.route('/') // URL request for homepage for products
     .get(productController.getAllProducts) // GET method - Get a list of products
 

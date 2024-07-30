@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2></h2>
                     <div class="customer-form">
                         <form class="input" id="customer-form" action="/create-customer" method="post">
+                            <input type="hidden" name="id" id="product-id" value=""> <!-- Hidden field for product ID -->
                             <div class="form-group">
                                 <label for="customer-email">Email:</label>
                                 <input type="email" id="customer-email" placeholder="Enter customer email">
@@ -177,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    fetchDetailsBtn.addEventListener('click', () => { 
+    fetchDetailsBtn.addEventListener('click', () => {
         const selectedAction = actionSelect.value;
         const selectedType = typeSelect.value;
         const inputValue = inputField.value.trim();
@@ -193,14 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
         formContainer.innerHTML = forms[type];
         const formSection = document.querySelector(`.${type}-form-section`);
         const h2 = formSection.getElementsByTagName('h2')[0];
-        if (action==='update' ||action==='delete')
+        if (action === 'update' || action === 'delete')
             h2.textContent = `${capitalizeFirstLetter(action)} the ${capitalizeFirstLetter(type)}`;
         else
             h2.textContent = `${capitalizeFirstLetter(action)} a new ${capitalizeFirstLetter(type)}`;
         attachFormSubmitListener(action, type);
     }
-        
-    
+
+
     function attachFormSubmitListener(action, type) {
         const formId = `${type}-form`;
         const form = document.getElementById(formId);
@@ -215,15 +216,15 @@ document.addEventListener('DOMContentLoaded', () => {
             h3.textContent = `${capitalizeFirstLetter(type)} successfully ${action}d`;
         });
     }
-    
+
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    
-    
+
+
     showManagerForm.addEventListener('click', (event) => {
         event.preventDefault();
-        
+
         // Reset display styles and inner HTML to their initial states
         managerActionForm.style.display = 'block';
         confirmationIcon.style.display = 'none';
@@ -232,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchDetailsBtn.style.display = 'block';
         fetchDetailsBtn.innerText = 'Fetch Details';
         inputField.value = "";
-    }); 
+    });
 });
 
 
@@ -249,14 +250,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = '/login.html'; // Redirect to login page or another page
-            } else {
-                console.error('Failed to log out');
-            }
-        })
-        .catch(error => console.error('Error during logout:', error));
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/login.html'; // Redirect to login page or another page
+                } else {
+                    console.error('Failed to log out');
+                }
+            })
+            .catch(error => console.error('Error during logout:', error));
     });
 });
 
@@ -267,22 +268,35 @@ document.addEventListener('DOMContentLoaded', () => {
 function attachFormSubmitListener(action, type) {
     const formId = `${type}-form`;
     const form = document.getElementById(formId);
+    const managerActionForm = document.getElementById('managerActionForm');
+    const confirmationIcon = document.getElementById('confirmation-icon');
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        
+
         // Gather form data
         const formData = new FormData(form);
-        
+
+        // Add ID to formData if action is update or delete
+        if (action === 'update' || action === 'delete') {
+            const id = document.getElementById('inputField').value; // Assuming inputField contains the ID
+            formData.append('id', id);
+        }
+
+
         // Construct the URL for the API endpoint
         //When you use const url = form.action; in your JavaScript code, 
         //you're dynamically retrieving the action URL of the form. 
         //This URL is where the form data will be sent when the form is submitted.
         const url = form.action;
-        
+
         try {
+            // Determine the method based on the action
+            const method = action === 'create' ? 'POST' : action === 'update' ? 'PUT' : 'DELETE';
+
             // Send the form data to the server using fetch
             const response = await fetch(url, {
-                method: 'POST',
+                method: method,
                 body: formData
             });
 
@@ -292,7 +306,7 @@ function attachFormSubmitListener(action, type) {
                 managerActionForm.style.display = 'none';
 
                 confirmationIcon.style.display = 'block';
-                const h3 = confirmationIcon.getElementsByTagName('h3')[0]; // show if the action completed
+                const h3 = confirmationIcon.getElementsByTagName('h3')[0];
                 h3.textContent = `${capitalizeFirstLetter(type)} successfully ${action}d`;
             } else {
                 // Handle error
@@ -333,12 +347,12 @@ function updateOrder(orderId, updatedData) {
         },
         body: JSON.stringify(updatedData) // Convert the updated data to a JSON string
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Order updated:', data); // Handle the response data
-        fetchLatestOrders(); // Refresh the list of orders
-    })
-    .catch(error => console.error('Error updating order:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Order updated:', data); // Handle the response data
+            fetchLatestOrders(); // Refresh the list of orders
+        })
+        .catch(error => console.error('Error updating order:', error));
 }
 
 
@@ -378,3 +392,20 @@ function updateOrderCards(orders) {
 
 // Call the function to fetch latest orders on page load
 document.addEventListener('DOMContentLoaded', fetchLatestOrders);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
