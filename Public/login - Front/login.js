@@ -59,7 +59,7 @@
             .then(data => {
                 console.log('Success:', data);
                 // Handle successful login response
-                if (data.success) {
+                if (data.success) {//////////////////////////////////////ID is the email?
                     window.location.href = `http://localhost:8088/user/${data._id}`; // Redirect to user-specific page
                 } else {
                     alert('Login failed: ' + data.message);

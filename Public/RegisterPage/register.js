@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Send data using fetch
-        fetch('http://localhost:8088/users/register', { // Adjust URL to your server endpoint
+        fetch('http://localhost:8088/loginHome/register', { // Adjust URL to your server endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
