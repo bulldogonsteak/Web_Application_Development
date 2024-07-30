@@ -2,7 +2,7 @@
  *  Server Side - Models - User.js
  *  User Model Main Schema
  **********************************************************************************************************************/
-
+// Imported files
 const mongoose = require('mongoose'); // Import mongoose library
 const Schema = mongoose.Schema; // Import mongoose Schema
 const bcrypt = require("bcrypt"); // Import encryption library for user's password
@@ -105,7 +105,7 @@ const userSchema = new Schema({
     }],
     orders: [{ // Array of orders objects to create history of orders of the user
         orderDate: {
-            type: Date,
+            type: Date, 
             default: Date.now,
         },
         items: [{ // Array of items the user ordered within
