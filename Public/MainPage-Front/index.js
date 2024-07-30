@@ -52,3 +52,16 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 });
+
+
+
+
+function initMap() {
+  console.log("initMap called");
+  var mapOptions = {
+      center: new google.maps.LatLng(40.7128, -74.0060), // Coordinates for New York City
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}

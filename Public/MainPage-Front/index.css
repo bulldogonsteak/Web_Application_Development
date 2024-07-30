@@ -696,3 +696,14 @@ body {
 .contact-container a:hover {
     text-decoration: underline;
 }
+
+
+
+
+
+
+#map {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+}
