@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script>
         function validateRegisterForm() {
@@ -10,13 +12,12 @@
             const lastName = document.getElementById('lastName').value;
             const country = document.getElementById('country').value;
             const agreedToTerms = document.getElementById('agreedToTermsPolicy').checked;
+            const isManager = document.getElementById('isManager').checked;
 
             if (!email || !password || !firstName || !lastName || !country || !agreedToTerms) {
                 alert('Please fill in all fields and agree to the terms.');
                 return false;
             }
-
-            // Additional validation can be added here
 
             return true;
         }
@@ -41,6 +42,9 @@
     <br>
     <label for="agreedToTermsPolicy">Agree to Terms:</label>
     <input type="checkbox" id="agreedToTermsPolicy" name="agreedToTermsPolicy" required>
+    <br>
+    <label for="isManager">Register as Manager:</label>
+    <input type="checkbox" id="isManager" name="isManager">
     <br>
     <button type="submit">Register</button>
 </form>
