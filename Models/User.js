@@ -91,7 +91,6 @@ const userSchema = new Schema({
     isManager: { // Checks User type: {manager,customer} to grant proper access permissions
         type: String,
         required: true,
-        default: null,
     },
     cart: [{ // Array of products objects to order within the cart
         type: Schema.Types.ObjectId,
