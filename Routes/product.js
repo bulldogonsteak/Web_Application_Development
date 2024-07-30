@@ -11,6 +11,7 @@ const productController = require('../Controllers/product.js'); // Import file p
 
 // Url: http://localhost:8088/products
 // Home Page of products
+// http://localhost:8088/
 router.route('/') // URL request for homepage for products
     .get(productController.getAllProducts) // GET method - Get a list of products
 
