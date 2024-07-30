@@ -57,11 +57,10 @@ app.use(express.urlencoded({extended: false})); // use URL-ENCODED for define ke
 
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
-app.use('/products', productRoutes);
+app.get('/products', productRoutes);
 
 const loginRoutes = require('./Routes/login.js');
 app.use('/loginHome',loginRoutes);
-
 
 
 // Main Server Listening Port

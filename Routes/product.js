@@ -15,6 +15,17 @@ router.route('/') // URL request for homepage for products
     .get(productController.getAllProducts) // GET method - Get a list of products
 
 
+// Url: http://localhost:8088/products/search
+// Search products based on parameters
+router.route('/search') // URL request for search products
+    .get(productController.searchProducts); // GET method - Search products based on parameters
+
+
+// Url: http://localhost:8088/products/groupByGenre
+// Group products by genre and get the count of products in each genre
+router.route('/groupByGenre') // URL request for GroupBy products
+    .get(productController.groupProductsByGenre); // GET method - Group products by genre
+
 
 // Url: http://localhost:8088/products/
 // Pages of a specific ID
