@@ -40,7 +40,7 @@ app.use(session({
     resave: false, // session middleware will ensure session data is refreshed and not lost
     cookie:{
         httpOnly: true,
-        maxAge: 60000, // cookie saves for 1 min
+        maxAge: 80000000, // cookie saves for 1 min
     }
 }))
 
@@ -57,10 +57,10 @@ app.use(express.urlencoded({extended: false})); // use URL-ENCODED for define ke
 
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
-app.use('/products', productRoutes);
+app.get('/products', productRoutes);
 
 const loginRoutes = require('./Routes/login.js');
-app.use('/users',loginRoutes);
+app.use('/loginHome',loginRoutes);
 
 
 // Main Server Listening Port

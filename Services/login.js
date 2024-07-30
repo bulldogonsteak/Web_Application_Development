@@ -73,8 +73,24 @@ async function login(emailAddress, password) {
     return isUserExists != null; // isUserExists != null ? true : false
 }
 
+// Function to check if user session is alive with the connection in the DB
+const isUserSessionAlive = async (emailAddress) => {
+
+    // Check if the user exists within the system
+    const user = await User.findOne({emailAddress: emailAddress});
+
+    // In case user is not found or his session is not active
+    if(!user || !user.sessionId){
+        return null;
+    }
+
+    // Returns user sessionId
+    return user.sessionId;
+}
+
 module.exports = {
     register,
     login,
-}
+    isUserSessionAlive,
+};
 

@@ -9,17 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Gather form data
         const formData = {
-            email: document.getElementById('email').value,
+            emailAddress: document.getElementById('email').value,
             password: document.getElementById('password').value,
-            firstname: document.getElementById('firstname').value,
-            lastname: document.getElementById('lastname').value,
+            firstName: document.getElementById('firstname').value,
+            lastName: document.getElementById('lastname').value,
             birthdate: document.getElementById('birthdate').value,
             country: document.getElementById('country').value,
-            agree: document.getElementById('agree').checked
+            agreedToTermsPolicy: document.getElementById('agree').checked
         };
 
         // Send data using fetch
-        fetch('/api/register', { // Adjust URL to your server endpoint
+        fetch('http://localhost:8088/users/register', { // Adjust URL to your server endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Success:', data);
             // Handle successful registration response
             if (data.success) {
-                window.location.href = '/login'; // Redirect on successful registration
+                window.location.href = 'http://localhost:8088/mainpage'; /////// Redirect on successful registration
             } else {
                 alert('Registration failed: ' + data.message);
             }

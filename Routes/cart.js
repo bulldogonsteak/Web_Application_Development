@@ -4,14 +4,18 @@
  **********************************************************************************************************************/
 
 // Imported Files
-const express = require('express');
+const express = require('express'); // Imported express Library
+const cartController = require('../controllers/cart.js'); // Import cart Controller methods
+const loginController = require('../Controllers/login.js'); // Import login Controller
+
+
+// Create Router
 const router = express.Router();
-const cartController = require('../controllers/cart.js');
 
-
-router.post('/add',cartController.addToCart);
-router.get('/view', cartController.viewCart);
-router.post('/checkout', cartController.checkout);
-router.get('/orders', cartController.viewOrders);
+// Define Routes with Middleware
+router.post('/add',loginController.isLoggedIn,cartController.addToCart);
+router.get('/view', loginController.isLoggedIn ,cartController.viewCart);
+router.post('/checkout', loginController.isLoggedIn,cartController.checkout);
+router.get('/orders', loginController.isLoggedIn,cartController.viewOrders);
 
 module.exports = router;
