@@ -11,7 +11,7 @@ const loginController = require('../Controllers/login.js'); // Import Login Cont
 const router = express.Router();
 
 // Define Routes
-// http://localhost:8088/loginHome/
+// http://localhost:8088/loginHome
 router.post('/register', loginController.register); // Handle registration
 router.get('/register', loginController.registerForm); // Show register Page
 router.post('/login', loginController.login); // Handle login

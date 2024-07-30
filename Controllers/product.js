@@ -12,7 +12,7 @@ const User = require("../Models/User.js");
 // Create a product - POST Method Handler
 const createProduct = async (req, res) => {
 
-    // Checks User's type
+    // Checks User's type to grant access
     if (req.body.isManager !== 'manager') {
         // Prompts error message
         console.log("You don't have permission to manage product");// TODO Self Debugging
@@ -72,10 +72,38 @@ const getProductById = async (req, res) => {
 };
 
 
+// Search products based on multiple parameters - GET Methods Handler
+const searchProducts = async (req, res) => {
+    // Try to search products
+    try{
+        // Initialize variables for req query
+        const searchParams = req.query;
+
+        // Search requested products within search parameters
+        const products = await productService.searchProducts(searchParams);
+
+        // If results were found
+        if(products.length > 0) {
+            console.log(products); // TODO self-debugging
+            return await res.status(200).json(products);
+        }
+        else{ // No results were found
+            // Prompts error message
+            console.error("No results found"); // TODO self-debugging
+            return await res.status(500).json({error: err.message});
+        }
+    }
+    catch (err){ // In any case of an exception
+        console.error(err); // TODO self-debugging
+        return await res.status(500).json({error: err.message});
+    }
+}
+
 /**************************************** Controllers - Update Methods ************************************************/
 // Update a Product with a given id - Update Method (put,patch)
 const updateProduct = async (req, res) => {
-    // Checks User's type
+
+    // Checks User's type to grant access
     if (req.body.isManager !== 'manager') {
         // Prompts error message
         console.log("You don't have permission to manage product");// TODO Self Debugging
@@ -106,7 +134,6 @@ const updateProduct = async (req, res) => {
 };
 
 
-// TODO update many
 
 
 /**************************************** Controllers - Delete Methods ************************************************/

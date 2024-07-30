@@ -6,20 +6,27 @@
 // Imported files
 const Product = require(`../Models/product.js`);
 const mongoose = require("mongoose");
+const req = require("express/lib/request");
 
 
 /******************************************* Services - Post Methods **************************************************/
 // Create a product asynchronous function - POST method
 const createProduct = async (productData) => {
 
+    // Checks if data is within
     if (!productData) {
+        // Prompts an error message
+        console.log("Product Data is not found"); // TODO self-Debugging
         throw new Error("Product Data is not found");
     }
 
     // Checks if the product already exists within the Database
     const existingProduct = await Product.findOne({_id: productData._id});
+
+    // Checks status of existed product
     if (existingProduct) {
-        console.log("The product is already in use within _id of " + productData._id);
+        // Prompts an error message
+        console.log(`Product already exists with productId ${productData._id}`); // TODO self-Debugging
         throw new Error(`Product already exists with productId ${productData._id}`);
     }
     // The given product is a new one
@@ -27,6 +34,8 @@ const createProduct = async (productData) => {
 
     // Set newProduct._id to be the same as the given productID (to settle conflict in mongoDB)
     newProduct._id = productData.productId;
+
+    // Save new Product details within the DB
     return await newProduct.save();
 }// End of createProduct function
 
@@ -51,6 +60,28 @@ const getAllProducts = async () => {
 }
 
 
+// Search products based on multiple parameters
+const searchProducts = async (searchParams) => {
+
+    // In case of no search params
+    if (!searchParams) {
+        // Prompts an error message
+        console.log("Search parameters are not found"); // TODO self-debugging
+        throw new Error("Search parameters are not found");
+    }
+
+    // Initialize an empty query res
+    const query = {};
+
+    // Cases of search parameters to search
+    if(searchParams.name && searchParams.name.length > 0) { // Search product by name
+        // Insert to query name field
+        query.name = { $regex: searchParams.name, $options: 'i' };
+    }
+
+}
+
+
 /******************************************* Services - Update Methods ************************************************/
 // Update a product by a given id -
 const updateProduct = async (productId, productData) => {
@@ -65,7 +96,7 @@ const updateProduct = async (productId, productData) => {
 
     // Find the product with the given ID, then use the $set operator to specify the fields within (using the spread operator)
     // Use await to ensure all updates are finished before proceeding
-    const updatedProduct =  await Product.findByIdAndUpdate(productId, {$set: {...productData}}, {new: true})
+    const updatedProduct = await Product.findByIdAndUpdate(productId, {$set: {...productData}}, {new: true})
         .then(updatedProduct => {
             if (!updatedProduct) { // If the product was not found
                 throw new Error(`Product with id ${productId} not found`);
@@ -115,8 +146,6 @@ const deleteProduct = async (productId) => {
         });
 
 } // END of deleteProduct Function
-
-
 
 
 module.exports = { // Export all of this file methods
