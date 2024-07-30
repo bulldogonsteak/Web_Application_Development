@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return urlParams.get(param);
     }
 
-    const productId = getQueryParam('id'); // Get the 'id' parameter from the URL
+    const productId = getQueryParam('productId'); // Get the 'id' parameter from the URL
 
     if (productId) {
         loadProduct(productId); // Load the product with the extracted ID
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadProduct(productId) {
-        fetch(`http://localhost:5500/products/:productId`)
+        fetch(`http://localhost:5500/products/:2`)
             .then(response => response.json())
             .then(data => {
                 // Update product details on the page
