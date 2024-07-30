@@ -8,12 +8,16 @@ const express = require('express'); // Import express Library
 const router = express.Router(); // Create a router for incoming requests from Client-Side
 const productController = require('../Controllers/product.js'); // Import file product Controller Version
 
+
+// Url: http://localhost:8088/products
 // Home Page of products
 // http://localhost:8088/
 router.route('/') // URL request for homepage for products
     .get(productController.getAllProducts) // GET method - Get a list of products
 
 
+
+// Url: http://localhost:8088/products/
 // Pages of a specific ID
 router.route('/:productId') // URL segment request for a specific product with id
     .get(productController.getProductById) // GET method - Get a specific product within given an id

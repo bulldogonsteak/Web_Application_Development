@@ -67,10 +67,12 @@ const userSchema = new Schema({
     firstName: { // User's First Name
         type: String,
         required: true,
+        default: null,
     },
     lastName: { // User's Last Name
         type: String,
         required: true,
+        default: null,
     },
     date: {
         type: Date,
@@ -79,14 +81,17 @@ const userSchema = new Schema({
     country: { // The country where the user lives
         type: String, // select from a list of countries
         required: true,
+        default: null,
     },
     agreedToTermsPolicy: { // User's agreement to the terms of use and the privacy policy
         type: String,
         required: true,
+        default: null,
     },
     isManager: { // Checks User type: {manager,customer} to grant proper access permissions
         type: String,
         required: true,
+        default: null,
     },
     cart: [{ // Array of products objects to order within the cart
         type: Schema.Types.ObjectId,
@@ -139,4 +144,6 @@ userSchema.pre('save', async function (next) {
     next(); // Calling the next function to proceed with the save operation
 });
 
+
+// Module exports to the DB
 module.exports = mongoose.model("User", userSchema); // Export the model to other files

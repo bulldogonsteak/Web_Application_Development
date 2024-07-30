@@ -5,11 +5,20 @@
 
 //Imported files
 const productService = require("../Services/product.js"); // Import Services File to product
+const User = require("../Models/User.js");
 
 
 /**************************************** Controllers - Post Methods **************************************************/
 // Create a product - POST Method Handler
 const createProduct = async (req, res) => {
+
+    // Checks User's type
+    if (req.body.isManager !== 'manager') {
+        // Prompts error message
+        console.log("You don't have permission to manage product");// TODO Self Debugging
+        return await res.status(400).json({message: "You don't have permission to manage product"});
+    }
+
     // Try to Create a new Product
     try {
         // Create a new product
@@ -66,6 +75,13 @@ const getProductById = async (req, res) => {
 /**************************************** Controllers - Update Methods ************************************************/
 // Update a Product with a given id - Update Method (put,patch)
 const updateProduct = async (req, res) => {
+    // Checks User's type
+    if (req.body.isManager !== 'manager') {
+        // Prompts error message
+        console.log("You don't have permission to manage product");// TODO Self Debugging
+        return await res.status(400).json({message: "You don't have permission to manage product"});
+    }
+
     // Try to update a product with a given id
     try {
         // Check if productId is within the body request
@@ -96,6 +112,13 @@ const updateProduct = async (req, res) => {
 /**************************************** Controllers - Delete Methods ************************************************/
 // Delete a Product with a given id - Delete method
 const deleteProduct = async (req, res) => {
+    // Checks User's type
+    if (req.body.isManager !== 'manager') {
+        // Prompts error message
+        console.log("You don't have permission to manage product");// TODO Self Debugging
+        return await res.status(400).json({message: "You don't have permission to manage product"});
+    }
+
     // Try to delete a product with a given id
     try {
         // Check if productId is within the body request
