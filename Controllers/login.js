@@ -52,7 +52,7 @@ const logout = async (req, res) => {
         const status = await User.findByIdAndUpdate(req.session.emailAddress, {sessionId: null});
         if (status) {
             req.session.destroy(() => {
-                res.redirect('/loginHome/login');
+                res.redirect('/login');
             });
         } else {
             return await res.status(500).json({message: 'User logging out attempt failed'});
@@ -96,14 +96,14 @@ const login = async (req, res) => {
             // Check status of User Update
             if (status) {
                 // Redirects to the user's profile page after successful login
-                res.redirect('/loginHome/user');
+                res.redirect('/');
             } else {
                 return await res.status(403).json({error: 'User not logged in'});
             }
         } else { // Result is invalid
 
             // Redirect back to the login page with error indicator
-            res.redirect('loginHome/login?error=1');
+            res.redirect('/login?error=1');
         }
     } catch (err) {
         console.log(err); // TODO self-debugging
@@ -139,8 +139,8 @@ const register = async (req, res) => {
             const status = await User.findByIdAndUpdate(req.body.emailAddress, {sessionId});
 
             if (status) {
-                // Redirect the user for his homepage
-                res.redirect('/loginHome/user');
+                // Redirect the user for this homepage
+                res.redirect('/users/login');
             } else {
 
                 // Prompt error message to the client-side
