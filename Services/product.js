@@ -117,6 +117,7 @@ const groupProductsByGenre = async () => {
     ]);
 
     if(groupedProducts){
+        console.log(groupedProducts); // TODO self-debugging
         return groupedProducts;
     }
     else{
