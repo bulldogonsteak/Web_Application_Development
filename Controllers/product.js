@@ -75,7 +75,7 @@ const getProductById = async (req, res) => {
 // Search products based on multiple parameters - GET Methods Handler
 const searchProducts = async (req, res) => {
     // Try to search products
-    try{
+    try {
         // Initialize variables for req query
         const searchParams = req.query;
 
@@ -83,21 +83,43 @@ const searchProducts = async (req, res) => {
         const products = await productService.searchProducts(searchParams);
 
         // If results were found
-        if(products.length > 0) {
+        if (products.length > 0) {
             console.log(products); // TODO self-debugging
             return await res.status(200).json(products);
-        }
-        else{ // No results were found
+        } else { // No results were found
             // Prompts error message
             console.error("No results found"); // TODO self-debugging
-            return await res.status(500).json({error: err.message});
+            return await res.status(500).json({message: "No results found"});
         }
-    }
-    catch (err){ // In any case of an exception
+    } catch (err) { // In any case of an exception
         console.error(err); // TODO self-debugging
         return await res.status(500).json({error: err.message});
     }
-}
+};
+
+
+// Group products by genre and get the count of products in each genre - GET Methods Handler
+const groupProductsByGenre = async (req, res) => {
+    // Try to group by products by genre
+    try {
+
+        // Initialize variable
+        const groupedProducts = await productService.groupProductsByGenre();
+
+        // Check if Products are grouped by with genre parameter
+        if (groupedProducts.length > 0) {
+            console.log(groupedProducts); // TODO self-debugging
+            return await res.status(200).json(groupedProducts);
+        } else { // Group by operation did not occur
+            console.error("No results found");
+            return await res.status(400).json({message: "No results found"});
+        }
+    } catch (err) { // In any case of exception
+        console.error(err); // TODO self-debugging
+        return await res.status(500).json({error: err.message});
+    }
+};
+
 
 /**************************************** Controllers - Update Methods ************************************************/
 // Update a Product with a given id - Update Method (put,patch)
@@ -132,8 +154,6 @@ const updateProduct = async (req, res) => {
         return await res.status(500).json({error: err.message});
     }
 };
-
-
 
 
 /**************************************** Controllers - Delete Methods ************************************************/
@@ -171,6 +191,7 @@ const deleteProduct = async (req, res) => {
     }
 };
 
+
 // Exporting function of this file to the other files to be importing this file
 module.exports = {
     createProduct,
@@ -178,4 +199,6 @@ module.exports = {
     getProductById,
     updateProduct,
     deleteProduct,
+    searchProducts,
+    groupProductsByGenre,
 }

@@ -7,6 +7,7 @@
 const Product = require(`../Models/product.js`);
 const mongoose = require("mongoose");
 const req = require("express/lib/request");
+const res = require("express/lib/response");
 
 
 /******************************************* Services - Post Methods **************************************************/
@@ -73,14 +74,56 @@ const searchProducts = async (searchParams) => {
     // Initialize an empty query res
     const query = {};
 
-    // Cases of search parameters to search
-    if(searchParams.name && searchParams.name.length > 0) { // Search product by name
-        // Insert to query name field
+    // Cases of search parameters to search, define proper fields
+    if(searchParams.name && searchParams.name.length > 0) { // Search products by name
+
+        // Insert to query name field to current regex with indicator flag (i)
         query.name = { $regex: searchParams.name, $options: 'i' };
     }
 
+    if(searchParams.platform && searchParams.platform.length > 0) { // search products by platform
+
+        // Split each word block to an element with the token of ","
+        query.platform = { $in: searchParams.platform.split(',') };
+
+    }
+
+    if(searchParams.genre && searchParams.genre.length > 0) { // Search products by genre
+
+        // Insert genre searchParams to the query.genre field
+        query.genre = searchParams.genre;
+    }
+
+    if(searchParams.minPrice && searchParams.maxPrice) {
+
+        // Iterate from the minPrice to the maxPrice and return the results of the given range prices to iterate
+        query.price = { $gte: parseFloat(searchParams.minPrice), $lte: parseFloat(searchParams.maxPrice) };
+    }
+
+    // Search within the DB all given possibility results and return them to the Controller
+    return await Product.find(query);
+
 }
 
+
+
+// Group products by genre and get the count of products in each genre - GET Methods Handler
+const groupProductsByGenre = async () => {
+
+    // Execute GroupBy operation to divide products by genre,
+    // And pushes each product to the proper subset genre by the value of the product's field
+    const groupedProducts = await Product.aggregate([
+        { $group: { _id: "$genre", products: { $push: "$$ROOT" } } }
+    ]);
+
+    if(groupedProducts){
+        return groupedProducts;
+    }
+    else{
+        console.error('Error in grouping products by genre:'); // TODO self-debugging
+        throw new Error('Error in grouping products by genre');
+    }
+};
 
 /******************************************* Services - Update Methods ************************************************/
 // Update a product by a given id -
@@ -154,4 +197,5 @@ module.exports = { // Export all of this file methods
     getAllProducts,
     updateProduct,
     deleteProduct,
+    searchProducts,
 }
