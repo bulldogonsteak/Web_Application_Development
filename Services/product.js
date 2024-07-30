@@ -199,4 +199,5 @@ module.exports = { // Export all of this file methods
     updateProduct,
     deleteProduct,
     searchProducts,
+    groupProductsByGenre,
 }
