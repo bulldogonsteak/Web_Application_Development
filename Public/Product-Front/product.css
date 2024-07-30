@@ -17,6 +17,7 @@ body {
 }
 
 .topNav {
+    margin-top: 30px;
     position: fixed;
     top: 1;
     height: 70px;
@@ -68,16 +69,6 @@ body {
     color: white;
 }
 
-.TOPnav {
-    height: 50px;
-    position: relative;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-}
-
 .bi-person-circle {
     color: black;
     font-size: 22px;
@@ -100,23 +91,6 @@ body {
 .CartLOGIN i {
     color: white;
     font-size: 24px;
-}
-
-.aTAGS {
-    display: flex;
-    align-items: center;
-    margin-left: 50vh;
-    justify-content: space-around;
-    color: white;
-}
-
-.aTAGS a {
-    display: inline-block;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    padding: 0 60px;
 }
 
 .image-container {
