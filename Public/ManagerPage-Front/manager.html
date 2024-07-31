@@ -71,7 +71,7 @@
             <a href="#" id="showManagerForm">Manager Actions</a>
         </div>
     </div>
-
+    
     <div class="card-container" id="managerActionForm" style="display: none;">
         <h2 id="h2">Manager Action Form</h2>
         <div class="selector">
@@ -92,16 +92,11 @@
             </div>
             <button id="fetchDetailsBtn">Fetch Details</button>
         </div>
-
-        <div id="form-container">
-            <!-- Forms will be dynamically inserted here -->
-        </div>
-
-        <div id="card-container">
+    
+        <div id="CardContainer">
             <!-- Cards will be dynamically inserted here -->
-
-
             <div id="productTemplate" style="display: none;">
+                <h4>All items</h4>
                 <div class="product">
                     <i class="bi bi-dash-circle-fill trash" onclick="removeProduct(this)"></i>
                     <div class="card">
@@ -114,59 +109,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="product">
-                    <i class="bi bi-dash-circle-fill trash" onclick="removeProduct(this)"></i>
-                    <div class="card">
-                        <img src="../Pictures/game4.jpg" id="ItemPIC">
-                        <p class="price">$19.99</p>
-                        <button class="Trash" onclick="removeProduct(this)">Delete</button>
-                        <button class="update">Update</button>
-                        <p>game name</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <i class="bi bi-dash-circle-fill trash" onclick="removeProduct(this)"></i>
-                    <div class="card">
-                        <img src="../Pictures/game1.webp" id="ItemPIC">
-                        <p class="price">$19.99</p>
-                        <button class="Trash" onclick="removeProduct(this)">Delete</button>
-                        <button class="update">Update</button>
-                        <p>game name</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <i class="bi bi-dash-circle-fill trash" onclick="removeProduct(this)"></i>
-                    <div class="card">
-                        <img src="../pictures/game2.jpg" id="ItemPIC">
-                        <p class="price">$19.99</p>
-                        <button class="Trash" onclick="removeProduct(this)">Delete</button>
-                        <button class="update">Update</button>
-                        <p>game name</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <i class="bi bi-dash-circle-fill trash" onclick="removeProduct(this)"></i>
-                    <div class="card">
-                        <img src="../Pictures/game3.jpeg" id="ItemPIC">
-                        <p class="price">$19.99</p>
-                        <button class="Trash" onclick="removeProduct(this)">Delete</button>
-                        <button class="update">Update</button>
-                        <p>game name</p>
-                    </div>
-                </div>
             </div>
         </div>
-
+    
         <div id="form-container">
             <!-- Forms will be dynamically inserted here -->
         </div>
-
-
     </div>
+    
     <div id="confirmation-icon">
         <i class="bi bi-check-circle"></i>
         <h3></h3>
     </div>
+    
 
     <div class="Orders-conatiner">
         <h2>View latest orders</h2>
