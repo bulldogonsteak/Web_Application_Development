@@ -204,7 +204,7 @@ body {
 }
 
 .dropdown-content {
-    display: none;
+    display: none; /* התוכן מוסתר כברירת מחדל */
     position: absolute;
     background-color: #f9f9f9;
     border-radius: 20px;
@@ -225,17 +225,13 @@ body {
     background-color: #f1f1f1;
 }
 
+/* התפריט לא יפתח בעת ריחוף */
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: none; /* התוכן יישאר מוסתר גם בעת ריחוף */
 }
 
 .dropbtn i {
     margin-right: 8px;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: transparent;
-    box-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;
 }
 
 #searchCircle {
@@ -321,270 +317,88 @@ body {
 
 .aTAGS {
     display: flex;
+    justify-content: space-between;
+    color: #1a1a1a;
+}
+
+.container {
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+
+.container #content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-left: 50vh;
-    justify-content: space-around;
-    color: white;
-}
-
-.aTAGS a {
-    display: inline-block;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    padding: 0 60px;
-}
-
-.list-group-numbered {
-    padding-bottom: 20px;
-    border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.886);
+    margin-bottom: 20px;
 }
 
 .card {
-    max-width: 300px;
-    margin: auto;
+    width: 300px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     text-align: center;
-    margin-bottom: 30px;
-    background-color: rgb(33, 33, 33);
 }
 
-.card a {
-    font-size: 20px;
-    color: white;
-}
-
-.price {
-    color: grey;
-    font-size: 22px;
-    padding-top: 10px;
-}
-
-.card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}
-
-.card button:hover {
-    opacity: 0.7;
-}
-
-#ItemPIC {
-    width: auto;
+.card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
 .card p {
-    color: white;
-}
-
-.card a {
-    color: rgb(255, 255, 255);
-}
-
-.trash {
-    color: #f60;
-    cursor: pointer;
-    font-size: 30px;
-    margin-top: 20%;
-    margin-left: 75px;
-}
-
-.trash:hover {
-    color: #ff4800;
-}
-
-.product {
-    display: flex;
-}
-
-.empty-message {
-    text-align: center;
-    font-size: 18px;
-    color: grey;
-    display: flex;
-}
-
-.emptyCart {
-    font-size: 40px;
-    color: white;
-}
-
-#emptyMessage button {
-    background: linear-gradient(to bottom, #ffb20b, #ff4800);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#emptyMessage button:hover {
-    background: linear-gradient(to bottom, #ff4800, #ffb20b);
-}
-
-.rightside {
-    margin-left: 30%;
-    color: white;
-}
-
-#summary {
-    background-color: rgba(52, 52, 52, 0.416);
-    padding: 20px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-    border: 1px solid white;
-    margin: 0 auto;
-}
-
-#summary h2 {
-    margin-bottom: 20px;
-}
-
-.details {
-    margin-bottom: 20px;
-}
-
-.subtotal {
-    display: inline;
-}
-
-.payment-btn {
-    background: linear-gradient(to bottom, #ffb20b, #ff4800);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.payment-card h2 {
-    display: flex;
-    justify-content: center;
-}
-
-.containerForData {
-    display: flex;
-    justify-content: center;
-}
-
-.payment-card {
-    padding: 20px;
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    color: white;
-}
-
-#paymentForm {
-    margin-top: 30px;
-}
-
-.payment-card .form-label {
-    color: white;
-}
-
-.payment-card .form-control {
-    background-color: rgba(52, 52, 52, 0.5);
-    color: white;
-}
-
-.payment-card .btn-primary {
-    background: linear-gradient(to bottom, #ffb20b, #ff4800);
-    border: none;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.or-divider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 10px 0;
 }
 
-.or-divider span {
-    padding: 0 10px;
-}
-
-.or-divider:before,
-.or-divider:after {
-    content: "";
-    display: block;
-    height: 1px;
-    background: white;
-    flex-grow: 1;
-}
-
-.continue-btn {
-    background: none;
-    color: #fff;
+.add-to-cart-button {
+    background-color: #ff4800;
+    color: white;
     border: none;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #ffb20b;
+}
+
+.card-info {
+    font-size: 14px;
+    color: #555;
+}
+
+.order-container {
     width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.continue-btn:hover {
-    color: #ffb20b;
+.order-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff4800;
 }
 
-.continue-btn:before {
-    content: "<";
-    margin-right: 5px;
+.order-item {
+    margin-bottom: 10px;
 }
 
-.row-subtotal {
-    display: flex;
-    justify-content: center;
-    font-size: larger;
-}
-
-.row-subtotal p:first-child {
-    margin-right: 20px;
-}
-
-@media (max-width: 768px) {
-    .tab {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tab button {
-        width: 100%;
-        float: none;
-        margin: 5px 0;
-    }
-
-    .tabcontent-container {
-        width: 100%;
-    }
-
-    .tabcontent {
-        margin-bottom: 20px;
-    }
-
-    .summary {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 350px;
-    }
+.order-item p {
+    margin: 0;
 }
