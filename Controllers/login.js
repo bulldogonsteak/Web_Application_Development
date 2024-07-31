@@ -135,7 +135,10 @@ const register = async (req, res) => {
             req.session.emailAddress = req.body.emailAddress;
 
             // Creates the sessionID for the user
-            const status = await User.findByIdAndUpdate(req.body.emailAddress, {sessionId});
+            const status = await User.findByIdAndUpdate(req.body.emailAddress, {
+                sessionId,
+                isManager: (req.body.isManager === 'on') || "false",
+            });
 
             if (status) {
                 // Redirect the user for his homepage
