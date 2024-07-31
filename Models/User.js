@@ -83,7 +83,7 @@ const userSchema = new Schema({
     },
     isManager:{
             type: String,
-        required: true,
+            default: "false",
     },
     cart:[{ // Array of products objects to order within the cart
         productId: String,

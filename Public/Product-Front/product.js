@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
   //GET request for a product + his comments
+  
   document.addEventListener('DOMContentLoaded', () => {
     // Function to get query parameters from the URL
     function getQueryParam(param) {
