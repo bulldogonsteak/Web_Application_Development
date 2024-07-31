@@ -708,29 +708,120 @@ button:hover {
 
 
 
-
-
-
-
-
 .card {
-    width: 100%;
+    width: 60%;
     max-width: 38rem;
-    max-height: 22rem;
-    border-radius: 12px;
+    border-radius: 20px;
     margin: 10px auto;
-    background-color: #101436;
-}
-
-.trendingTXT {
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent white-gray background */
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
+    overflow: hidden; /* Ensure content does not overflow */
+    backdrop-filter: blur(10px); /* Add blur effect */
+    padding: 0; /* Remove padding from the card */
+    border: 1.5px solid transparent; /* Initial border to maintain layout */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    
 }
 
-#imgCard {
-    object-fit: cover;
+
+.card:hover {
+    border: 1.5px solid orange;
+    box-shadow: 0 0 10px 2px orange; 
+    
+}
+
+#ItemPIC {
     width: 100%;
-    border-radius: 12px;
-    max-width: 38rem;
-    max-height: 22rem;
+    border-radius: 20px 20px 0 0; /* Round top corners of the image */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.fit {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the fit div */
+    width: 100%;
+    padding: 10px; /* Add padding to the content inside the fit div */
+    box-sizing: border-box; /* Include padding in the total width and height */
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+.price,
+.Name {
+    margin: 5px 0; /* Reduce margin to create space between elements */
+    overflow: hidden; /* Ensure text does not overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    white-space: nowrap; /* Keep text in a single line */
+    color: black;
+    font-size: 17px;
+}
+
+/* Style for the delete button within the product card */
+.product .Trash {
+    background-color: #ff8282;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0; /* Reduce margin to create space between elements */
+}
+
+.product .Trash:hover {
+    background-color: #ff1a1a;
+}
+
+/* Style for the delete icon within the product card */
+.product .trash {
+    border: none;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 50px;
+    align-items: center;
+    /* margin: 5px 0; */
+    width: 50px; /* Adjust width and height to be the same */
+    height: 50px;
+    font-size: 1.5rem; /* Make the icon bigger */
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Ensure only these properties animate */
+    box-sizing: border-box; 
+    position: absolute;
+}
+
+.product .trash:hover {
+    color: rgb(255, 140, 0); /* Change icon color */
+    text-shadow: 0 0 5px rgb(255, 185, 46), 0 0 10px rgb(255, 230, 131); /* Glowing effect */
+    /* No changes to width, height, border-radius to prevent moving */
+}
+
+/* Style for the update button within the product card */
+.product .update {
+    background-color: #5488ff;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0; /* Reduce margin to create space between elements */
+}
+
+.product .update:hover {
+    background-color: #0056b3;
+}
+
+.product .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0; /* Remove margin below the image */
 }
