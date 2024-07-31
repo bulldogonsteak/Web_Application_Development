@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Send the request
-        fetch('http://localhost:8088/cart/add', {//////////////////////////////לעדכן
+        fetch('http://localhost:5500/cart/add', {//////////////////////////////לעדכן
             method: 'POST', // Use POST method for sending data
             headers: {
                 'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
-  //GET request for a product+ his comments
+  //GET request for a product + his comments
   document.addEventListener('DOMContentLoaded', () => {
     // Function to get query parameters from the URL
     function getQueryParam(param) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return urlParams.get(param);
     }
 
-    const productId = getQueryParam('id'); // Get the 'id' parameter from the URL
+    const productId = getQueryParam('productId'); // Get the 'id' parameter from the URL
 
     if (productId) {
         loadProduct(productId); // Load the product with the extracted ID
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadProduct(productId) {
-        fetch(`/api/product/${productId}`)
+        fetch(`http://localhost:5500/products/:2`)
             .then(response => response.json())
             .then(data => {
                 // Update product details on the page
@@ -143,44 +143,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-
-
-// ////////////////////////////////////////מוותרים?????????///////////////////////////////////////
-//   //send a request when the "Favorite" button is clicked
-//   document.addEventListener('DOMContentLoaded', () => {
-//     const favoriteButton = document.getElementById('favoriteButton');
-
-//     favoriteButton.addEventListener('click', () => {
-//         // Retrieve product ID and user ID from data attributes
-//         const productId = favoriteButton.getAttribute('data-product-id');
-//         const userId = favoriteButton.getAttribute('data-user-id');
-
-//         // Example URL for your server endpoint
-//         const url = 'http://example.com/api/favorite';
-
-//         // Data to send with the request
-//         const data = {
-//             productId: productId,
-//             userId: userId
-//         };
-
-//         // Send a POST request to the server
-//         fetch(url, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(data)
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//             // Handle the response from the server
-//             console.log('Success:', data);
-//             // Optionally update the button UI or state here
-//         })
-//         .catch((error) => {
-//             console.error('Error:', error);
-//         });
-//     });
-// });

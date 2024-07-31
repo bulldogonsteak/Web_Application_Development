@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
     // Checks if User session's is offline
     if (req.session.emailAddress != null) {
         return next();
-    } else { // The User's session is online
+    } else { // The User's session is offline
         res.redirect('/login'); // Redirecting the req back to the login page
     }
 }
@@ -46,7 +46,6 @@ function registerForm(req, res) {
 
 // Function to log out a User from his personal page
 // Should be synchronous in order to complete the logout procedure until total end of the User's session
-
 const logout = async (req, res) => {
     try {
         const status = await User.findByIdAndUpdate(req.session.emailAddress, {sessionId: null});
@@ -136,7 +135,10 @@ const register = async (req, res) => {
             req.session.emailAddress = req.body.emailAddress;
 
             // Creates the sessionID for the user
-            const status = await User.findByIdAndUpdate(req.body.emailAddress, {sessionId});
+            const status = await User.findByIdAndUpdate(req.body.emailAddress, {
+                sessionId,
+                isManager: (req.body.isManager === 'on') || "false",
+            });
 
             if (status) {
                 // Redirect the user for his homepage
