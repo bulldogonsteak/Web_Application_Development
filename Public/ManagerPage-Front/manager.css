@@ -10,15 +10,13 @@ body {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-
 #GraphCake {
     display: block;
     width: 100%;
     height: auto;
     margin-bottom: 2px;
     border-radius: 60px;
-   padding-bottom: 20px;
-   
+    padding-bottom: 20px;
 }
 
 .ManagerHello-container {
@@ -26,10 +24,12 @@ body {
     padding: 1.25rem;
     display: flex;
 }
+
 h2 {
     margin: 0;
     color: white;
 }
+
 p {
     margin: 0.27rem 0 1.25rem 0;
     font-size: 0.875rem;
@@ -37,8 +37,6 @@ p {
     margin-left: 20px;
     margin-top: -10px;
 }
-
-
 
 .Data-container {
     display: flex;
@@ -63,8 +61,6 @@ p {
     padding: 10px;
     box-sizing: border-box;
 }
-
-
 
 .icon {
     font-size: 2rem;
@@ -92,7 +88,6 @@ p {
     text-align: center;
 }
 
-
 .DataBox i {
     display: flex;
     justify-content: center;
@@ -103,27 +98,27 @@ p {
     text-decoration: none;
     font-size: 24px;
     margin: 10px;
-   
 }
 
 .DataBox .bi-emoji-smile {
     background: linear-gradient(to bottom, rgba(149, 215, 227, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
     color: rgba(0, 193, 231, 0.9);
 }
+
 .DataBox .bi-person-plus-fill {
     background: linear-gradient(to bottom, rgba(227, 155, 149, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
     color: rgb(212, 53, 39);
 }
+
 .DataBox .bi-person-workspace {
     background: linear-gradient(to bottom, rgba(241, 239, 157, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
     color: rgb(228, 179, 46);
 }
+
 .DataBox .bi-bag-check {
     background: linear-gradient(to bottom, rgba(174, 227, 149, 0.826)2%, rgba(255, 255, 255, 0.274)50%);
     color: rgb(97, 210, 45);
 }
-
-
 
 .txt {
     padding-bottom: 30px;
@@ -135,7 +130,6 @@ p {
     grid-template-rows: 7rem  7rem;
     grid-template-columns: auto;
     width: 100%; 
-    
 }
 
 .Add-Item ,.Delete-Item {
@@ -183,12 +177,15 @@ p {
         -1px 1px 0 #fb8500,
         1px 1px 0 #fb8500; 
 }
+
 .Update-Item:hover {
     margin-left: 35%;
 }
+
 .Add-Item:hover {
     margin-right: 35%;
 }
+
 .Delete-Item:hover {
     margin-right: 35%;
 }
@@ -198,15 +195,12 @@ p {
     color: inherit;         /* Inherit color from parent */
 }
 
-
-
 #EMP-pic {
     width: 350px;
     padding: -30px;
     border-radius: 20px;
     box-shadow: 0 0 10px orange, 0 0 20px orange, 0 0 30px orange;
 }
-
 
 .socialMedia {
     display: flex;
@@ -227,25 +221,22 @@ p {
     padding-bottom: 100px;
 }
 
-.Employee-and-Facebook-grid {
-    display:flex;
+.Employee-and-Twitter-grid {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding: 70px; */
-}
-.Employee-and-Facebook-grid h4{
-  color: white;
-  padding-right: 40px;
-  text-align: center;
-  line-height: 2.5rem;
-  transform: skewX(-15deg); 
 }
 
+.Employee-and-Twitter-grid h4 {
+    color: white;
+    padding-right: 40px;
+    text-align: center;
+    line-height: 2.5rem;
+    transform: skewX(-15deg); 
+}
 
-
-
-.facebook-post-section {
+.twitter-post-section {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -254,39 +245,37 @@ p {
     width: 500px;
     max-width: 700px;
     margin: 0 auto;
-    
-  
 }
 
-.facebook-post-section h2 {
+.twitter-post-section h2 {
     margin-bottom: 20px;
     color: #fb8500;
     font-size: 24px;
     text-align: center;
 }
 
-.facebook-post-section .post-input,
-.facebook-post-section .media-upload,
-.facebook-post-section .link-sharing,
-.facebook-post-section .post-preview,
-.facebook-post-section .schedule-options,
-.facebook-post-section .post-actions,
-.facebook-post-section .post-status,
-.facebook-post-section .post-logs {
+.twitter-post-section .post-input,
+.twitter-post-section .media-upload,
+.twitter-post-section .link-sharing,
+.twitter-post-section .post-preview,
+.twitter-post-section .schedule-options,
+.twitter-post-section .post-actions,
+.twitter-post-section .post-status,
+.twitter-post-section .post-logs {
     margin-bottom: 20px;
 }
 
-.facebook-post-section label {
+.twitter-post-section label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
     color: #555;
 }
 
-.facebook-post-section textarea,
-.facebook-post-section input[type="file"],
-.facebook-post-section input[type="url"],
-.facebook-post-section input[type="datetime-local"] {
+.twitter-post-section textarea,
+.twitter-post-section input[type="file"],
+.twitter-post-section input[type="url"],
+.twitter-post-section input[type="datetime-local"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -295,58 +284,55 @@ p {
     box-sizing: border-box;
 }
 
-.facebook-post-section textarea {
+.twitter-post-section textarea {
     height: 100px;
     resize: vertical;
 }
 
-.facebook-post-section button {
+.twitter-post-section button {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #4267B2;
+    background-color: #1DA1F2;
     color: white;
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
 }
 
-.facebook-post-section button:hover {
-    background-color: #365899;
+.twitter-post-section button:hover {
+    background-color: #0d95e8;
 }
 
-.facebook-post-section .post-status,
-.facebook-post-section .post-logs {
+.twitter-post-section .post-status,
+.twitter-post-section .post-logs {
     background-color: rgba(224, 224, 224, 0.379);
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #b1b1b1;
 }
 
-.facebook-post-section .post-status h3,
-.facebook-post-section .post-logs h3 {
+.twitter-post-section .post-status h3,
+.twitter-post-section .post-logs h3 {
     margin-top: 0;
     font-size: 18px;
     color: #333;
 }
 
-.facebook-post-section .post-logs ul {
+.twitter-post-section .post-logs ul {
     list-style: none;
     padding-left: 0;
 }
 
-.facebook-post-section .post-logs ul li {
+.twitter-post-section .post-logs ul li {
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
 }
 
-.facebook-post-section .post-logs ul li:last-child {
+.twitter-post-section .post-logs ul li:last-child {
     border-bottom: none;
 }
-
-
-
 
 .card-container .Card {
     height: 220px;
@@ -402,16 +388,10 @@ p {
 }
 
 .info {
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
-
-/* #ordertxt {
-
-} */
-
-
 
 .card-container {
     max-width: 600px;
@@ -444,25 +424,14 @@ p {
 }
 
 #fetchDetailsBtn {
-    background-color: #4267B2;
+    background-color: #1DA1F2;
     color: white;
     cursor: pointer;
 }
 
 #fetchDetailsBtn:hover {
-    background-color: #365899;
+    background-color: #0d95e8;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .create {
     display: grid;
@@ -530,7 +499,7 @@ button {
     padding: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #4267B2;
+    background-color: #1DA1F2;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -538,7 +507,7 @@ button {
 }
 
 button:hover {
-    background-color: #365899;
+    background-color: #0d95e8;
 }
 
 .product-status,
@@ -558,11 +527,9 @@ button:hover {
     color: #333;
 }
 
-
 #inputContainer {
     display: none;
 }
-
 
 #confirmation-icon {
     display: none;
@@ -571,7 +538,7 @@ button:hover {
 
 #confirmation-icon i {
     color: #fb8500;
-font-size: 80px;
+    font-size: 80px;
     margin-right: 10px;
 }
 
@@ -580,11 +547,9 @@ font-size: 80px;
     margin-left: -15%;
 }
 
-
 .Orders-conatiner {
     margin-top: 10%;
 }
-
 
 .update-products-container {
     max-width: 600px;
@@ -644,14 +609,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-
-
-
-
-
-
-
-
 .card-container {
     max-width: 600px;
     margin: 0 auto;
@@ -683,16 +640,14 @@ button:hover {
 }
 
 #fetchDetailsBtn {
-    background-color: #4267B2;
+    background-color: #1DA1F2;
     color: white;
     cursor: pointer;
 }
 
 #fetchDetailsBtn:hover {
-    background-color: #365899;
+    background-color: #0d95e8;
 }
-
-
 
 .LogOut {
     display: flex;

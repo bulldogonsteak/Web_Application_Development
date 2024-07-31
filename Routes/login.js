@@ -13,7 +13,7 @@ const router = express.Router();
 // Define Routes
 // http://localhost:8088/loginHome
 router.post('/register', loginController.register); // Handle registration
-router.get('/register', loginController.registerForm); // Show register Page
+router.get('/register', loginController.registerForm); // Show register form
 router.post('/login', loginController.login); // Handle login
 router.get('/login', loginController.loginForm); // Show login Home Page
 router.get(`/user/logout`,loginController.logout); // Handle logout

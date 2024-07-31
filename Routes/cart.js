@@ -13,6 +13,7 @@ const loginController = require('../Controllers/login.js'); // Import login Cont
 const router = express.Router();
 
 // Define Routes with Middleware
+//
 router.post('/add',loginController.isLoggedIn,cartController.addToCart);
 router.get('/view', loginController.isLoggedIn ,cartController.viewCart);
 router.post('/checkout', loginController.isLoggedIn,cartController.checkout);

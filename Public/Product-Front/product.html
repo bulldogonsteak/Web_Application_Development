@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product's Page</title>
+    <link rel="icon" href="../Pictures/onlyLogo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -17,21 +18,10 @@
     </div>
 
     <div class="TOPnav">
-        <div class="aTAGS">
-            <a id="trendingTAG" href="trending.html">Trending</a>
-            <a id="aboutUsTAG" href="about.html">About Us</a>
-            <a id="supportTAG" href="support.html">Support</a>
-        </div>
-        <div class="CartLOGIN">
-            <a href="../login - Front/login.html">
-                <i class="bi bi-person-circle"></i>
-            </a>
-
-          
-        </div>
+        <!-- Empty top bar -->
     </div>
-    <nav class="topNav">
 
+    <nav class="topNav">
         <i class="bi bi-display"></i>
         <a id="pcTag">PC</a>
         <i class="bi bi-playstation"></i>
@@ -47,7 +37,6 @@
         </div>
     </nav>
 
-
     <div class="image-container">
         <div class="gradient-overlay"></div>
         <img src="../Pictures/9093.jpg" id="mainPic">
@@ -60,7 +49,7 @@
         <div class="imageOfproduct">
             <img src="../Pictures/ghost-of-tsushima-director-s-cut-pc-game-steam-cover.jpg" alt="Product Image">
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="main-product-id"> <!-- Include the product ID here -->
             <h3 id="product-name" class="product-name">Ghost of Tsushima: Director's Cut</h3>
             <div class="stock">
                 <i class="bi bi-check-lg"></i>
@@ -68,18 +57,12 @@
                 <i class="bi bi-check-lg"></i>
                 <a id="consoleTag">Digital download</a>
             </div>
-          
-
             <p class="product-price">$59.99</p>
             <div class="buttons">
-                <button class="favorite">
-                    <i id="heart" class="bi bi-heart"></i>
-                </button>
                 <button class="cart">
                     <i class="bi bi-cart"></i> Add to cart
                 </button>
             </div>
-
         </div>
     </div>
 
@@ -88,168 +71,18 @@
         <p>Ghost of Tsushima for PC is an award winning action adventure open world game, with a third-person player
             perspective. It is set in ancient feudal Japan, but the issues faced by the protagonist will be easily
             understood by Western, modern players. About the Game The game’s storyline is a 13th-century Japanese epic,
-            with
-            beautiful, detailed scenery including animals (songbirds including golden ones which lead you not-so-subtly
-            when
-            you get lost or distracted, crickets, and foxes which you Ghost of Tsushima for PC is an award winning
-            action
-            adventure open world game, with a third-person player perspective. It is set in ancient feudal Japan, but
-            the
-            issues faced by the protagonist will be easily understood by Western, modern players.</p>
-    </div>
-
-    <div class="UserTags">
-        <p>User tags*:</p>
-        <button type="button" class="btn btn-secondary">ACTION</button>
-        <button type="button" class="btn btn-secondary">OPEN WORLD</button>
-        <button type="button" class="btn btn-secondary">ADVENTURE</button>
-        <button type="button" class="btn btn-secondary">STORY RICH</button>
+            with beautiful, detailed scenery including animals (songbirds including golden ones which lead you not-so-subtly
+            when you get lost or distracted, crickets, and foxes which you Ghost of Tsushima for PC is an award winning
+            action adventure open world game, with a third-person player perspective. It is set in ancient feudal Japan, but
+            the issues faced by the protagonist will be easily understood by Western, modern players.</p>
     </div>
 
     <div class="video-container">
         <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/iqysmS4lxwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <div class="similarProducts">
-        <h3>Similar products</h3>
-        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-            <div class="col">
-                <div class="card" id="clickable-col">
-                    <img src="../Pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg" id="imgCard"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-title">Marvel’s Spider-Man: Miles Morales
-                        <p>
-                        <p class="card-text">$21.09</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg" id="imgCard">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="price">price</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg" id="imgCard"
-                        alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="price">price</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="../Pictures/game3.jpeg" id="imgCard" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="price">price</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="..." id="imgCard" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="price">price</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="..." id="imgCard" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="price">price</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="comments-container">
-        <h3>3 comments</h3>
-        <div class="comments-grid">
-            <div class="comment-card">
-                <div class="user-info">
-                    <i id="logo-user" class="bi bi-person-circle"></i>
-                    <p class="name">John Doe</p>
-                    <p class="card-text">This is a comment about the product. I really enjoyed using it!</p>
-                    <div class="user-rating">
-                        <span>★★★★★</span>
-                    </div>
-                </div>
-                <span class="comment-date">6 days ago</span>
-            </div>
-            <div class="comment-card">
-                <div class="user-info">
-                    <i id="logo-user" class="bi bi-person-circle"></i>
-                    <p class="name">Jane Smith</p>
-                    <p class="card-text">Excellent quality and service! Great product!</p>
-
-                    <div class="user-rating">
-                        <span>★★★★★</span>
-                    </div>
-                </div>
-                <span class="comment-date">4 days ago</span>
-            </div>
-            
-            <div class="comment-card">
-                <div class="user-info">
-                    <i id="logo-user" class="bi bi-person-circle"></i>
-                    <p class="name">Bob Brown</p>
-                    <p class="card-text">Great product! Exceeded my expectations.</p>
-                    <div class="user-rating">
-                        <span>★★★☆☆</span>
-                    </div>                    
-                </div>
-                <span class="comment-date">Yesterday</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="bottomMenu">
-        <div class="item1">
-            <img src="../Pictures/greenStars.png" id="greenstars">
-            <a>TrustScore 4.7 | 710,848 reviews</a>
-        </div>
-        <div class="item2">
-            <a href="#" class="glow-text">Terms of use</a>
-            <a href="#" class="glow-text">Privacy policy</a>
-            <a href="#" class="glow-text">Contact us</a>
-            <div class="item2ICONS1">
-                <i class="bi bi-controller"></i>
-                <a href="#" class="glow-text">Discover new games</a>
-            </div>
-            <div class="item2ICONS2">
-                <i class="bi bi-gift"></i>
-                <a href="#" class="glow-text">Gift cards</a>
-            </div>
-        </div>
-        <div class="item3">
-            <a href="#" class="Dis">
-                <i class="bi bi-discord"></i>
-            </a>
-            <a href="#" class="Insta">
-                <i class="bi bi-instagram"></i>
-            </a>
-            <a href="#" class="facebook">
-                <i class="bi bi-facebook"></i>
-            </a>
-            <a href="#" class="youtube">
-                <i class="bi bi-youtube"></i>
-            </a>
-        </div>
-        <div class="item4">4</div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ksmNf4ER5G2z43tP6pbl5+H1ZTnGnTQTo2T1dxpVbFJ8yU0vHJpt5OgboTpG2nQ8" crossorigin="anonymous"></script>
     <script src="product.js"></script>
-
 </body>
 
 </html>
