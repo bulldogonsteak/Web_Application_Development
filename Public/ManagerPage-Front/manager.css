@@ -636,16 +636,18 @@ button:hover {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 5px; 
 }
 
-#fetchDetailsBtn {
+#fetchDetailsBtn 
+{
     background-color: #1DA1F2;
     color: white;
     cursor: pointer;
 }
 
-#fetchDetailsBtn:hover {
+#fetchDetailsBtn:hover 
+{
     background-color: #0d95e8;
 }
 
