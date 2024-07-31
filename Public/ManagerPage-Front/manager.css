@@ -713,7 +713,7 @@ button:hover {
     max-width: 38rem;
     border-radius: 20px;
     margin: 10px auto;
-    background-color: rgba(255, 255, 255, 0.7); /* Transparent white-gray background */
+    background-color: #02273a45; /* Transparent white-gray background */
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the content horizontally */
@@ -778,28 +778,21 @@ button:hover {
 }
 
 /* Style for the delete icon within the product card */
-.product .trash {
+.product .create {
+    background-color: #4ec870;
     border: none;
-    color: black;
-    border-radius: 50%;
+    color: #fff;
+    border-radius: 4px;
     cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    margin-left: 50px;
-    align-items: center;
-    /* margin: 5px 0; */
-    width: 50px; /* Adjust width and height to be the same */
-    height: 50px;
-    font-size: 1.5rem; /* Make the icon bigger */
-    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Ensure only these properties animate */
-    box-sizing: border-box; 
-    position: absolute;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0; /* Reduce margin to create space between elements */
 }
 
-.product .trash:hover {
-    color: rgb(255, 140, 0); /* Change icon color */
-    text-shadow: 0 0 5px rgb(255, 185, 46), 0 0 10px rgb(255, 230, 131); /* Glowing effect */
-    /* No changes to width, height, border-radius to prevent moving */
+.product .create:hover {
+    background-color: #15e275;
 }
 
 /* Style for the update button within the product card */

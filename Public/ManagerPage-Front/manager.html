@@ -60,12 +60,6 @@
     <div class="card-container" id="managerActionForm" style="display: none;">
         <h2 id="h2">Manager Action Form</h2>
         <div class="selector">
-            <label for="action">Select action:</label>
-            <select id="action">
-                <option value="create">Create</option>
-                <option value="update">Update</option>
-                <option value="delete">Delete</option>
-            </select>
             <label for="type">Select type:</label>
             <select id="type">
                 <option value="customer">Customer</option>
@@ -81,7 +75,6 @@
             <div id="productTemplate" style="display: none;">
                 <h4>All items</h4>
                 <div class="product">
-                    <i class="bi bi-dash-circle-fill trash" onclick="removeProduct(this)"></i>
                     <div class="card">
                         <img src="../Pictures/game5.jpg" id="ItemPIC">
                         <div class="fit">
@@ -95,8 +88,7 @@
                 </div>
             </div>
         </div>
-        <div id="form-container">
-        </div>
+        <div id="form-container"></div>
     </div>
     <div id="confirmation-icon">
         <i class="bi bi-check-circle"></i>

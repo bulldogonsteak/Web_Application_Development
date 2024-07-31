@@ -2,7 +2,7 @@ const forms = {
     customer: `
         <div class="employee-and-customer-grid">
             <div class="customer-form-section">
-                <h2></h2>
+                <h2>Create Customer</h2>
                 <div class="customer-form">
                     <form class="input" id="customer-form" action="/create-customer" method="post">
                         <div class="form-group">
@@ -52,7 +52,7 @@ const forms = {
     product: `
         <div class="employee-and-product-grid">
             <div class="product-form-section">
-                <h2></h2>
+                <h2>Create Product</h2>
                 <div class="product-form">
                     <form class="input" id="product-form" action="/create-product" method="post">
                         <div class="form-group">
@@ -100,7 +100,7 @@ const forms = {
     supplier: `
         <div class="employee-and-supplier-grid">
             <div class="supplier-form-section">
-                <h2></h2>
+                <h2>Create Supplier</h2>
                 <div class="supplier-form">
                     <form class="input" id="supplier-form" action="/create-supplier" method="post">
                         <div class="form-group">
@@ -113,7 +113,7 @@ const forms = {
                         </div>
                         <div class="form-group">
                             <label for="supplier-phone">Phone:</label>
-                            <input type="email" id="supplier-phone" placeholder="Enter supplier phone number">
+                            <input type="text" id="supplier-phone" placeholder="Enter supplier phone number">
                         </div>
                         <div class="form-group">
                             <label for="supplier-address">Address:</label>
@@ -151,29 +151,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fetchDetailsBtn.addEventListener('click', () => {
-        const cardContainer = document.getElementById('CardContainer');
-        const productTemplate = document.getElementById('productTemplate').cloneNode(true);
-        productTemplate.style.display = 'block';
-        cardContainer.appendChild(productTemplate);
+        const type = document.getElementById('type').value;
+        if (type === 'product') {
+            // Show product card template with image
+            const cardContainer = document.getElementById('CardContainer');
+            const productTemplate = document.getElementById('productTemplate').cloneNode(true);
+            productTemplate.style.display = 'block';
+            cardContainer.appendChild(productTemplate);
 
-        productTemplate.querySelector('.update').addEventListener('click', () => {
-            const type = document.getElementById('type').value;
+            productTemplate.querySelector('.update').addEventListener('click', () => {
+                const formHTML = forms[type];
+                formContainer.innerHTML = formHTML;
+                formContainer.style.display = 'block';
+                productTemplate.insertAdjacentElement('afterend', formContainer);
+            });
+
+            productTemplate.querySelector('.create').addEventListener('click', () => {
+                const formHTML = forms.product;
+                formContainer.innerHTML = formHTML;
+                formContainer.style.display = 'block';
+                productTemplate.insertAdjacentElement('afterend', formContainer);
+            });
+
+            productTemplate.querySelector('.Trash').addEventListener('click', () => {
+                // Add your delete logic here
+                cardContainer.removeChild(productTemplate);
+            });
+        } else {
+            // Show form directly for customer and supplier
             const formHTML = forms[type];
             formContainer.innerHTML = formHTML;
             formContainer.style.display = 'block';
-            productTemplate.insertAdjacentElement('afterend', formContainer);
-        });
-
-        productTemplate.querySelector('.create').addEventListener('click', () => {
-            const formHTML = forms.product;
-            formContainer.innerHTML = formHTML;
-            formContainer.style.display = 'block';
-            productTemplate.insertAdjacentElement('afterend', formContainer);
-        });
-
-        productTemplate.querySelector('.trash').addEventListener('click', () => {
-            // Add your delete logic here
-            cardContainer.removeChild(productTemplate);
-        });
+        }
     });
 });
