@@ -1,8 +1,9 @@
 /***********************************************************************************************************************
- *  Server Side - Models - productModel.js
+ *  Server Side - Models - product.js
  *  Product Model Main Schema
  **********************************************************************************************************************/
 
+// Imported Files
 const mongoose = require('mongoose'); // Import mongoose library
 const Schema = mongoose.Schema; // Import mongoose Schema
 
