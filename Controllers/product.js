@@ -6,8 +6,28 @@
 //Imported files
 const productService = require("../Services/product.js"); // Import Services File to product
 const User = require("../Models/User.js");
-
-
+const axios = require('axios');
+// Function to post to Facebook
+const postToFacebook = async (product) => {
+    const pageAccessToken = 'EAAE8Yq17GCABO6bDs4AdjJNFUd1gL63YhxIOZAwvTMV3z0zo7O7XK5qwNm2YONeF0f0YshWnfDgJ95UulSQjlm3I9Q16zMO4EwZBhVLnOau7LT5kDnyZAHZBUBZByNEPMYBIkONxZB80QF8Q2CfvSRGfvKOZB8Uac4SAbvqDGUZCdFFJXbZC1O9abthmjIU3o0FURUsyvJ4FVoU9Y7NKzXpnsfqnz'
+    const pageId = '323031390904629'; 
+   
+    const message = `
+      New Product: ${product.name}
+      Price: $${product.price}
+      Description: ${product.description}
+    `;
+   
+    try {
+      const response = await axios.post(`https://graph.facebook.com/${pageId}/feed`, {
+        message: message,
+        access_token: pageAccessToken
+      });
+      console.log('Successfully posted to Facebook:', response.data.id);
+    } catch (error) {
+      console.error('Error posting to Facebook:', error.response ? error.response.data : error.message);
+    }
+  };
 /**************************************** Controllers - Post Methods **************************************************/
 // Create a product - POST Method Handler
 const createProduct = async (req, res) => {
@@ -27,6 +47,7 @@ const createProduct = async (req, res) => {
             console.error("Product creation failed");// TODO Self Debugging
             return await res.status(400).json({error: "Product creation failed"});
         }
+        postToFacebook(newProduct); 
         // Product successfully saved
         console.log("product was created successfully"); // TODO Self Debugging
         return await res.status(201).json(newProduct);

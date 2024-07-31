@@ -145,11 +145,7 @@ input:checked + .slider .label-off {
     text-decoration: none;
 }
 
-.text #LostPassword {
-    margin-left: 40%;
-    color: white;
-    text-decoration: none;
-}
+
 
 input[type="text"],
 input[type="email"],
