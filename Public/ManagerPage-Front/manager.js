@@ -163,5 +163,17 @@ document.addEventListener('DOMContentLoaded', () => {
             formContainer.style.display = 'block';
             productTemplate.insertAdjacentElement('afterend', formContainer);
         });
+
+        productTemplate.querySelector('.create').addEventListener('click', () => {
+            const formHTML = forms.product;
+            formContainer.innerHTML = formHTML;
+            formContainer.style.display = 'block';
+            productTemplate.insertAdjacentElement('afterend', formContainer);
+        });
+
+        productTemplate.querySelector('.trash').addEventListener('click', () => {
+            // Add your delete logic here
+            cardContainer.removeChild(productTemplate);
+        });
     });
 });
