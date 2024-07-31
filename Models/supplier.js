@@ -9,8 +9,6 @@ const mongoose = require('mongoose'); // Import mongoose library
 const Schema = mongoose.Schema; // Import mongoose Schema
 
 
-
-
 // supplier Model Schema
 const supplierSchema = new Schema({
     _id: { // Override MongoDB _id index
