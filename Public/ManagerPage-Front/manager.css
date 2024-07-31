@@ -636,16 +636,18 @@ button:hover {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 5px; 
 }
 
-#fetchDetailsBtn {
+#fetchDetailsBtn 
+{
     background-color: #1DA1F2;
     color: white;
     cursor: pointer;
 }
 
-#fetchDetailsBtn:hover {
+#fetchDetailsBtn:hover 
+{
     background-color: #0d95e8;
 }
 
@@ -659,4 +661,117 @@ button:hover {
     font-size: 25px;
     margin-top: 20px;
     cursor: pointer;
+}
+
+
+
+.card {
+    width: 60%;
+    max-width: 38rem;
+    border-radius: 20px;
+    margin: 10px auto;
+    background-color: #02273a45; /* Transparent white-gray background */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
+    overflow: hidden; /* Ensure content does not overflow */
+    backdrop-filter: blur(10px); /* Add blur effect */
+    padding: 0; /* Remove padding from the card */
+    border: 1.5px solid transparent; /* Initial border to maintain layout */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    
+}
+
+
+.card:hover {
+    border: 1.5px solid orange;
+    box-shadow: 0 0 10px 2px orange; 
+    
+}
+
+#ItemPIC {
+    width: 100%;
+    border-radius: 20px 20px 0 0; /* Round top corners of the image */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.fit {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the fit div */
+    width: 100%;
+    padding: 10px; /* Add padding to the content inside the fit div */
+    box-sizing: border-box; /* Include padding in the total width and height */
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+.price,
+.Name {
+    margin: 5px 0; /* Reduce margin to create space between elements */
+    overflow: hidden; /* Ensure text does not overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    white-space: nowrap; /* Keep text in a single line */
+    color: black;
+    font-size: 17px;
+}
+
+/* Style for the delete button within the product card */
+.product .Trash {
+    background-color: #ff8282;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0; /* Reduce margin to create space between elements */
+}
+
+.product .Trash:hover {
+    background-color: #ff1a1a;
+}
+
+/* Style for the delete icon within the product card */
+.product .create {
+    background-color: #4ec870;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0; /* Reduce margin to create space between elements */
+}
+
+.product .create:hover {
+    background-color: #15e275;
+}
+
+/* Style for the update button within the product card */
+.product .update {
+    background-color: #5488ff;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0; /* Reduce margin to create space between elements */
+}
+
+.product .update:hover {
+    background-color: #0056b3;
+}
+
+.product .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0; /* Remove margin below the image */
 }

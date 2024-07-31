@@ -38,3 +38,6 @@ const supplierSchema = new Schema({
         required: true,
     },
 })
+
+
+module.exports = mongoose.model("Supplier", supplierSchema); // Export the model to other files (includes DB)

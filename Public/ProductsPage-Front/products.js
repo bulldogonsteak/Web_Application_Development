@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to fetch and display products
     function loadProducts() {
-        fetch('/api/products') // Adjust URL to your server endpoint
+        fetch('http://localhost:5500/products/') // Adjust URL to your server endpoint
             .then(response => response.json())
             .then(data => {
                 // Sort products by release date to get the latest ones
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to handle adding product to cart - POST request
     function addToCart(productId) {
-        fetch('/api/cart', { // Adjust URL to your server endpoint
+        fetch('http://localhost:8088/products', { // Adjust URL to your server endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
