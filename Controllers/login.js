@@ -35,12 +35,12 @@ function CustomerProfiler(req, res) {
 
 // Function to render the loginForm
 function loginForm(req, res) {
-    res.render('loginTest', {});
+    res.render('login', {});
 } // Adjust the name if necessary
 
 // Function to render the registration form
 function registerForm(req, res) {
-    res.render('registerTest', {});
+    res.render('register', {});
 } // Adjust the name if necessary
 
 
@@ -135,7 +135,10 @@ const register = async (req, res) => {
             req.session.emailAddress = req.body.emailAddress;
 
             // Creates the sessionID for the user
-            const status = await User.findByIdAndUpdate(req.body.emailAddress, {sessionId});
+            const status = await User.findByIdAndUpdate(req.body.emailAddress, {
+                sessionId,
+                isManager: (req.body.isManager === 'on'|| req.body.isManager === 'manager') || "false",
+            });
 
             if (status) {
                 // Redirect the user for his homepage

@@ -11,8 +11,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors') // MiddleWare
 const session = require('express-session'); // Import express-session to create session ID
+const path = require('path') // Import path library to adjust views template
 const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
+dotenv.config();
 // Config Environment File path for current process
 require('custom-env').env(process.env.NODE_ENV, './config');
 
@@ -46,7 +48,8 @@ app.use(session({
 
 // app.set
 app.set('view engine', 'ejs') // Set ejs engine in server to insure render functionally
-
+app.set('views', path.join(__dirname, 'views')); // Set ejs templates to the views
+app.use(express.static(path.join(__dirname, 'public'))) // // Serve static files from the "public" directory
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file

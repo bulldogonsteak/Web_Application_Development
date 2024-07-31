@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //////////////////////////////////////////////////////////////////////////////////////////
   
-  //  בקשת עדכון, הוספה ומחיקת מוצר מתבצעת דרך הדף נחיתה של המנהל 
+  //  בקשה לשרת לעדכון, הוספה ומחיקת מוצר מתבצעת דרך הדף נחיתה של המנהל 
   
   //GET request
   document.addEventListener('DOMContentLoaded', () => {
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to fetch and display products
     function loadProducts() {
-        fetch('/api/products') // Adjust URL to your server endpoint //////////////////לעדכן
+        fetch('http://localhost:5500/products/') // Adjust URL to your server endpoint
             .then(response => response.json())
             .then(data => {
                 // Sort products by release date to get the latest ones
@@ -140,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 latestProducts.forEach(product => {
                     const card = document.importNode(cardTemplate, true);
 
+                    // Set image or video based on availability
                     if (product.image) {
                         card.querySelector('.product-image').src = product.image;
                         card.querySelector('.product-image').style.display = 'block';
@@ -153,29 +154,31 @@ document.addEventListener("DOMContentLoaded", function() {
                         card.querySelector('.product-image').style.display = 'none';
                     }
 
+                    // Set product details
                     card.querySelector('.product-name').textContent = product.name;
                     card.querySelector('.price').textContent = `$${product.price}`;
 
                     // Add event listener for "Add to Cart" button
                     card.querySelector('.add-to-cart').addEventListener('click', () => {
-                        addToCart(product.id);
+                        addToCart(product._id); // Use _id for MongoDB unique identifier
                     });
-
+                    card.querySelector('.card').addEventListener('click', () => {
+                        window.location.href = `product.html?id=${product._id}`; // Use _id for MongoDB unique identifier
+                    });
                     cardContainer.appendChild(card);
                 });
             })
             .catch(error => console.error('Error fetching products:', error));
     }
 
-    
     // Function to handle adding product to cart - POST request
     function addToCart(productId) {
-        fetch('/api/cart', { // Adjust URL to your server endpoint
+        fetch('http://localhost:8088/products', { ////////////////////////לשנות
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ productId })
+            body: JSON.stringify({ productId }) // Send the product ID
         })
         .then(response => response.json())
         .then(data => {
@@ -190,3 +193,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     loadProducts(); // Call function to load products when the page loads
 });
+

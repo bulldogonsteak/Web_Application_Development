@@ -1,0 +1,222 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype polyline
+
+class node21 as "..."
+class node50 as "@types/.../index.d.ts"
+class node8 as "Cart - unused/cart.css"
+class node44 as "Cart - unused/cart.html"
+class node30 as "Cart - unused/cart.js"
+class node28 as "Controllers/cart.js" {
+   User: 
+   cartServices: 
+}
+class node43 as "Controllers/login.js" {
+   User: 
+   loginService: 
+}
+class node24 as "Controllers/product.js" {
+   User: 
+   productService: 
+}
+class node61 as "CustomerPage-Front/customer.css"
+class node15 as "CustomerPage-Front/customer.html"
+class node19 as "CustomerPage-Front/customer.js"
+class node27 as "CustomerPage-Front/newcustomer.html"
+class node42 as "Draft_test_for_client_side/product.html"
+class node68 as "Draft_test_for_client_side/product.js"
+class node20 as "MainPage-Front/index.css"
+class node22 as "MainPage-Front/index.html"
+class node16 as "MainPage-Front/index.js"
+class node17 as "ManagerPage-Front/manager.css"
+class node58 as "ManagerPage-Front/manager.html"
+class node65 as "ManagerPage-Front/manager.js"
+class node57 as "Models/User.js" {
+   bcrypt: 
+   mongoose: 
+}
+class node2 as "Models/product.js" {
+   mongoose: 
+}
+class node32 as "Pictures/9093.jpg"
+class node5 as "Pictures/employeen.png"
+class node35 as "Pictures/game1.webp"
+class node12 as "Pictures/game2.jpg"
+class node52 as "Pictures/game3.jpeg"
+class node51 as "Pictures/game4.jpg"
+class node67 as "Pictures/game5.jpg"
+class node14 as "Pictures/game6.avif"
+class node23 as "Pictures/ghost-of-tsushima-director-s-cut-pc-game-steam-cover.jpg"
+class node36 as "Pictures/graphExample.png"
+class node38 as "Pictures/greenStars.png"
+class node54 as "Pictures/logooo.png"
+class node29 as "Pictures/mainPIC.jpg"
+class node64 as "Pictures/manIMG.png"
+class node4 as "Pictures/manIcon.png"
+class node62 as "Pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg"
+class node41 as "Pictures/onlyLogo.png"
+class node48 as "Pictures/socialMedia.png"
+class node7 as "Pictures/צילום מסך 2024-07-02 180528.png"
+class node37 as "Product-Front/product.css"
+class node46 as "Product-Front/product.html"
+class node6 as "Product-Front/product.js"
+class node45 as "ProductsPage-Front/products.css"
+class node47 as "ProductsPage-Front/products.html"
+class node31 as "ProductsPage-Front/products.js"
+class node3 as "RegisterPage/register.css"
+class node9 as "RegisterPage/register.html"
+class node63 as "Routes/cart.js" {
+   cartController: 
+   express: 
+   loginController: 
+}
+class node53 as "Routes/login.js" {
+   express: 
+   loginController: 
+}
+class node49 as "Routes/product.js" {
+   express: 
+   productController: 
+}
+class node25 as "Services/cart.js" {
+   User: 
+   loginServices: 
+   productServices: 
+}
+class node39 as "Services/login.js" {
+   User: 
+   bcrypt: 
+   mongoose: 
+}
+class node26 as "Services/product.js" {
+   Product: 
+   mongoose: 
+}
+class node10 as "bcrypt/bcrypt.js"
+class node11 as "bootstrap-icons.css"
+class node40 as "bootstrap-icons.min.css"
+class node1 as "bootstrap.bundle.min.js"
+class node34 as "bootstrap.min.css"
+class node33 as "game2.jpg"
+class iframe_api
+class node59 as "login - Front/login.css"
+class node55 as "login - Front/login.html"
+class node60 as "login - Front/login.js"
+class node56 as "marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg"
+class mongoose
+class node0 as "product.css"
+class node18 as "product.js"
+
+node44      <-[#595959,plain]-  node8      
+node44      <-[#595959,plain]-  node30     
+node44      <-[#595959,plain]-  node35     
+node44      <-[#595959,plain]-  node52     
+node44      <-[#595959,plain]-  node51     
+node44      <-[#595959,plain]-  node67     
+node44      <-[#595959,plain]-  node54     
+node44      <-[#595959,plain]-  node11     
+node44      <-[#595959,plain]-  node1      
+node44      <-[#595959,plain]-  node34     
+node44      <-[#595959,plain]-  node33     
+node28      <-[#595959,plain]-  node57     
+node28      <-[#595959,plain]-  node25     
+node43      <-[#595959,plain]-  node57     
+node43      <-[#595959,plain]-  node39     
+node24      <-[#595959,plain]-  node57     
+node24      <-[#595959,plain]-  node26     
+node15      <-[#595959,plain]-  node61     
+node15      <-[#595959,plain]-  node19     
+node15      <-[#595959,plain]-  node35     
+node15      <-[#595959,plain]-  node52     
+node15      <-[#595959,plain]-  node51     
+node15      <-[#595959,plain]-  node67     
+node15      <-[#595959,plain]-  node54     
+node15      <-[#595959,plain]-  node4      
+node15      <-[#595959,plain]-  node40     
+node15      <-[#595959,plain]-  node1      
+node15      <-[#595959,plain]-  node34     
+node15      <-[#595959,plain]-  node33     
+node27      <-[#595959,plain]-  node61     
+node27      <-[#595959,plain]-  node19     
+node27      <-[#595959,plain]-  node54     
+node27      <-[#595959,plain]-  node4      
+node27      <-[#595959,plain]-  node40     
+node27      <-[#595959,plain]-  node1      
+node27      <-[#595959,plain]-  node34     
+node42      <-[#595959,plain]-  node68     
+node42      <-[#595959,plain]-  node0      
+node22      <-[#595959,plain]-  node20     
+node22      <-[#595959,plain]-  node16     
+node22      <-[#595959,plain]-  node35     
+node22      <-[#595959,plain]-  node12     
+node22      <-[#595959,plain]-  node52     
+node22      <-[#595959,plain]-  node51     
+node22      <-[#595959,plain]-  node67     
+node22      <-[#595959,plain]-  node14     
+node22      <-[#595959,plain]-  node38     
+node22      <-[#595959,plain]-  node29     
+node22      <-[#595959,plain]-  node64     
+node22      <-[#595959,plain]-  node41     
+node22      <-[#595959,plain]-  node40     
+node22      <-[#595959,plain]-  node34     
+node22      <-[#595959,plain]-  iframe_api 
+node58      <-[#595959,plain]-  node17     
+node58      <-[#595959,plain]-  node65     
+node58      <-[#595959,plain]-  node5      
+node58      <-[#595959,plain]-  node36     
+node58      <-[#595959,plain]-  node41     
+node58      <-[#595959,plain]-  node48     
+node58      <-[#595959,plain]-  node40     
+node58      <-[#595959,plain]-  node34     
+node57      <-[#595959,plain]-  node10     
+node57      <-[#595959,plain]-  mongoose   
+node2       <-[#595959,plain]-  mongoose   
+node46      <-[#595959,plain]-  node21     
+node46      <-[#595959,plain]-  node32     
+node46      <-[#595959,plain]-  node52     
+node46      <-[#595959,plain]-  node23     
+node46      <-[#595959,plain]-  node38     
+node46      <-[#595959,plain]-  node54     
+node46      <-[#595959,plain]-  node62     
+node46      <-[#595959,plain]-  node37     
+node46      <-[#595959,plain]-  node6      
+node46      <-[#595959,plain]-  node40     
+node46      <-[#595959,plain]-  node34     
+node46      <-[#595959,plain]-  node56     
+node47      <-[#595959,plain]-  node54     
+node47      <-[#595959,plain]-  node41     
+node47      <-[#595959,plain]-  node45     
+node47      <-[#595959,plain]-  node31     
+node47      <-[#595959,plain]-  node40     
+node47      <-[#595959,plain]-  node34     
+node9       <-[#595959,plain]-  node54     
+node9       <-[#595959,plain]-  node7      
+node9       <-[#595959,plain]-  node3      
+node9       <-[#595959,plain]-  node11     
+node9       <-[#595959,plain]-  node1      
+node9       <-[#595959,plain]-  node34     
+node63      <-[#595959,plain]-  node50     
+node63      <-[#595959,plain]-  node28     
+node63      <-[#595959,plain]-  node43     
+node53      <-[#595959,plain]-  node50     
+node53      <-[#595959,plain]-  node43     
+node49      <-[#595959,plain]-  node50     
+node49      <-[#595959,plain]-  node24     
+node25      <-[#595959,plain]-  node57     
+node25      <-[#595959,plain]-  node39     
+node25      <-[#595959,plain]-  node26     
+node39      <-[#595959,plain]-  node57     
+node39      <-[#595959,plain]-  node10     
+node39      <-[#595959,plain]-  mongoose   
+node26      <-[#595959,plain]-  mongoose   
+node26      <-[#595959,plain]-  node18     
+node55      <-[#595959,plain]-  node54     
+node55      <-[#595959,plain]-  node7      
+node55      <-[#595959,plain]-  node11     
+node55      <-[#595959,plain]-  node1      
+node55      <-[#595959,plain]-  node34     
+node55      <-[#595959,plain]-  node59     
+node55      <-[#595959,plain]-  node60     
+@enduml

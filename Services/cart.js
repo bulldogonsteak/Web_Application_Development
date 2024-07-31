@@ -10,7 +10,6 @@ const productServices = require("../Services/Product.js");
 const loginServices = require("../Services/login.js");
 
 
-
 /******************************************* Services - Post Methods **************************************************/
 // Function to add a product to the cart with given product id and quantity
 const addToCart = async (emailAddress, productId, quantity) => {
@@ -82,15 +81,26 @@ const checkout = async (emailAddress) => {
 
     // TODO needs to implement payment method
 
+    // Extend product details
+    const userCart = user.populate('cart.productId');
+
+    // Create new order from all cart content
+    const OrderItems = user.cart.map((cartItem) => ({
+        productId: cartItem.productId,
+        name: cartItem.name,
+        price: cartItem.price,
+        quantity: cartItem.quantity,
+        totalPrice: cartItem.totalPrice,
+    }));
+
     // Push items within the cart and calculate total price
-    user.orders.push({items: user.cart});
+    await user.orders.push({items: OrderItems, orderDate: new Date()});
 
     // Empty User's cart
     user.cart = [];
 
     // Update current User's details
     return await user.save();
-
 };
 
 /******************************************* Services - Get Methods ***************************************************/

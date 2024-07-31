@@ -38,9 +38,9 @@
     
             // Gather form data
             const email = document.getElementById('input1').value;
-            const password = document.getElementById('input2').value; 
+            const password = document.getElementById('input2').value;
             const userType = document.getElementById('userType').checked ? 'manager' : 'customer';
-        
+    
             const data = {
                 emailAddress: email,
                 password: password,
@@ -48,7 +48,7 @@
             };
     
             // Send data using fetch
-            fetch('http://localhost:8088/users/login', { // Adjust URL to your server endpoint
+            fetch('http://localhost:8088/loginHome/login', { // Adjust URL to your server endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,7 +60,7 @@
                 console.log('Success:', data);
                 // Handle successful login response
                 if (data.success) {
-                    window.location.href = `http://localhost:8088/customerpage/${data.id}`; // Redirect on successful login
+                    window.location.href = `http://localhost:8088/loginHome/user/`; // Redirect to user-specific page
                 } else {
                     alert('Login failed: ' + data.message);
                 }
@@ -70,6 +70,7 @@
             });
         });
     });
+    
     
 
 
