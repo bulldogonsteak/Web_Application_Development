@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadProduct(productId) {
-        fetch(`http://localhost:5500/products/:2`)
+        fetch(`http://localhost:5500/products/:2`)////////////////////////////////////לשנות
             .then(response => response.json())
             .then(data => {
                 // Update product details on the page
