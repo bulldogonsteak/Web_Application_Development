@@ -12,11 +12,12 @@ const loginController = require('../Controllers/login.js'); // Import login Cont
 // Create Router
 const router = express.Router();
 
-// Define Routes with Middleware
-//
+
+// Define cart routes
 router.post('/add',loginController.isLoggedIn,cartController.addToCart);
 router.get('/view', loginController.isLoggedIn ,cartController.viewCart);
 router.post('/checkout', loginController.isLoggedIn,cartController.checkout);
 router.get('/orders', loginController.isLoggedIn,cartController.viewOrders);
+router.get('/delete', loginController.isLoggedIn, cartController.deleteFromCart);
 
-module.exports = router;
+module.exports = router; // Exports the router to other files

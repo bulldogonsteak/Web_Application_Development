@@ -2,7 +2,7 @@
  *  Server Side - Models - User.js
  *  User Model Main Schema
  **********************************************************************************************************************/
-// Imported files
+
 const mongoose = require('mongoose'); // Import mongoose library
 const Schema = mongoose.Schema; // Import mongoose Schema
 const bcrypt = require("bcrypt"); // Import encryption library for user's password
@@ -24,6 +24,7 @@ const bcrypt = require("bcrypt"); // Import encryption library for user's passwo
  *
  ***/
 const emailRegex = /^[^\s@]+@[^\s@]+\.com$/; // Regex expression to insure email template is inserted
+
 
 
 /***
@@ -72,10 +73,6 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    date: {
-        type: Date,
-        required: true,
-    },
     country: { // The country where the user lives
         type: String, // select from a list of countries
         required: true,
@@ -84,43 +81,36 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    isManager: { // Checks User type: {manager,customer} to grant proper access permissions
-        type: String,
+    isManager:{
+            type: String,
         required: true,
     },
-    cart: [{ // Array of products objects to order within the cart
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: 'Product',
-        quantity: {
+    cart:[{ // Array of products objects to order within the cart
+        productId: String,
+        quantity:{
             type: Number,
             default: 0,
             min: 0,
         },
-        totalPrice: {
-            type: Number,
-            default: 0,
-            min: 0,
-        }
     }],
-    orders: [{ // Array of orders objects to create history of orders of the user
-        orderDate: {
-            type: Date, 
+    orders:[{ // Array of orders objects to create history of orders of the user
+        orderDate:{
+            type: Date,
             default: Date.now,
         },
-        items: [{ // Array of items the user ordered within
-            productId: String,
-            quantity: {
+        items:[{ // Array of items the user ordered within
+            productId:String,
+            quantity:{
                 type: Number,
                 min: 1,
             },
-            totalPrice: {
+            totalPrice:{
                 type: Number,
                 min: 0,
             }
         }]
     }],
-    sessionId: { // User session id within the website
+    sessionId:{ // User session id within the website
         type: String,
         default: null,
     }

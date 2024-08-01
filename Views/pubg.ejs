@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PubG Player Stats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #player-container {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Player Information</h1>
+  <% if (data && data.data && data.data.length > 0) { %>
+    <div id="player-container">
+      <h2>Player: <%= data.data[0].attributes.name %></h2>
+      <p>Last Played: <%= data.data[0].attributes.updatedAt %></p>
+      <!-- ניתן להוסיף פרטים נוספים על השחקן כאן -->
+    </div>
+  <% } else if (error) { %>
+    <div id="player-container">
+      Error: <%= error %>
+    </div>
+  <% } %>
+</body>
+</html>

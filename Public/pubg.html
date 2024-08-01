@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUBG Player Profile Lookup</title>
+  <link rel="stylesheet" href="tttt.css">
+</head>
+<body>
+  <div class="container">
+    <h1>PUBG Player Profile Lookup</h1>
+    <form id="player-form">
+      <label for="playerName">Enter Player Name:</label>
+      <input type="text" id="playerName" name="playerName" required>
+      <button type="submit">Get Profile</button>
+    </form>
+    <div id="player-profile" style="display: none;">
+      <h2>Player Profile: <span id="player-name"></span></h2>
+      <p>Total Matches: <span id="total-matches"></span></p>
+      <p>Wins: <span id="wins"></span></p>
+      <p>Kills: <span id="kills"></span></p>
+    </div>
+  </div>
+
+  <script src="tttt.js"></script>
+</body>
+</html>

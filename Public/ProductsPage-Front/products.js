@@ -21,13 +21,13 @@ function myFunction(textId) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const genres = ["Action", "Adventure", "Arcade", "Multiplayer", "Fantasy", "Racing", "Sports", "Strategy", "Wargame"];
-    const sortBy = ["Bestsellers", "Price: Low to High", "Price: High to Low", "Lowest Rated"];
-    const systems = ["PlayStation 4","PlayStation 5","Xbox One", "Xbox Series X|S", "Nintendo", "PC"];
 
-    populateDropdown("genresDropdown", genres);
+    const sortBy = ["Bestsellers", "Price: Low to High", "Price: High to Low", "Lowest Rated"];
+   
+
+    
     populateDropdown("sortByDropdown", sortBy);
-    populateDropdown("systemsDropdown", systems);
+    
 
     function populateDropdown(dropdownId, items) {
         const dropdownContent = document.getElementById(dropdownId);
