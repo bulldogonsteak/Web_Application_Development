@@ -124,8 +124,8 @@ function continueShopping() {
 
 
 /////////////////////////////////////////////////////////////////////////////////
-
 //send a request when the form is submitted
+
 const paymentForm = document.getElementById('paymentForm');
 if (paymentForm) {
     paymentForm.addEventListener('submit', (event) => {
@@ -171,12 +171,16 @@ if (paymentForm) {
     });
 }
 
+
 // Function to update product stocks
 function updateProductStocks(productIds, quantities) {
     const updates = productIds.map((productId, index) => ({
         productId,
         quantity: -quantities[index] // Decrease stock by the quantity purchased
     }));
+
+    // TODO: realize api route
+    // realize -  remove product from stock
 
     fetch('/api/products/update-stocks', { // Adjust URL to your server endpoint
         method: 'PATCH',
@@ -207,6 +211,8 @@ function updateProductStocks(productIds, quantities) {
 
 // Retrieve order history on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // TODO: realioze api route
+    // get orders history
     fetch('http://localhost:8088/orders', { // Adjust URL to your server endpoint
         method: 'GET',
         headers: {
@@ -292,6 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Function to handle delete operation
+/*
+TODO: is needed ? delete order
 function deleteOrder(orderId) {
     fetch(`http://localhost:8088/orders/${orderId}`, { // Adjust URL to your server endpoint
         method: 'DELETE',
@@ -310,6 +318,7 @@ function deleteOrder(orderId) {
         })
         .catch(error => console.error('Error deleting order:', error));
 }
+        */
 
 // Function to handle update operation
 function updateOrder(orderId) {
@@ -347,6 +356,8 @@ function updateOrder(orderId) {
 
 
 // Function to fetch cart items
+// TODO:  use route
+// get cart products
 function fetchCartItems() {
     fetch('http://localhost:8088/cart', { // Adjust URL to your server endpoint
         method: 'GET',
@@ -402,6 +413,7 @@ function fetchCartItems() {
 }
 
 // Function to add an item to the cart
+// TODO: use the exists route adiel did - change url
 function addToCart(item) {
     fetch('http://localhost:8088/cart', { // Adjust URL to your server endpoint
         method: 'POST',
@@ -419,6 +431,7 @@ function addToCart(item) {
 }
 
 // Function to remove a product from the cart
+// TODO: realize api route 
 function removeProduct(productId) {
     fetch(`http://localhost:8088/cart/${productId}`, { // Adjust URL to your server endpoint
         method: 'DELETE',
@@ -444,8 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// TODO: realize api route
+// realize -  Personal Info (GET Request)
 
-//Fetch Personal Info (GET Request)
+
 function fetchPersonalInfo() {
     fetch('http://localhost:8088/user/profile', {
         method: 'GET',
@@ -465,8 +480,9 @@ function fetchPersonalInfo() {
 
 
 
+// TODO: realize api route
+// realize -  Update Personal Info (PUT Request)
 
-//Update Personal Info (PUT Request)
 document.getElementById('personalInfoForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -501,7 +517,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//Send a Logout Request to the Server
+
+
+// TODO: realize api route
+// realize -  Send a Logout Request to the Server
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Add an event listener to the logout icon
     document.getElementById('logoutIcon').addEventListener('click', () => {
@@ -524,37 +545,3 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error during logout:', error));
     });
 });
-
-
-
-
-//a request to log out
-document.addEventListener('DOMContentLoaded', () => {
-    const logoutIcon = document.querySelector('.LogOut');
-
-    logoutIcon.addEventListener('click', () => {
-        fetch('http://localhost:8088/loginHome//user/logout', {  // Change '/logout' to your actual logout endpoint
-            method: 'GET', // Use POST or GET based on your server's requirements
-            headers: {
-                'Content-Type': 'application/json',
-                // Add any required headers here, like authentication tokens
-            },
-            credentials: 'include', // Ensure cookies (if any) are included in the request
-        })
-            .then(response => {
-                if (response.ok) {
-                    // Handle successful logout
-                    alert('Logged out successfully');
-                    window.location.href = '/login'; // Redirect to login page or another page
-                } else {
-                    // Handle logout failure
-                    alert('Logout failed');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred');
-            });
-    });
-});
-

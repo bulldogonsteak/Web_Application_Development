@@ -40,7 +40,7 @@ function loginForm(req, res) {
 
 // Function to render the registration form
 function registerForm(req, res) {
-    res.render('register', {});
+    res.render('registerTest', {});
 } // Adjust the name if necessary
 
 
