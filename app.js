@@ -50,8 +50,6 @@ app.set('view engine', 'ejs') // Set ejs engine in server to insure render funct
 app.set('Views', path.join(__dirname, 'Views')); // Set ejs templates to the views
 app.use(express.static(path.join(__dirname,'Public')));
 
-const homePage = require("/Public/MainPage-Front/index.html")
-app.get("/", await redirect(homePage));
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file
