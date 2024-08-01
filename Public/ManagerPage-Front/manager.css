@@ -221,14 +221,14 @@ p {
     padding-bottom: 100px;
 }
 
-.Employee-and-Twitter-grid {
+.Employee-and-Facebook-grid {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.Employee-and-Twitter-grid h4 {
+.Employee-and-Facebook-grid h4 {
     color: white;
     padding-right: 40px;
     text-align: center;
@@ -236,7 +236,7 @@ p {
     transform: skewX(-15deg); 
 }
 
-.twitter-post-section {
+.Facebook-post-section {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -247,35 +247,35 @@ p {
     margin: 0 auto;
 }
 
-.twitter-post-section h2 {
+.Facebook-post-section h2 {
     margin-bottom: 20px;
     color: #fb8500;
     font-size: 24px;
     text-align: center;
 }
 
-.twitter-post-section .post-input,
-.twitter-post-section .media-upload,
-.twitter-post-section .link-sharing,
-.twitter-post-section .post-preview,
-.twitter-post-section .schedule-options,
-.twitter-post-section .post-actions,
-.twitter-post-section .post-status,
-.twitter-post-section .post-logs {
+.Facebook-post-section .post-input,
+.Facebook-post-section .media-upload,
+.Facebook-post-section .link-sharing,
+.Facebook-post-section .post-preview,
+.Facebook-post-section .schedule-options,
+.Facebook-post-section .post-actions,
+.Facebook-post-section .post-status,
+.Facebook-post-section .post-logs {
     margin-bottom: 20px;
 }
 
-.twitter-post-section label {
+.Facebook-post-section label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
     color: #555;
 }
 
-.twitter-post-section textarea,
-.twitter-post-section input[type="file"],
-.twitter-post-section input[type="url"],
-.twitter-post-section input[type="datetime-local"] {
+.Facebook-post-section textarea,
+.Facebook-post-section input[type="file"],
+.Facebook-post-section input[type="url"],
+.Facebook-post-section input[type="datetime-local"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -284,12 +284,12 @@ p {
     box-sizing: border-box;
 }
 
-.twitter-post-section textarea {
+.Facebook-post-section textarea {
     height: 100px;
     resize: vertical;
 }
 
-.twitter-post-section button {
+.Facebook-post-section button {
     width: 100%;
     padding: 15px;
     border: none;
@@ -301,36 +301,36 @@ p {
     margin-top: 10px;
 }
 
-.twitter-post-section button:hover {
+.Facebook-post-section button:hover {
     background-color: #0d95e8;
 }
 
-.twitter-post-section .post-status,
-.twitter-post-section .post-logs {
+.Facebook-post-section .post-status,
+.Facebook-post-section .post-logs {
     background-color: rgba(224, 224, 224, 0.379);
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #b1b1b1;
 }
 
-.twitter-post-section .post-status h3,
-.twitter-post-section .post-logs h3 {
+.Facebook-post-section .post-status h3,
+.Facebook-post-section .post-logs h3 {
     margin-top: 0;
     font-size: 18px;
     color: #333;
 }
 
-.twitter-post-section .post-logs ul {
+.Facebook-post-section .post-logs ul {
     list-style: none;
     padding-left: 0;
 }
 
-.twitter-post-section .post-logs ul li {
+.Facebook-post-section .post-logs ul li {
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
 }
 
-.twitter-post-section .post-logs ul li:last-child {
+.Facebook-post-section .post-logs ul li:last-child {
     border-bottom: none;
 }
 
