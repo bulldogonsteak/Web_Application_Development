@@ -5,4 +5,4 @@ Adiel Oved
 Ortal Nisim
 Adi Amar & 
 Lian Hershkovits
-We are computer science students at the College of Management in Israel, and this is our final project.
+We are computer science students at the College of Management, and this is our final project.
