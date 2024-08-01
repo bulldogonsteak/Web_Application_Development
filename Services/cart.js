@@ -203,7 +203,7 @@ const deleteFromCart = async (emailAddress, productId) => {
     const cartItemIndex = user.cart.findIndex(item => item.productId.toString() === productId);
 
     // If the product is not found
-    if(cartItemIndex === -1) {
+    if (cartItemIndex === -1) {
         console.error(`Product with productId ${productId} does not exist in the cart`);
         throw new Error(`Product with productId ${productId} does not exist in the cart`);
     }
@@ -214,17 +214,18 @@ const deleteFromCart = async (emailAddress, productId) => {
     // Increase the product stock
     product.stock += cartItem.quantity;
 
+    const NUM_OF_ITEMS = 1;
     // Remove the product from the cart
-    user.cart.splice(cartItemIndex, 1);
+    user.cart.splice(cartItemIndex, NUM_OF_ITEMS);
 
     // Update the current product data details
-    await product.save();
-
     // Save the updated user data
-    return await user.save();
+    return {
+        'finalProduct': await product.save(),
+        'finalUser': await user.save()
+    };
+
 }
-
-
 /******************************************* Services - Update Methods ************************************************/
 
 // Function to update a new product to the
@@ -234,4 +235,4 @@ module.exports = {
     viewCart,
     viewOrders,
     deleteFromCart,
-}
+};
