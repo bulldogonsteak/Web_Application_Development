@@ -30,17 +30,22 @@
         </div>
     </div>
 
+    <div class="TOPnav">
+        <div class="CartLOGIN">
+            <a href="../login - Front/login.html" class="icon-link">
+                <i class="bi bi-person-circle"></i>
+            </a>
+        </div>
+    </div>
     <nav class="topNav">
-        <% platforms.forEach(platform => { %>
         <div class="dropdown">
-            <button class="dropbtn"><i class="bi bi-<%= platform.icon %>"></i> <%= platform.name %></button>
+            <button class="dropbtn"><i class="bi bi-display"></i> PC</button>
             <div class="dropdown-content">
-                <% platform.games.forEach(game => { %>
-                <a href="<%= game.url %>"><%= game.name %></a>
-                <% }); %>
+                <a href="http://example.com/pc/game1">Game 1</a>
+                <a href="http://example.com/pc/game2">Game 2</a>
+                <a href="http://example.com/pc/game3">Game 3</a>
             </div>
         </div>
-        <% }); %>
 
         <div class="search-container">
             <div class="search-icon">

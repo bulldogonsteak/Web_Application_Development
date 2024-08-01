@@ -431,7 +431,7 @@ function addToCart(item) {
 }
 
 // Function to remove a product from the cart
-// TODO: realize api route 
+// TODO: use
 function removeProduct(productId) {
     fetch(`http://localhost:8088/cart/${productId}`, { // Adjust URL to your server endpoint
         method: 'DELETE',
@@ -519,8 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// TODO: realize api route
-// realize -  Send a Logout Request to the Server
+// TODO:use
+// use -  Send a Logout Request to the Server
 
 
 document.addEventListener('DOMContentLoaded', () => {

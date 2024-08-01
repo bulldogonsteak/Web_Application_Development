@@ -45,8 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
   for (let card of cards) {
     const img = card.querySelector('.image_container .card-img');
     const productId = img.getAttribute('id');
+    console.log("product id in cards: " + productId);
       card.addEventListener('click', function () {
-          window.location.href = '../Product-Front/product.html?productId=${productId}';  // Replace with the actual path to your product page
+          window.location.href = `../Product-Front/product.html?productId=${productId}`;  // Replace with the actual path to your product page
       });
   }
 });

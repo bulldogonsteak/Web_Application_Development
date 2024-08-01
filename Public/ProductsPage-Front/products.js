@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
             price: '$19.99',
         },
         {
-            imgSrc: '../Pictures/game2.jpg',
+            imgSrc: '../pictures/Elden Ring.jpg',
             videoSrc: '../Videos/elden-ring-VIDEO.webm',
             name: 'Cool Shirt',
             price: '$29.99',
         },
         {
-            imgSrc: '../Pictures/game3.jpeg',
+            imgSrc: '../Pictures/Destiny 2.jpeg',
             videoSrc: '../Videos/destiny-2-VIDEO.webm',
             name: 'Cool Shirt',
             price: '$29.99',
