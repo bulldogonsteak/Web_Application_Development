@@ -67,11 +67,6 @@ app.use('/products', productRoutes);
 const loginRoutes = require('./Routes/login.js');
 app.use('/loginHome',loginRoutes);
 
-//added
-const pubgRoutes = require('./Routes/pubgRoutes');
-
-app.use('/api/pubg', pubgRoutes);
-///////////
 
 // Main Server Listening Port
 app.listen(process.env.PORT, () => {
