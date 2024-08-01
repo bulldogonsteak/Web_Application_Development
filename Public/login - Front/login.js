@@ -1,12 +1,15 @@
     document.getElementById('loginForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the form from submitting normally
         const userType = document.getElementById('userType').checked;
+        console.log("In listener login");
 
         if (userType) {
             // If "I am a manager" is checked, redirect to the manager landing page
+            console.log("Manager");
             window.location.href = '../ManagerPage-Front/manager.html';
         } else {
             // If "I am a customer" is checked, redirect to the customer landing page
+            console.log("Customer");
             window.location.href = '../CustomerPage-Front/customer.html';
         }
     });

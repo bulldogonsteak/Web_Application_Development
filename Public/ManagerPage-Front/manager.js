@@ -240,11 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 ///////////////////////////////////////////////////////////////////////////
+// TODO: realize api route
+// realize -  Logout Request
 
-//Logout Request
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.LogOut').addEventListener('click', () => {
-        fetch('http://localhost:8088/logout', {
+        fetch('http://localhost:5500/logout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -264,7 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//update, create, remove requests - manager actions
+// TODO: realize api route
+// realize -  update, create, remove requests - manager actions
+
 function attachFormSubmitListener(action, type) {
     const formId = `${type}-form`;
     const form = document.getElementById(formId);
@@ -321,10 +324,11 @@ function attachFormSubmitListener(action, type) {
 
 
 
-
+// TODO: realize api route
+// realize -  get the latest orders (GET Request)
 
 //request to the server
-//get the latest orders (GET Request)
+
 function fetchLatestOrders() {
     fetch('https://api.yourwebsite.com/latest-orders') // Replace with your actual API endpoint
         .then(response => response.json())
@@ -337,8 +341,9 @@ function fetchLatestOrders() {
 
 
 
-//request to the server
-//update the latest orders (PUT Request)
+// TODO: realize api route
+// realize -  update the latest orders (PUT Request)
+
 function updateOrder(orderId, updatedData) {
     fetch(`https://api.yourwebsite.com/orders/${orderId}`, { // Replace with your API endpoint
         method: 'PUT',
@@ -356,7 +361,10 @@ function updateOrder(orderId, updatedData) {
 }
 
 
-// Function to update the UI with the fetched data
+
+// TODO: realize api route
+// realize - Function to update the UI with the fetched data
+
 function updateOrderCards(orders) {
     const cardContainer = document.querySelector('.card-container');
 
