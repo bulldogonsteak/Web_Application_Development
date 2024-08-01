@@ -14,7 +14,6 @@ const session = require('express-session'); // Import express-session to create 
 const path = require('path') // Import path library to adjust views template
 const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
-dotenv.config();
 // Config Environment File path for current process
 require('custom-env').env(process.env.NODE_ENV, './config');
 
@@ -34,6 +33,7 @@ mongoose.connect(process.env.CONNECTION_STRING, { // Mongoose Connection is sett
 const app = express();
 console.log("Server Created")
 
+
 // Create sessions within the server
 app.use(session({
     secret: 'foo', // sign the session ID cookie
@@ -47,11 +47,7 @@ app.use(session({
 
 // app.set
 app.set('view engine', 'ejs') // Set ejs engine in server to insure render functionally
-app.set('Views', path.join(__dirname, 'Views')); // Set ejs templates to the views
-app.use(express.static(path.join(__dirname,'Public')));
-
-const homePage = require("/Public/MainPage-Front/index.html")
-app.get("/", await redirect(homePage));
+app.set('views', path.join(__dirname, 'views'));
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file
@@ -62,16 +58,11 @@ app.use(express.urlencoded({extended: false})); // use URL-ENCODED for define ke
 
 // Set Object Routes
 const productRoutes = require('./Routes/product.js');
-app.use('/products', productRoutes);
+app.get('/products', productRoutes);
 
 const loginRoutes = require('./Routes/login.js');
 app.use('/loginHome',loginRoutes);
 
-//added
-const pubgRoutes = require('./Routes/pubgRoutes');
-
-app.use('/api/pubg', pubgRoutes);
-///////////
 
 // Main Server Listening Port
 app.listen(process.env.PORT, () => {

@@ -17,7 +17,6 @@ const router = express.Router();
 router.post('/add',loginController.isLoggedIn,cartController.addToCart);
 router.get('/view', loginController.isLoggedIn ,cartController.viewCart);
 router.post('/checkout', loginController.isLoggedIn,cartController.checkout);
-router.get('/orders', loginController.isLoggedIn,cartController.viewOrders);
-router.get('/delete', loginController.isLoggedIn, cartController.deleteFromCart);
+router.delete('/delete', loginController.isLoggedIn, cartController.deleteFromCart);
 
 module.exports = router; // Exports the router to other files
