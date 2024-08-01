@@ -132,10 +132,10 @@ const deleteFromCart = async (req, res) => {
         }
 
         // Delete the product from the cart
-        const status = await cartServices.deleteFromCart(emailAddress, productId);
+        const { finalProduct,  finalUser } = await cartServices.deleteFromCart(emailAddress, productId);
 
         // Check operation status
-        if(status){
+        if(finalProduct && finalUser){
             // In case of successful operation
             console.log("Product successfully deleted from cart"); // TODO self-Debugging
             return await res.status(200).json({message: "Product successfully deleted from cart"});
