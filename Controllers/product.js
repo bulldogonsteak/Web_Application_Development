@@ -7,6 +7,8 @@
 const productService = require("../Services/product.js"); // Import Services File to product
 const User = require("../Models/User.js");
 const axios = require('axios');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 // Function to post to Facebook
 const postToFacebook = async (product) => {
