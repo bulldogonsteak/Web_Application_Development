@@ -1,38 +1,21 @@
-const express = require('express');
-const fetch = require('node-fetch');
-const path = require('path');
-
-const app = express();
-const port = 3000;
-const apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhMmVjMjFiMC0zMjExLTAxM2QtOWU3Yy0zYTQyODlkMDMzMDgiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNzIyNTAyNDkwLCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6ImNvbnNvbGVjYXN0bGUifQ.HSktfr5-vJCQqNe_0imkSZI8kCfKdzYnRadGUf27U9k';
-
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-
-app.get('/', async (req, res) => {
-  const playerName = 'sample_player';
-  const url = `https://api.pubg.com/shards/pc-na/players?filter[playerNames]=${playerName}`;
-
+const fetchPlayerStats = async (playerName) => {
   try {
-    const response = await fetch(url, {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Accept': 'application/vnd.api+json'
-      }
-    });
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
+    const response = await fetch(`/api/pubg/player/${playerName}`);
     const data = await response.json();
-    res.render('index', { data });
+    displayPlayerStats(data);
   } catch (error) {
-    console.error('There was a problem with the fetch operation:', error);
-    res.render('index', { data: null, error: error.message });
+    console.error('Error fetching player stats:', error);
   }
-});
+};
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+const displayPlayerStats = (data) => {
+  const statsDiv = document.getElementById('playerStats');
+  statsDiv.innerHTML = JSON.stringify(data, null, 2); // עדכני את זה כדי לעצב ולהציג את הנתונים כפי שנדרש
+};
+
+document.getElementById('fetchStats').addEventListener('click', () => {
+  const playerName = document.getElementById('playerName').value;
+  if (playerName) {
+    fetchPlayerStats(playerName);
+  }
 });
