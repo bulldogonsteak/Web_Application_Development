@@ -265,8 +265,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// TODO: realize api route
-// realize -  update, create, remove requests - manager actions
+// TODO: use
+// use -  update, create, remove requests - manager actions
 
 function attachFormSubmitListener(action, type) {
     const formId = `${type}-form`;

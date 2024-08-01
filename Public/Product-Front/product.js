@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const productId = getQueryParam('productId'); // Get the 'id' parameter from the URL
+    console.log("productID in html: " + productId);  // Output the productId
 
     if (productId) {
         loadProduct(productId); // Load the product with the extracted ID
@@ -72,13 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadProduct(productId) {
-        fetch(`http://localhost:5500/products/:2`)// ${productId} ////////////////////////////////////לשנות
+        fetch(`http://localhost:5500/products/${productId}`)// ${productId} ////////////////////////////////////לשנות
             .then(response => response.json())
             .then(data => {
                 // Update product details on the page
                 document.querySelector('.product-name').textContent = data.name;
                 document.querySelector('.product-price').textContent = `$${data.price}`;
-                document.querySelector('.imageOfproduct img').src = data.image;
+                document.querySelector('.imageOfproduct img').src = `../Pictures/${data.name}.jpg`;
                 document.querySelector('.Description p').textContent = data.description;
 
                 // Update main image
