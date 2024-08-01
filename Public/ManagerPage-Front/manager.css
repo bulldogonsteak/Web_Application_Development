@@ -235,7 +235,7 @@ p {
     line-height: 2.5rem;
     transform: skewX(-15deg); 
 }
-
+/* 
 .Facebook-post-section {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -245,7 +245,7 @@ p {
     width: 500px;
     max-width: 700px;
     margin: 0 auto;
-}
+} */
 
 .Facebook-post-section h2 {
     margin-bottom: 20px;
@@ -774,4 +774,38 @@ button:hover {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 0; /* Remove margin below the image */
+}
+
+
+
+.fb-button {
+    display: inline-block;
+    padding: 15px 30px; /* Increased padding */
+    font-size: 30px; /* Increased font size */
+    font-weight: bold;
+    color: #fff;
+    background-color: #3b5998;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.fb-button:hover {
+    background-color: #2d4373;
+}
+
+.fb-button:active {
+    background-color: #1d2d50;
+}
+
+
+
+.Facebook-post-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+
 }
