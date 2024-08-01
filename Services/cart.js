@@ -6,7 +6,7 @@
 // Imported Files
 const User = require("../Models/User.js"); // Import user Model file for User's cart field
 // const Product = require("../Models/Product.js"); // Import Product Model file for accessing products fields
-const productServices = require("../Services/Product.js");
+const productServices = require("../Services/product.js");
 const loginServices = require("../Services/login.js");
 
 
