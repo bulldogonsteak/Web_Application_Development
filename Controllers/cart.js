@@ -132,7 +132,7 @@ const deleteFromCart = async (req, res) => {
         }
 
         // Delete the product from the cart
-        const status = await cartServices.deleteFromCart(emailAddress, productId);
+        const {, } = await cartServices.deleteFromCart(emailAddress, productId);
 
         // Check operation status
         if(status){
