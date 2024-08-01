@@ -19,5 +19,6 @@ router.get('/login', loginController.loginForm); // Show login Home Page
 router.get(`/user/logout`,loginController.logout); // Handle logout
 router.get(`/user`, loginController.isLoggedIn, loginController.foo); // Main page or profile page
 
+// router.get('/home', )
 
 module.exports = router; // Export the login.js router
