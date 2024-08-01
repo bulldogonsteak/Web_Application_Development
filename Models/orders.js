@@ -10,5 +10,5 @@ const Schema = mongoose.Schema; // Import mongoose Schema
 
 // Order Model Schema
 const orderSchema = new Schema({
-
+        
 })
