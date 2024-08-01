@@ -6,7 +6,7 @@
     // Imported Files
 const express = require('express'); // Import express Library
 const loginController = require('../Controllers/login.js');
-
+const cartRouter = require('./cart.js');
 // Create router
 const router = express.Router();
 
@@ -18,7 +18,6 @@ router.post('/login', loginController.login); // Handle login
 router.get('/login', loginController.loginForm); // Show login Home Page
 router.get(`/user/logout`,loginController.logout); // Handle logout
 router.get(`/user`, loginController.isLoggedIn, loginController.foo); // Main page or profile page
-
-// router.get('/home', )
+router.use(`/cart`, cartRouter);
 
 module.exports = router; // Export the login.js router

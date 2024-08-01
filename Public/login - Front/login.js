@@ -52,8 +52,12 @@
             };
     
             // Send data using fetch
+<<<<<<< Updated upstream
             fetch('http://localhost:8088/loginHome/login', 
                 { // Adjust URL to your server endpoint
+=======
+            fetch('http://localhost:5500/loginHome/login', { // Adjust URL to your server endpoint
+>>>>>>> Stashed changes
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -65,7 +69,7 @@
                 console.log('Success:', data);
                 // Handle successful login response
                 if (data.success) {
-                    window.location.href = `http://localhost:8088/loginHome/user/`; // Redirect to user-specific page
+                    window.location.href = `http://localhost:5500/loginHome/user/`; // Redirect to user-specific page
                 } else {
                     alert('Login failed: ' + data.message);
                 }

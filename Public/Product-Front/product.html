@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product's Page</title>
-    <link rel="icon" href="../Pictures/onlyLogo.png">
+    <title>Product Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -18,9 +17,17 @@
     </div>
 
     <div class="TOPnav">
-        <!-- Empty top bar -->
+        <div class="aTAGS">
+            <a id="trendingTAG" href="trending.html">Trending</a>
+            <a id="aboutUsTAG" href="about.html">About Us</a>
+            <a id="supportTAG" href="support.html">Support</a>
+        </div>
+        <div class="CartLOGIN">
+            <a href="../login - Front/login.html">
+                <i class="bi bi-person-circle"></i>
+            </a>
+        </div>
     </div>
-
     <nav class="topNav">
         <i class="bi bi-display"></i>
         <a id="pcTag">PC</a>
@@ -77,8 +84,152 @@
             the issues faced by the protagonist will be easily understood by Western, modern players.</p>
     </div>
 
+    <div class="UserTags">
+        <p>User tags*:</p>
+        <button type="button" class="btn btn-secondary">ACTION</button>
+        <button type="button" class="btn btn-secondary">OPEN WORLD</button>
+        <button type="button" class="btn btn-secondary">ADVENTURE</button>
+        <button type="button" class="btn btn-secondary">STORY RICH</button>
+    </div>
+
     <div class="video-container">
         <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/iqysmS4lxwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="similarProducts">
+        <h3>Similar products</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+            <div class="col">
+                <div class="card" data-id="similar-product-id-1"> <!-- Include the product ID here -->
+                    <img src="../Pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg" id="imgCard" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">Marvel’s Spider-Man: Miles Morales</p>
+                        <p class="card-text">$21.09</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" data-id="similar-product-id-2"> <!-- Include the product ID here -->
+                    <img src="pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg" id="imgCard">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="price">price</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" data-id="similar-product-id-3"> <!-- Include the product ID here -->
+                    <img src="pictures/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg" id="imgCard" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="price">price</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" data-id="similar-product-id-4"> <!-- Include the product ID here -->
+                    <img src="../Pictures/Destiny 2.jpeg" id="imgCard" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="price">price</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" data-id="similar-product-id-5"> <!-- Include the product ID here -->
+                    <img src="..." id="imgCard" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="price">price</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" data-id="similar-product-id-6"> <!-- Include the product ID here -->
+                    <img src="..." id="imgCard" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="price">price</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comments-container">
+        <h3>3 comments</h3>
+        <div class="comments-grid">
+            <div class="comment-card">
+                <div class="user-info">
+                    <i id="logo-user" class="bi bi-person-circle"></i>
+                    <p class="name">John Doe</p>
+                    <p class="card-text">This is a comment about the product. I really enjoyed using it!</p>
+                    <div class="user-rating">
+                        <span>★★★★★</span>
+                    </div>
+                </div>
+                <span class="comment-date">6 days ago</span>
+            </div>
+            <div class="comment-card">
+                <div class="user-info">
+                    <i id="logo-user" class="bi bi-person-circle"></i>
+                    <p class="name">Jane Smith</p>
+                    <p class="card-text">Excellent quality and service! Great product!</p>
+                    <div class="user-rating">
+                        <span>★★★★☆</span>
+                    </div>
+                </div>
+                <span class="comment-date">1 week ago</span>
+            </div>
+            <div class="comment-card">
+                <div class="user-info">
+                    <i id="logo-user" class="bi bi-person-circle"></i>
+                    <p class="name">Alex Johnson</p>
+                    <p class="card-text">Not bad, but there are some improvements needed.</p>
+                    <div class="user-rating">
+                        <span>★★★☆☆</span>
+                    </div>
+                </div>
+                <span class="comment-date">2 weeks ago</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottomMenu">
+        <div class="item1">
+            <img src="../Pictures/greenStars.png" id="greenstars">
+            <a>TrustScore 4.7 | 710,848 reviews</a>
+        </div>
+        <div class="item2">
+            <a href="#" class="glow-text">Terms of use</a>
+            <a href="#" class="glow-text">Privacy policy</a>
+            <a href="#" class="glow-text">Contact us</a>
+            <div class="item2ICONS1">
+                <i class="bi bi-controller"></i>
+                <a href="#" class="glow-text">Discover new games</a>
+            </div>
+            <div class="item2ICONS2">
+                <i class="bi bi-gift"></i>
+                <a href="#" class="glow-text">Gift cards</a>
+            </div>
+        </div>
+        <div class="item3">
+            <a href="#" class="Dis">
+                <i class="bi bi-discord"></i>
+            </a>
+            <a href="#" class="Insta">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="facebook">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="youtube">
+                <i class="bi bi-youtube"></i>
+            </a>
+
+        </div>
+        <div class="item4">4</div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ksmNf4ER5G2z43tP6pbl5+H1ZTnGnTQTo2T1dxpVbFJ8yU0vHJpt5OgboTpG2nQ8" crossorigin="anonymous"></script>

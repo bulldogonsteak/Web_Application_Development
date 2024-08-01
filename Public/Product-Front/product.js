@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+// TODO: realize api route
+// realize - send a request when the "Add to cart" button is clicked
 
-
-//send a request when the "Add to cart" button is clicked
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButton = document.querySelector('.cart');
     addToCartButton.addEventListener('click', () => {
@@ -53,8 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    
-  //GET request for a product + his comments
+   // TODO: realize api route
+// realize - GET request for a product, the img, name, cost will change
+
   
   document.addEventListener('DOMContentLoaded', () => {
     // Function to get query parameters from the URL
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const productId = getQueryParam('productId'); // Get the 'id' parameter from the URL
+    console.log("productID in html: " + productId);  // Output the productId
 
     if (productId) {
         loadProduct(productId); // Load the product with the extracted ID
@@ -72,13 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadProduct(productId) {
-        fetch(`http://localhost:5500/products/:2`)// ${productId} ////////////////////////////////////לשנות
+        fetch(`http://localhost:5500/products/${productId}`)// ${productId} ////////////////////////////////////לשנות
             .then(response => response.json())
             .then(data => {
                 // Update product details on the page
                 document.querySelector('.product-name').textContent = data.name;
                 document.querySelector('.product-price').textContent = `$${data.price}`;
-                document.querySelector('.imageOfproduct img').src = data.image;
+                document.querySelector('.imageOfproduct img').src = `../Pictures/${data.name}.jpg`;
                 document.querySelector('.Description p').textContent = data.description;
 
                 // Update main image

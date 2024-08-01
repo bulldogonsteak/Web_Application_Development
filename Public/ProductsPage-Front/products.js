@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
             price: '$19.99',
         },
         {
-            imgSrc: '../Pictures/game2.jpg',
+            imgSrc: '../pictures/Elden Ring.jpg',
             videoSrc: '../Videos/elden-ring-VIDEO.webm',
             name: 'Cool Shirt',
             price: '$29.99',
         },
         {
-            imgSrc: '../Pictures/game3.jpeg',
+            imgSrc: '../Pictures/Destiny 2.jpeg',
             videoSrc: '../Videos/destiny-2-VIDEO.webm',
             name: 'Cool Shirt',
             price: '$29.99',
@@ -119,12 +119,17 @@ document.addEventListener("DOMContentLoaded", function() {
   
   //  בקשה לשרת לעדכון, הוספה ומחיקת מוצר מתבצעת דרך הדף נחיתה של המנהל 
   
+
+
+     // TODO: realize api route
+// realize -  Function to fetch and display products
+
   //GET request
   document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.getElementById('cardContainer');
     const cardTemplate = document.getElementById('cardTemplate').content;
 
-    // Function to fetch and display products
+
     function loadProducts() {
         fetch('http://localhost:5500/products/') 
             .then(response => response.json())
@@ -171,7 +176,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching products:', error));
     }
 
-    // Function to handle adding product to cart - POST request
+
+// TODO: realize api route
+// realize -   Function to handle adding product to cart - POST request
+
     function addToCart(productId) {
         fetch('http://localhost:8088/cart', { ////////////////////////לשנות
             method: 'POST',
