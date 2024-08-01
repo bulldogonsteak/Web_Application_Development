@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+// TODO: realize api route
+// realize - send a request when the "Add to cart" button is clicked
 
-
-//send a request when the "Add to cart" button is clicked
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButton = document.querySelector('.cart');
     addToCartButton.addEventListener('click', () => {
@@ -53,8 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    
-  //GET request for a product + his comments
+   // TODO: realize api route
+// realize - GET request for a product, the img, name, cost will change
+
   
   document.addEventListener('DOMContentLoaded', () => {
     // Function to get query parameters from the URL

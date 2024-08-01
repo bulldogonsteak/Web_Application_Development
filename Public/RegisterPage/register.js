@@ -1,6 +1,6 @@
+// TODO: realize api route
+// realize - send a request to the server when the registration form is submitted
 
-
-//send a request to the server when the registration form is submitted
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
 
