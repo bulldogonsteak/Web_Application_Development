@@ -26,10 +26,10 @@ const productSchema = new Schema({
         type: String,
         required: true,
     },
-    // platform: { // Product's platform which will work on
-    //     type: [String],
-    //     required: true,
-    // },
+    platform: { // Product's platform which will work on
+        type: [String],
+        required: true,
+    },
     // genre: { // Product's genre type
     //     type: String,
     //     required: true,

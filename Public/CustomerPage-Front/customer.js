@@ -124,52 +124,7 @@ function continueShopping() {
 
 
 /////////////////////////////////////////////////////////////////////////////////
-//send a request when the form is submitted
 
-const paymentForm = document.getElementById('paymentForm');
-if (paymentForm) {
-    paymentForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent default form submission
-
-        // Gather payment data
-        const paymentData = {
-            cardName: document.getElementById('cardName').value,///////////////////למחוק???
-            cardNumber: document.getElementById('cardNumber').value,
-            expiryDate: document.getElementById('expiryDate').value,
-            cvv: document.getElementById('cvv').value
-        };
-
-        // Gather product data
-        const productIds = document.getElementById('productIds').value.split(',');
-        const quantities = document.getElementById('quantities').value.split(',');
-
-        if (productIds.length !== quantities.length) {
-            alert('Mismatch between product IDs and quantities.');
-            return;
-        }
-
-        // Send payment data to the server
-        fetch('/api/payment', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(paymentData)
-        })
-            .then(response => response.json())
-            .then(paymentResponse => {
-                if (paymentResponse.success) {
-                    // Payment was successful, now update the product stock
-                    updateProductStocks(productIds, quantities);
-                } else {
-                    alert('Payment failed: ' + paymentResponse.message);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    });
-}
 
 
 // Function to update product stocks
