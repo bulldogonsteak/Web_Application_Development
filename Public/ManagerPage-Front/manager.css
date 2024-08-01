@@ -235,8 +235,8 @@ p {
     line-height: 2.5rem;
     transform: skewX(-15deg); 
 }
-/* 
-.Facebook-post-section {
+
+/* .Facebook-post-section {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -778,6 +778,8 @@ button:hover {
 
 
 
+
+
 .fb-button {
     display: inline-block;
     padding: 15px 30px; /* Increased padding */
@@ -786,7 +788,7 @@ button:hover {
     color: #fff;
     background-color: #3b5998;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -800,12 +802,9 @@ button:hover {
     background-color: #1d2d50;
 }
 
-
-
 .Facebook-post-section {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 100px;
-
 }
