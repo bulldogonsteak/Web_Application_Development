@@ -4,11 +4,10 @@
  **********************************************************************************************************************/
 
 // Imported files
-const Product = require(`../Models/product.js`);
+const Product = require('../Models/product.js');
 const mongoose = require("mongoose");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
-
 
 /******************************************* Services - Post Methods **************************************************/
 // Create a product asynchronous function - POST method
@@ -22,7 +21,7 @@ const createProduct = async (productData) => {
     }
 
     // Checks if the product already exists within the Database
-    const existingProduct = await Product.findOne({_id: productData._id});
+    const existingProduct = await Product.findOne({ _id: productData._id });
 
     // Checks status of existed product
     if (existingProduct) {
@@ -75,26 +74,26 @@ const searchProducts = async (searchParams) => {
     const query = {};
 
     // Cases of search parameters to search, define proper fields
-    if(searchParams.name && searchParams.name.length > 0) { // Search products by name
+    if (searchParams.name && searchParams.name.length > 0) { // Search products by name
 
         // Insert to query name field to current regex with indicator flag (i)
         query.name = { $regex: searchParams.name, $options: 'i' };
     }
 
-    if(searchParams.platform && searchParams.platform.length > 0) { // search products by platform
+    if (searchParams.platform && searchParams.platform.length > 0) { // search products by platform
 
         // Split each word block to an element with the token of ","
         query.platform = { $in: searchParams.platform.split(',') };
 
     }
 
-    if(searchParams.genre && searchParams.genre.length > 0) { // Search products by genre
+    if (searchParams.genre && searchParams.genre.length > 0) { // Search products by genre
 
         // Insert genre searchParams to the query.genre field
         query.genre = searchParams.genre;
     }
 
-    if(searchParams.minPrice && searchParams.maxPrice) {
+    if (searchParams.minPrice && searchParams.maxPrice) {
 
         // Iterate from the minPrice to the maxPrice and return the results of the given range prices to iterate
         query.price = { $gte: parseFloat(searchParams.minPrice), $lte: parseFloat(searchParams.maxPrice) };
@@ -105,8 +104,6 @@ const searchProducts = async (searchParams) => {
 
 }
 
-
-
 // Group products by genre and get the count of products in each genre - GET Methods Handler
 const groupProductsByGenre = async () => {
 
@@ -116,13 +113,32 @@ const groupProductsByGenre = async () => {
         { $group: { _id: "$genre", products: { $push: "$$ROOT" } } }
     ]);
 
-    if(groupedProducts){
+    if (groupedProducts) {
         console.log(groupedProducts); // TODO self-debugging
         return groupedProducts;
     }
-    else{
+    else {
         console.error('Error in grouping products by genre:'); // TODO self-debugging
         throw new Error('Error in grouping products by genre');
+    }
+};
+
+// Group products by platform and get the count of products in each platform - GET Methods Handler
+const groupProductsByPlatform = async () => {
+    // Execute GroupBy operation to divide products by platform,
+    // And count each product in the proper subset by the value of the product's platform field
+    const groupedProducts = await Product.aggregate([
+        { $unwind: "$platform" },
+        { $group: { _id: "$platform", count: { $sum: 1 } } }
+    ]);
+
+    if (groupedProducts) {
+        console.log(groupedProducts); // TODO self-debugging
+        return groupedProducts;
+    }
+    else {
+        console.error('Error in grouping products by platform:'); // TODO self-debugging
+        throw new Error('Error in grouping products by platform');
     }
 };
 
@@ -131,7 +147,7 @@ const groupProductsByGenre = async () => {
 const updateProduct = async (productId, productData) => {
 
     // Check if the given productId exists
-    const product = await Product.findOne({_id: productId});
+    const product = await Product.findOne({ _id: productId });
 
     // Product is not exists
     if (!product) {
@@ -140,7 +156,7 @@ const updateProduct = async (productId, productData) => {
 
     // Find the product with the given ID, then use the $set operator to specify the fields within (using the spread operator)
     // Use await to ensure all updates are finished before proceeding
-    const updatedProduct = await Product.findByIdAndUpdate(productId, {$set: {...productData}}, {new: true})
+    const updatedProduct = await Product.findByIdAndUpdate(productId, { $set: { ...productData } }, { new: true })
         .then(updatedProduct => {
             if (!updatedProduct) { // If the product was not found
                 throw new Error(`Product with id ${productId} not found`);
@@ -164,7 +180,7 @@ const updateProduct = async (productId, productData) => {
 // Delete a product with a given product ID - DELETE method
 const deleteProduct = async (productId) => {
     // Check if the given productId exists
-    const isValidProduct = await Product.findOne({_id: productId});
+    const isValidProduct = await Product.findOne({ _id: productId });
 
     // Product is not exists
     if (!isValidProduct) {
@@ -200,4 +216,5 @@ module.exports = { // Export all of this file methods
     deleteProduct,
     searchProducts,
     groupProductsByGenre,
+    groupProductsByPlatform,
 }
