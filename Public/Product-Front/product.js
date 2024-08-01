@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// TODO: realize api route
+//important TODO: realize api route
 // realize - send a request when the "Add to cart" button is clicked
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
    // TODO: realize api route
 // realize - GET request for a product, the img, name, cost will change
 
-  
   document.addEventListener('DOMContentLoaded', () => {
     // Function to get query parameters from the URL
     function getQueryParam(param) {
@@ -72,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('Product ID not found in the URL.');
     }
+
+
 
     function loadProduct(productId) {
         fetch(`http://localhost:5500/products/${productId}`)// ${productId} ////////////////////////////////////לשנות
@@ -106,7 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const similarProductsContainer = document.querySelector('.similarProducts .row');
                 similarProductsContainer.innerHTML = ''; // Clear existing products
                 
-                data.similarProducts.forEach(product => {
+                data.similarProducts.forEach(product => 
+                    {
                     const col = document.createElement('div');
                     col.classList.add('col');
                     col.innerHTML = `

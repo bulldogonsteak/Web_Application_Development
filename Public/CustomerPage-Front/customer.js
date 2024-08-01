@@ -320,19 +320,11 @@ function deleteOrder(orderId) {
 }
         */
 
+
+// important TODO:  use route
 // Function to handle update operation
 function updateOrder(orderId) {
-    const updatedOrder = {
-        // Collect updated order data here
-        // For example, open a form or prompt the user for details
-        // Here, we're using a static example
-        products: [
-            { name: 'Updated Game 1', price: 20.99, downloadLink: 'updated-download-link' },
-            { name: 'Updated Game 2', price: 25.99, downloadLink: 'updated-download-link' }
-        ],
-        total: 46.98
-    };
-
+    
     fetch(`http://localhost:8088/orders/${orderId}`, { // Adjust URL to your server endpoint
         method: 'PUT',
         headers: {
@@ -356,7 +348,7 @@ function updateOrder(orderId) {
 
 
 // Function to fetch cart items
-// TODO:  use route
+// important TODO:  use route
 // get cart products
 function fetchCartItems() {
     fetch('http://localhost:8088/cart', { // Adjust URL to your server endpoint
@@ -413,7 +405,7 @@ function fetchCartItems() {
 }
 
 // Function to add an item to the cart
-// TODO: use the exists route adiel did - change url
+// important TODO: use the exists route adiel did - change url
 function addToCart(item) {
     fetch('http://localhost:8088/cart', { // Adjust URL to your server endpoint
         method: 'POST',
@@ -430,13 +422,17 @@ function addToCart(item) {
         .catch(error => console.error('Error adding item to cart:', error));
 }
 
+
 // Function to remove a product from the cart
-// TODO: use
+// important TODO: use
 function removeProduct(productId) {
-    fetch(`http://localhost:8088/cart/${productId}`, { // Adjust URL to your server endpoint
+    fetch(`http://localhost:8088/loginHome/cart/add}`, { // Adjust URL to your server endpoint
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
+        },
+        body: {
+            productId
         }
     })
         .then(response => response.json())
