@@ -48,8 +48,11 @@ app.use(session({
 
 // app.set
 app.set('view engine', 'ejs') // Set ejs engine in server to insure render functionally
-app.set('views', path.join(__dirname, 'views')); // Set ejs templates to the views
-app.use(express.static(path.join(__dirname, 'public'))) // // Serve static files from the "public" directory
+app.set('Views', path.join(__dirname, 'Views')); // Set ejs templates to the views
+app.use(express.static(path.join(__dirname,'Public')));
+
+const homePage = require("/Public/MainPage-Front/index.html")
+app.get("/", await redirect(homePage));
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file

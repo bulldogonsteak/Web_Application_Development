@@ -12,6 +12,7 @@ function initMap() {
       console.error("Error initializing map:", error);
   }
 }
+
 document.addEventListener('DOMContentLoaded', function () {
   const imageContainers = document.querySelectorAll('.image_container');
 
@@ -51,3 +52,26 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 });
+
+// document.getElementById('loginIcon').addEventListener('click', function(event) {
+//     event.preventDefault(); // Prevent the default anchor behavior
+
+//     fetch('http://localhost:5500/loginHome/login', {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Success:', data);
+//         // Handle the response data here
+//         // For example, you can redirect to another page
+//         window.location.href = 'http://localhost:5500/loginHome/login'; ////
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// });
+
+
