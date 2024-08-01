@@ -1,6 +1,6 @@
+// TODO: realize api route
+// realize - send a request to the server when the registration form is submitted
 
-
-//send a request to the server when the registration form is submitted
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Send data using fetch
-        fetch('http://localhost:8088/loginHome/register', { // Adjust URL to your server endpoint
+        fetch('http://localhost:5500/loginHome/register', { // Adjust URL to your server endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Success:', data);
             // Handle successful registration response
             if (data.success) {
-                window.location.href = 'http://localhost:8088/mainpage'; /////// Redirect on successful registration
+                window.location.href = 'http://localhost:5500/MainPage'; /////// Redirect on successful registration
             } else {
                 alert('Registration failed: ' + data.message);
             }

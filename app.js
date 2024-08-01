@@ -34,7 +34,6 @@ mongoose.connect(process.env.CONNECTION_STRING, { // Mongoose Connection is sett
 const app = express();
 console.log("Server Created")
 
-
 // Create sessions within the server
 app.use(session({
     secret: 'foo', // sign the session ID cookie
@@ -48,7 +47,9 @@ app.use(session({
 
 // app.set
 app.set('view engine', 'ejs') // Set ejs engine in server to insure render functionally
-app.set('views', path.join(__dirname, 'views'));
+app.set('Views', path.join(__dirname, 'Views')); // Set ejs templates to the views
+app.use(express.static(path.join(__dirname,'Public')));
+
 
 // app.use
 app.use(express.static('Public')); // Use Public as static file

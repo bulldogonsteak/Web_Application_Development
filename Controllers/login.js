@@ -35,7 +35,7 @@ function CustomerProfiler(req, res) {
 
 // Function to render the loginForm
 function loginForm(req, res) {
-    res.render('loginTest', {});
+    res.render('login', {});
 } // Adjust the name if necessary
 
 // Function to render the registration form
@@ -74,6 +74,7 @@ const login = async (req, res) => {
 
         // Finds if the user is register in the system
         const user = await User.findOne({emailAddress: emailAddress});
+        console.log(user);
 
         if (user && (user.sessionId != null)) {
             return await res.status(403).json({error: 'User already logged in'});
@@ -137,7 +138,7 @@ const register = async (req, res) => {
             // Creates the sessionID for the user
             const status = await User.findByIdAndUpdate(req.body.emailAddress, {
                 sessionId,
-                isManager: (req.body.isManager === 'on') || "false",
+                isManager: (req.body.isManager === 'on'|| req.body.isManager === 'manager') || "false",
             });
 
             if (status) {

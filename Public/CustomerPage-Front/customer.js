@@ -124,8 +124,8 @@ function continueShopping() {
 
 
 /////////////////////////////////////////////////////////////////////////////////
-
 //send a request when the form is submitted
+
 const paymentForm = document.getElementById('paymentForm');
 if (paymentForm) {
     paymentForm.addEventListener('submit', (event) => {
@@ -171,12 +171,16 @@ if (paymentForm) {
     });
 }
 
+
 // Function to update product stocks
 function updateProductStocks(productIds, quantities) {
     const updates = productIds.map((productId, index) => ({
         productId,
         quantity: -quantities[index] // Decrease stock by the quantity purchased
     }));
+
+    // TODO: realize api route
+    // realize -  remove product from stock
 
     fetch('/api/products/update-stocks', { // Adjust URL to your server endpoint
         method: 'PATCH',
@@ -185,18 +189,18 @@ function updateProductStocks(productIds, quantities) {
         },
         body: JSON.stringify({ updates })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Product stocks updated!');
-            window.location.href = '/thank-you'; // Redirect on successful stock update
-        } else {
-            alert('Failed to update product stocks: ' + data.message);
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Product stocks updated!');
+                window.location.href = '/thank-you'; // Redirect on successful stock update
+            } else {
+                alert('Failed to update product stocks: ' + data.message);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
 
@@ -207,6 +211,8 @@ function updateProductStocks(productIds, quantities) {
 
 // Retrieve order history on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // TODO: realioze api route
+    // get orders history
     fetch('http://localhost:8088/orders', { // Adjust URL to your server endpoint
         method: 'GET',
         headers: {
@@ -292,6 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Function to handle delete operation
+/*
+TODO: is needed ? delete order
 function deleteOrder(orderId) {
     fetch(`http://localhost:8088/orders/${orderId}`, { // Adjust URL to your server endpoint
         method: 'DELETE',
@@ -310,20 +318,13 @@ function deleteOrder(orderId) {
         })
         .catch(error => console.error('Error deleting order:', error));
 }
+        */
 
+
+// important TODO:  use route
 // Function to handle update operation
 function updateOrder(orderId) {
-    const updatedOrder = {
-        // Collect updated order data here
-        // For example, open a form or prompt the user for details
-        // Here, we're using a static example
-        products: [
-            { name: 'Updated Game 1', price: 20.99, downloadLink: 'updated-download-link' },
-            { name: 'Updated Game 2', price: 25.99, downloadLink: 'updated-download-link' }
-        ],
-        total: 46.98
-    };
-
+    
     fetch(`http://localhost:8088/orders/${orderId}`, { // Adjust URL to your server endpoint
         method: 'PUT',
         headers: {
@@ -347,6 +348,8 @@ function updateOrder(orderId) {
 
 
 // Function to fetch cart items
+// important TODO:  use route
+// get cart products
 function fetchCartItems() {
     fetch('http://localhost:8088/cart', { // Adjust URL to your server endpoint
         method: 'GET',
@@ -354,54 +357,55 @@ function fetchCartItems() {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Cart Items:', data);
-        const cartContainer = document.querySelector('#MyCart .card-container');
-        cartContainer.innerHTML = ''; // Clear current cart items
+        .then(response => response.json())
+        .then(data => {
+            console.log('Cart Items:', data);
+            const cartContainer = document.querySelector('#MyCart .card-container');
+            cartContainer.innerHTML = ''; // Clear current cart items
 
-        if (data.cart.length === 0) {
-            document.getElementById('emptyMessage').style.display = 'block';
-        } else {
-            document.getElementById('emptyMessage').style.display = 'none';
-        }
+            if (data.cart.length === 0) {
+                document.getElementById('emptyMessage').style.display = 'block';
+            } else {
+                document.getElementById('emptyMessage').style.display = 'none';
+            }
 
-        data.cart.forEach(item => {
-            const productElement = document.createElement('div');
-            productElement.classList.add('product');
-            
-            const trashIcon = document.createElement('i');
-            trashIcon.classList.add('bi', 'bi-dash-circle-fill', 'trash');
-            trashIcon.onclick = () => removeProduct(item.id);
+            data.cart.forEach(item => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
 
-            const cardElement = document.createElement('div');
-            cardElement.classList.add('card');
-            
-            const imgElement = document.createElement('img');
-            imgElement.src = item.image;
-            imgElement.id = 'ItemPIC';
+                const trashIcon = document.createElement('i');
+                trashIcon.classList.add('bi', 'bi-dash-circle-fill', 'trash');
+                trashIcon.onclick = () => removeProduct(item.id);
 
-            const priceElement = document.createElement('p');
-            priceElement.classList.add('price');
-            priceElement.textContent = `$${item.price}`;
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
 
-            const nameElement = document.createElement('p');
-            nameElement.textContent = item.name;
+                const imgElement = document.createElement('img');
+                imgElement.src = item.image;
+                imgElement.id = 'ItemPIC';
 
-            cardElement.appendChild(imgElement);
-            cardElement.appendChild(priceElement);
-            cardElement.appendChild(nameElement);
+                const priceElement = document.createElement('p');
+                priceElement.classList.add('price');
+                priceElement.textContent = `$${item.price}`;
 
-            productElement.appendChild(trashIcon);
-            productElement.appendChild(cardElement);
+                const nameElement = document.createElement('p');
+                nameElement.textContent = item.name;
 
-            cartContainer.appendChild(productElement);
-        });
-    })
-    .catch(error => console.error('Error fetching cart items:', error));
+                cardElement.appendChild(imgElement);
+                cardElement.appendChild(priceElement);
+                cardElement.appendChild(nameElement);
+
+                productElement.appendChild(trashIcon);
+                productElement.appendChild(cardElement);
+
+                cartContainer.appendChild(productElement);
+            });
+        })
+        .catch(error => console.error('Error fetching cart items:', error));
 }
 
 // Function to add an item to the cart
+// important TODO: use the exists route adiel did - change url
 function addToCart(item) {
     fetch('http://localhost:8088/cart', { // Adjust URL to your server endpoint
         method: 'POST',
@@ -410,28 +414,33 @@ function addToCart(item) {
         },
         body: JSON.stringify(item)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Item added to cart:', data);
-        fetchCartItems(); // Refresh cart items
-    })
-    .catch(error => console.error('Error adding item to cart:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Item added to cart:', data);
+            fetchCartItems(); // Refresh cart items
+        })
+        .catch(error => console.error('Error adding item to cart:', error));
 }
 
+
 // Function to remove a product from the cart
+// important TODO: use
 function removeProduct(productId) {
-    fetch(`http://localhost:8088/cart/${productId}`, { // Adjust URL to your server endpoint
+    fetch(`http://localhost:8088/loginHome/cart/add}`, { // Adjust URL to your server endpoint
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
+        },
+        body: {
+            productId
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Item removed from cart:', data);
-        fetchCartItems(); // Refresh cart items
-    })
-    .catch(error => console.error('Error removing item from cart:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Item removed from cart:', data);
+            fetchCartItems(); // Refresh cart items
+        })
+        .catch(error => console.error('Error removing item from cart:', error));
 }
 
 // Fetch cart items when the page loads
@@ -444,8 +453,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// TODO: realize api route
+// realize -  Personal Info (GET Request)
 
-//Fetch Personal Info (GET Request)
+
 function fetchPersonalInfo() {
     fetch('http://localhost:8088/user/profile', {
         method: 'GET',
@@ -453,21 +464,22 @@ function fetchPersonalInfo() {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('fullName').value = data.fullName;
-        document.getElementById('shippingAddress').value = data.shippingAddress;
-        document.getElementById('email').value = data.email;
-    })
-    .catch(error => console.error('Error fetching personal info:', error));
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('fullName').value = data.fullName;
+            document.getElementById('shippingAddress').value = data.shippingAddress;
+            document.getElementById('email').value = data.email;
+        })
+        .catch(error => console.error('Error fetching personal info:', error));
 }
 
 
 
 
+// TODO: realize api route
+// realize -  Update Personal Info (PUT Request)
 
-//Update Personal Info (PUT Request)
-document.getElementById('personalInfoForm').addEventListener('submit', function(event) {
+document.getElementById('personalInfoForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission
 
     const updatedInfo = {
@@ -483,15 +495,15 @@ document.getElementById('personalInfoForm').addEventListener('submit', function(
         },
         body: JSON.stringify(updatedInfo)
     })
-    .then(response => {
-        if (response.ok) {
-            console.log('Personal info updated successfully');
-            fetchPersonalInfo(); // Refresh personal info
-        } else {
-            console.error('Failed to update personal info');
-        }
-    })
-    .catch(error => console.error('Error updating personal info:', error));
+        .then(response => {
+            if (response.ok) {
+                console.log('Personal info updated successfully');
+                fetchPersonalInfo(); // Refresh personal info
+            } else {
+                console.error('Failed to update personal info');
+            }
+        })
+        .catch(error => console.error('Error updating personal info:', error));
 });
 
 
@@ -501,7 +513,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//Send a Logout Request to the Server
+
+
+// TODO:use
+// use -  Send a Logout Request to the Server
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Add an event listener to the logout icon
     document.getElementById('logoutIcon').addEventListener('click', () => {
@@ -512,16 +529,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(response => {
-            if (response.ok) {
-                // Handle successful logout, e.g., redirect to login page
-                window.location.href = '/login.html';
-            } else {
-                // Handle errors or failed logout
-                console.error('Failed to log out');
-            }
-        })
-        .catch(error => console.error('Error during logout:', error));
+            .then(response => {
+                if (response.ok) {
+                    // Handle successful logout, e.g., redirect to login page
+                    window.location.href = '/login.html';
+                } else {
+                    // Handle errors or failed logout
+                    console.error('Failed to log out');
+                }
+            })
+            .catch(error => console.error('Error during logout:', error));
     });
 });
-

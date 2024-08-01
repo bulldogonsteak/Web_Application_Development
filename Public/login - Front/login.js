@@ -1,12 +1,15 @@
     document.getElementById('loginForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the form from submitting normally
         const userType = document.getElementById('userType').checked;
+        console.log("In listener login");
 
         if (userType) {
             // If "I am a manager" is checked, redirect to the manager landing page
+            console.log("Manager");
             window.location.href = '../ManagerPage-Front/manager.html';
         } else {
             // If "I am a customer" is checked, redirect to the customer landing page
+            console.log("Customer");
             window.location.href = '../CustomerPage-Front/customer.html';
         }
     });
@@ -41,14 +44,20 @@
             const password = document.getElementById('input2').value;
             const userType = document.getElementById('userType').checked ? 'manager' : 'customer';
     
-            const data = {
+            const data =
+             {
                 emailAddress: email,
                 password: password,
                 userType: userType
             };
     
             // Send data using fetch
-            fetch('http://localhost:8088/loginHome/login', { // Adjust URL to your server endpoint
+<<<<<<< Updated upstream
+            fetch('http://localhost:8088/loginHome/login', 
+                { // Adjust URL to your server endpoint
+=======
+            fetch('http://localhost:5500/loginHome/login', { // Adjust URL to your server endpoint
+>>>>>>> Stashed changes
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -59,8 +68,8 @@
             .then(data => {
                 console.log('Success:', data);
                 // Handle successful login response
-                if (data.success) {//////////////////////////////////////ID is the email?
-                    window.location.href = `http://localhost:8088/user/${data._id}`; // Redirect to user-specific page
+                if (data.success) {
+                    window.location.href = `http://localhost:5500/loginHome/user/`; // Redirect to user-specific page
                 } else {
                     alert('Login failed: ' + data.message);
                 }

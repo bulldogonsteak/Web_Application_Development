@@ -21,13 +21,13 @@ function myFunction(textId) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const genres = ["Action", "Adventure", "Arcade", "Multiplayer", "Fantasy", "Racing", "Sports", "Strategy", "Wargame"];
-    const sortBy = ["Bestsellers", "Price: Low to High", "Price: High to Low", "Lowest Rated"];
-    const systems = ["PlayStation 4","PlayStation 5","Xbox One", "Xbox Series X|S", "Nintendo", "PC"];
 
-    populateDropdown("genresDropdown", genres);
+    const sortBy = ["Bestsellers", "Price: Low to High", "Price: High to Low", "Lowest Rated"];
+   
+
+    
     populateDropdown("sortByDropdown", sortBy);
-    populateDropdown("systemsDropdown", systems);
+    
 
     function populateDropdown(dropdownId, items) {
         const dropdownContent = document.getElementById(dropdownId);
@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
             price: '$19.99',
         },
         {
-            imgSrc: '../Pictures/game2.jpg',
+            imgSrc: '../pictures/Elden Ring.jpg',
             videoSrc: '../Videos/elden-ring-VIDEO.webm',
             name: 'Cool Shirt',
             price: '$29.99',
         },
         {
-            imgSrc: '../Pictures/game3.jpeg',
+            imgSrc: '../Pictures/Destiny 2.jpeg',
             videoSrc: '../Videos/destiny-2-VIDEO.webm',
             name: 'Cool Shirt',
             price: '$29.99',
@@ -119,14 +119,19 @@ document.addEventListener("DOMContentLoaded", function() {
   
   //  בקשה לשרת לעדכון, הוספה ומחיקת מוצר מתבצעת דרך הדף נחיתה של המנהל 
   
+
+
+     // TODO: realize api route
+// realize -  Function to fetch and display products
+
   //GET request
   document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.getElementById('cardContainer');
     const cardTemplate = document.getElementById('cardTemplate').content;
 
-    // Function to fetch and display products
+
     function loadProducts() {
-        fetch('/api/products') // Adjust URL to your server endpoint
+        fetch('http://localhost:5500/products/') 
             .then(response => response.json())
             .then(data => {
                 // Sort products by release date to get the latest ones
@@ -162,16 +167,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     card.querySelector('.add-to-cart').addEventListener('click', () => {
                         addToCart(product._id); // Use _id for MongoDB unique identifier
                     });
-
+                    card.querySelector('.card').addEventListener('click', () => {
+                        window.location.href = `product.html?id=${product._id}`; // Use _id for MongoDB unique identifier
+                    });
                     cardContainer.appendChild(card);
                 });
             })
             .catch(error => console.error('Error fetching products:', error));
     }
 
-    // Function to handle adding product to cart - POST request
+
+// TODO: realize api route
+// realize -   Function to handle adding product to cart - POST request
+
     function addToCart(productId) {
-        fetch('/api/cart', { // Adjust URL to your server endpoint
+        fetch('http://localhost:8088/cart', { ////////////////////////לשנות
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<!-- CLIENT SIDE -->
+ <!-- MAIN PAGE -->
+
+ 
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,61 +14,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-    <script src="index.js" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFib7jWEEDpMb0mj1Y49NtB-IucMHzbeI&callback=initMap&loading=async"
-        async defer></script>
 </head>
 
 <body>
-    <!-- Rest of your HTML content -->
+
+
     <div class="TOPnav">
-        <div class="aTAGS">
-            <a id="trendingTAG" href="trending.html" class="nav-link">Trending</a>
-            <a id="aboutUsTAG" href="about.html" class="nav-link">About Us</a>
-            <a id="supportTAG" href="support.html" class="nav-link">Support</a>
-        </div>
+        
 
         <div class="CartLOGIN">
-            <a href="../login - Front/login.html" class="icon-link">
+            <a href="http://localhost:5500/loginHome/login" class="icon-link">
                 <i class="bi bi-person-circle"></i>
             </a>
+           
         </div>
     </div>
     <nav class="topNav">
         <div class="dropdown">
             <button class="dropbtn"><i class="bi bi-display"></i> PC</button>
-            <div class="dropdown-content">
-                <a href="http://example.com/pc/game1">Game 1</a>
-                <a href="http://example.com/pc/game2">Game 2</a>
-                <a href="http://example.com/pc/game3">Game 3</a>
-            </div>
         </div>
-
         <div class="dropdown">
             <button class="dropbtn"><i class="bi bi-playstation"></i> PlayStation</button>
-            <div class="dropdown-content">
-                <a href="http://example.com/playstation/game1">Game 1</a>
-                <a href="http://example.com/playstation/game2">Game 2</a>
-                <a href="http://example.com/playstation/game3">Game 3</a>
-            </div>
         </div>
-
         <div class="dropdown">
             <button class="dropbtn"><i class="bi bi-xbox"></i> Xbox</button>
-            <div class="dropdown-content">
-                <a href="http://example.com/xbox/game1">Game 1</a>
-                <a href="http://example.com/xbox/game2">Game 2</a>
-                <a href="http://example.com/xbox/game3">Game 3</a>
-            </div>
         </div>
-
         <div class="dropdown">
             <button class="dropbtn"><i class="bi bi-nintendo-switch"></i> Nintendo</button>
-            <div class="dropdown-content">
-                <a href="http://example.com/nintendo/game1">Game 1</a>
-                <a href="http://example.com/nintendo/game2">Game 2</a>
-                <a href="http://example.com/nintendo/game3">Game 3</a>
-            </div>
         </div>
         <div class="search-container">
             <div class="search-icon">
@@ -73,6 +49,15 @@
             <input type="text" id="searchInput" class="search-input" placeholder="Search...">
         </div>
     </nav>
+
+        <div class="search-container">
+            <div class="search-icon">
+                <i class="bi bi-search" id="searchCircle"></i>
+            </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+        </div>
+    </nav>
+
 
     <div class="image-container">
         <img src="../Pictures/mainPIC.jpg" id="mainPic">
@@ -84,6 +69,7 @@
     <br>
     <br>
 
+
     <br>
     <div class="trending">
         <div class="trendingTXT">
@@ -92,11 +78,14 @@
         </div>
         <br>
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                
+
             <!-- Card 1 -->
+
             <div class="col">
                 <div class="card">
                     <div class="image_container">
-                        <img src="../Pictures/game1.webp" class="card-img" alt="...">
+                        <img src="../Pictures/game3.webp" id="4" class="card-img" alt="...">
                         <video class="hover-video" muted>
                             <source src="../Videos/ghost-of-tsushima-VIDEO.webm" type="video/mp4">
                             Your browser does not support the video tag.
@@ -105,11 +94,14 @@
                 </div>
             </div>
 
-            <!-- Card 2 -->
+
+
+            <!-- <-- Card 2 -->
+
             <div class="col">
                 <div class="card">
                     <div class="image_container">
-                        <img src="../Pictures/game2.jpg" class="card-img" alt="...">
+                        <img src="../Pictures/Elden Ring.jpg" id ="4" class="card-img" alt="...">
                         <video class="hover-video" muted>
                             <source src="../Videos/elden-ring-VIDEO.webm" type="video/mp4">
                             Your browser does not support the video tag.
@@ -118,11 +110,13 @@
                 </div>
             </div>
 
+
             <!-- Card 3 -->
+
             <div class="col">
                 <div class="card">
                     <div class="image_container">
-                        <img src="../Pictures/game3.jpeg" class="card-img" alt="...">
+                        <img src="../Pictures/Destiny 2.jpeg" id="1" class="card-img" alt="...">
                         <video class="hover-video" muted>
                             <source src="../Videos/destiny-2-VIDEO.webm" type="video/mp4">
                             Your browser does not support the video tag.
@@ -132,10 +126,11 @@
             </div>
 
             <!-- Card 4 -->
+
             <div class="col">
                 <div class="card">
                     <div class="image_container">
-                        <img src="../Pictures/game4.jpg" class="card-img" alt="...">
+                        <img src="../Pictures/game4.jpg" id="" class="card-img" alt="...">
                         <video class="hover-video" muted>
                             <source src="../Videos/minecraft-VIDEO.webm" type="video/mp4">
                             Your browser does not support the video tag.
@@ -144,7 +139,9 @@
                 </div>
             </div>
 
+
             <!-- Card 5 -->
+
             <div class="col">
                 <div class="card">
                     <div class="image_container">
@@ -157,7 +154,9 @@
                 </div>
             </div>
 
+
             <!-- Card 6 -->
+
             <div class="col">
                 <div class="card">
                     <div class="image_container">
@@ -169,9 +168,10 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
-
     <div class="reviews-container">
         <div class="manIMG">
             <img src="../Pictures/manIMG.png" id="manIMG">
@@ -183,16 +183,12 @@
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-half"></i>
+
             </div>
             <h5>Instant Gaming is an amazing platform to buy your PC, PlayStation, Xbox and Switch games cheaper with a
-                24/7 instant delivery!</h5>
+                24/7 instant delivery!</h2>
         </div>
     </div>
-
-    <div class="Map-Container">
-        <div id="map"></div>
-    </div>
-
     <div class="bottomMenu">
         <div class="item1">
             <img src="../Pictures/greenStars.png" id="greenstars">
@@ -224,9 +220,18 @@
             <a href="#" class="youtube">
                 <i class="bi bi-youtube"></i>
             </a>
+
         </div>
         <div class="item4">4</div>
+
     </div>
+
+
+
+
+    <script src="index.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
 </body>
 
 </html>

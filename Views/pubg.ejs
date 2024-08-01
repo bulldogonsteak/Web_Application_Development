@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PubG Player Stats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #player-container {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Player Information</h1>
+
+  <!-- קלט משתמש -->
+  <input type="text" id="playerName" placeholder="Enter PUBG player name">
+  <button id="fetchStats">Get Stats</button>
+
+  <div id="playerStats"></div>
+
+  <script>
+    const fetchPlayerStats = async (playerName) => {
+      try {
+        const response = await fetch(`/api/pubg/player/${playerName}`);
+        const data = await response.json();
+        displayPlayerStats(data);
+      } catch (error) {
+        console.error('Error fetching player stats:', error);
+        displayPlayerStats({ error: 'Failed to fetch player stats' });
+      }
+    };
+
+    const displayPlayerStats = (data) => {
+      const statsDiv = document.getElementById('playerStats');
+      if (data.error) {
+        statsDiv.innerHTML = `Error: ${data.error}`;
+      } else if (data && data.data && data.data.length > 0) {
+        const player = data.data[0].attributes;
+        statsDiv.innerHTML = `
+          <div id="player-container">
+            <h2>Player: ${player.name}</h2>
+            <p>Last Played: ${player.updatedAt}</p>
+            <!-- ניתן להוסיף פרטים נוספים על השחקן כאן -->
+          </div>
+        `;
+      } else {
+        statsDiv.innerHTML = 'No data available for this player.';
+      }
+    };
+
+    document.getElementById('fetchStats').addEventListener('click', () => {
+      const playerName = document.getElementById('playerName').value;
+      if (playerName) {
+        fetchPlayerStats(playerName);
+      }
+    });
+  </script>
+</body>
+</html>

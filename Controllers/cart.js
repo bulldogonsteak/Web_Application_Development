@@ -107,10 +107,55 @@ const viewCart = async (req, res) => {
     }
 }
 
+/**************************************** Controllers - Delete Methods ************************************************/
+
+// Function to delete a product from cart
+const deleteFromCart = async (req, res) => {
+    // Try to delete a product within the cart
+    try{
+        // Initialize variables
+        const productId = req.body.productId;
+        const emailAddress = req.session.emailAddress;
+
+        // Validation status
+        // Check if product ID is inserted within the request body
+        if(!productId){
+            // Prompts error message
+            console.error('Product id is required'); // TODO self-Debugging
+            return await res.status(405).json('Product ID is required to delete the item within the cart');
+        }
+        // Check if the email Address is inserted within the request session
+        if (!emailAddress) {
+            // Prompts error message
+            console.error('Email address is required to delete the item within the cart'); // TODO self-Debugging
+            return await res.status(400).json({message: 'Email address is required to delete the item within the cart'});
+        }
+
+        // Delete the product from the cart
+        const { finalProduct,  finalUser } = await cartServices.deleteFromCart(emailAddress, productId);
+
+        // Check operation status
+        if(finalProduct && finalUser){
+            // In case of successful operation
+            console.log("Product successfully deleted from cart"); // TODO self-Debugging
+            return await res.status(200).json({message: "Product successfully deleted from cart"});
+        }
+        else{
+            console.error('Error in deleting a product from cart'); // TODO self-Debugging
+            return await res.status(500).json({error: 'Error in deleting a product from cart'});
+        }
+    }
+    catch(err){
+        console.error('Error in deleting a product from cart'); // TODO self-Debugging
+        return await res.status(500).json({error: 'Error in deleting a product from cart'});
+    }
+}
+
 
 module.exports = {
     addToCart,
     checkout,
     viewCart,
+    deleteFromCart,
 }
 

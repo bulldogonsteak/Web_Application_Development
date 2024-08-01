@@ -6,7 +6,7 @@
 // Imported Files
 const User = require("../Models/User.js"); // Import user Model file for User's cart field
 // const Product = require("../Models/Product.js"); // Import Product Model file for accessing products fields
-const productServices = require("../Services/Product.js");
+const productServices = require("../Services/product.js");
 const loginServices = require("../Services/login.js");
 
 
@@ -40,6 +40,13 @@ const addToCart = async (emailAddress, productId, quantity) => {
         throw Error(`Product with productId ${productId} does not exist`);
     }
 
+    // Check if there's enough stock for the requested quantity
+    if (product.stock < quantity) {
+        // Prompts an error message
+        console.error(`Not enough stock for product with id ${productId}`); // TODO self-Debugging
+        throw Error(`Not enough stock for product with id ${productId}`);
+    }
+
     // Add to the cart the item with a given product ID
     // For each item in the cart that already in
     const cartItem = await user.cart.find(item => item.productId.toString() === productId.toString());
@@ -53,6 +60,12 @@ const addToCart = async (emailAddress, productId, quantity) => {
         // TODO check if there is need to drop the stock
         user.cart.push({productId, quantity, totalPrice: product.price * quantity});
     }
+
+    // Decrease the product stock
+    product.stock -= quantity;
+
+    // Save Product updated data
+    await product.save()
 
     // Update current items within the cart
     return await user.save();
@@ -149,13 +162,77 @@ const viewOrders = async (emailAddress) => {
         throw new Error(`User session for emailAddress ${emailAddress} is not active`);
     }
 
+    // Return all User's orders details
     return user.orders;
 }
 
 
+/******************************************* Services - Delete Methods ************************************************/
+
+// Function to delete product from cart
+const deleteFromCart = async (emailAddress, productId) => {
+    // Find if the user is within the system
+    const user = await User.findById(emailAddress);
+
+    // If User is not found within the system
+    if (!user) {
+        // Prompts an error message
+        console.error(`User with emailAddress ${emailAddress} does not exist`);
+        throw new Error(`User with emailAddress ${emailAddress} does not exist`);
+    }
+
+    // Checks if user session is active
+    const sessionStatus = await loginServices.isUserSessionAlive(emailAddress);
+    if (!sessionStatus) {
+        // Prompt error message to the user
+        console.error(`User session for emailAddress ${emailAddress} is not active`); // TODO self-Debugging
+        throw new Error(`User session for emailAddress ${emailAddress} is not active`);
+    }
+
+    // Finds the product the user requests with in DB records
+    const product = await productServices.getProductById(productId);
+
+    // Check if the
+    if (!product) {
+        // Prompts an error message
+        console.error(`Product with productId ${productId} does not exist in the DataBase`);
+        throw new Error(`Product with productId ${productId} does not exist in the dataBase`);
+    }
+
+    // Find product within the cart
+    const cartItemIndex = user.cart.findIndex(item => item.productId.toString() === productId);
+
+    // If the product is not found
+    if (cartItemIndex === -1) {
+        console.error(`Product with productId ${productId} does not exist in the cart`);
+        throw new Error(`Product with productId ${productId} does not exist in the cart`);
+    }
+
+    // Get the quantity of the item to be removed
+    const cartItem = user.cart[cartItemIndex];
+
+    // Increase the product stock
+    product.stock += cartItem.quantity;
+
+    const NUM_OF_ITEMS = 1;
+    // Remove the product from the cart
+    user.cart.splice(cartItemIndex, NUM_OF_ITEMS);
+
+    // Update the current product data details
+    // Save the updated user data
+    return {
+        'finalProduct': await product.save(),
+        'finalUser': await user.save()
+    };
+
+}
+/******************************************* Services - Update Methods ************************************************/
+
+// Function to update a new product to the
 module.exports = {
     addToCart,
     checkout,
     viewCart,
     viewOrders,
-}
+    deleteFromCart,
+};
