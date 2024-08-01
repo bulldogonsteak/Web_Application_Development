@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Send the request
-        fetch('http://localhost:5500/cart/add', {//////////////////////////////לעדכן
-            method: 'POST', // Use POST method for sending data
+        fetch('http://localhost:5500/user/cart/add', {/////לעדכן
+            method: 'POST', //
             headers: {
                 'Content-Type': 'application/json'
             },
