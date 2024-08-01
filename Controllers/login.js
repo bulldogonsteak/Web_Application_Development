@@ -74,6 +74,7 @@ const login = async (req, res) => {
 
         // Finds if the user is register in the system
         const user = await User.findOne({emailAddress: emailAddress});
+        console.log(user);
 
         if (user && (user.sessionId != null)) {
             return await res.status(403).json({error: 'User already logged in'});
