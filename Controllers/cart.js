@@ -107,6 +107,7 @@ const viewCart = async (req, res) => {
     }
 }
 
+/**************************************** Controllers - Delete Methods ************************************************/
 
 module.exports = {
     addToCart,
