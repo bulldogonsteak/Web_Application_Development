@@ -185,18 +185,18 @@ function updateProductStocks(productIds, quantities) {
         },
         body: JSON.stringify({ updates })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Product stocks updated!');
-            window.location.href = '/thank-you'; // Redirect on successful stock update
-        } else {
-            alert('Failed to update product stocks: ' + data.message);
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Product stocks updated!');
+                window.location.href = '/thank-you'; // Redirect on successful stock update
+            } else {
+                alert('Failed to update product stocks: ' + data.message);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
 
@@ -354,51 +354,51 @@ function fetchCartItems() {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Cart Items:', data);
-        const cartContainer = document.querySelector('#MyCart .card-container');
-        cartContainer.innerHTML = ''; // Clear current cart items
+        .then(response => response.json())
+        .then(data => {
+            console.log('Cart Items:', data);
+            const cartContainer = document.querySelector('#MyCart .card-container');
+            cartContainer.innerHTML = ''; // Clear current cart items
 
-        if (data.cart.length === 0) {
-            document.getElementById('emptyMessage').style.display = 'block';
-        } else {
-            document.getElementById('emptyMessage').style.display = 'none';
-        }
+            if (data.cart.length === 0) {
+                document.getElementById('emptyMessage').style.display = 'block';
+            } else {
+                document.getElementById('emptyMessage').style.display = 'none';
+            }
 
-        data.cart.forEach(item => {
-            const productElement = document.createElement('div');
-            productElement.classList.add('product');
-            
-            const trashIcon = document.createElement('i');
-            trashIcon.classList.add('bi', 'bi-dash-circle-fill', 'trash');
-            trashIcon.onclick = () => removeProduct(item.id);
+            data.cart.forEach(item => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
 
-            const cardElement = document.createElement('div');
-            cardElement.classList.add('card');
-            
-            const imgElement = document.createElement('img');
-            imgElement.src = item.image;
-            imgElement.id = 'ItemPIC';
+                const trashIcon = document.createElement('i');
+                trashIcon.classList.add('bi', 'bi-dash-circle-fill', 'trash');
+                trashIcon.onclick = () => removeProduct(item.id);
 
-            const priceElement = document.createElement('p');
-            priceElement.classList.add('price');
-            priceElement.textContent = `$${item.price}`;
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
 
-            const nameElement = document.createElement('p');
-            nameElement.textContent = item.name;
+                const imgElement = document.createElement('img');
+                imgElement.src = item.image;
+                imgElement.id = 'ItemPIC';
 
-            cardElement.appendChild(imgElement);
-            cardElement.appendChild(priceElement);
-            cardElement.appendChild(nameElement);
+                const priceElement = document.createElement('p');
+                priceElement.classList.add('price');
+                priceElement.textContent = `$${item.price}`;
 
-            productElement.appendChild(trashIcon);
-            productElement.appendChild(cardElement);
+                const nameElement = document.createElement('p');
+                nameElement.textContent = item.name;
 
-            cartContainer.appendChild(productElement);
-        });
-    })
-    .catch(error => console.error('Error fetching cart items:', error));
+                cardElement.appendChild(imgElement);
+                cardElement.appendChild(priceElement);
+                cardElement.appendChild(nameElement);
+
+                productElement.appendChild(trashIcon);
+                productElement.appendChild(cardElement);
+
+                cartContainer.appendChild(productElement);
+            });
+        })
+        .catch(error => console.error('Error fetching cart items:', error));
 }
 
 // Function to add an item to the cart
@@ -410,12 +410,12 @@ function addToCart(item) {
         },
         body: JSON.stringify(item)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Item added to cart:', data);
-        fetchCartItems(); // Refresh cart items
-    })
-    .catch(error => console.error('Error adding item to cart:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Item added to cart:', data);
+            fetchCartItems(); // Refresh cart items
+        })
+        .catch(error => console.error('Error adding item to cart:', error));
 }
 
 // Function to remove a product from the cart
@@ -426,12 +426,12 @@ function removeProduct(productId) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Item removed from cart:', data);
-        fetchCartItems(); // Refresh cart items
-    })
-    .catch(error => console.error('Error removing item from cart:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Item removed from cart:', data);
+            fetchCartItems(); // Refresh cart items
+        })
+        .catch(error => console.error('Error removing item from cart:', error));
 }
 
 // Fetch cart items when the page loads
@@ -453,13 +453,13 @@ function fetchPersonalInfo() {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('fullName').value = data.fullName;
-        document.getElementById('shippingAddress').value = data.shippingAddress;
-        document.getElementById('email').value = data.email;
-    })
-    .catch(error => console.error('Error fetching personal info:', error));
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('fullName').value = data.fullName;
+            document.getElementById('shippingAddress').value = data.shippingAddress;
+            document.getElementById('email').value = data.email;
+        })
+        .catch(error => console.error('Error fetching personal info:', error));
 }
 
 
@@ -467,7 +467,7 @@ function fetchPersonalInfo() {
 
 
 //Update Personal Info (PUT Request)
-document.getElementById('personalInfoForm').addEventListener('submit', function(event) {
+document.getElementById('personalInfoForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission
 
     const updatedInfo = {
@@ -483,15 +483,15 @@ document.getElementById('personalInfoForm').addEventListener('submit', function(
         },
         body: JSON.stringify(updatedInfo)
     })
-    .then(response => {
-        if (response.ok) {
-            console.log('Personal info updated successfully');
-            fetchPersonalInfo(); // Refresh personal info
-        } else {
-            console.error('Failed to update personal info');
-        }
-    })
-    .catch(error => console.error('Error updating personal info:', error));
+        .then(response => {
+            if (response.ok) {
+                console.log('Personal info updated successfully');
+                fetchPersonalInfo(); // Refresh personal info
+            } else {
+                console.error('Failed to update personal info');
+            }
+        })
+        .catch(error => console.error('Error updating personal info:', error));
 });
 
 
@@ -512,16 +512,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(response => {
-            if (response.ok) {
-                // Handle successful logout, e.g., redirect to login page
-                window.location.href = '/login.html';
-            } else {
-                // Handle errors or failed logout
-                console.error('Failed to log out');
-            }
+            .then(response => {
+                if (response.ok) {
+                    // Handle successful logout, e.g., redirect to login page
+                    window.location.href = '/login.html';
+                } else {
+                    // Handle errors or failed logout
+                    console.error('Failed to log out');
+                }
+            })
+            .catch(error => console.error('Error during logout:', error));
+    });
+});
+
+
+
+
+//a request to log out
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutIcon = document.querySelector('.LogOut');
+
+    logoutIcon.addEventListener('click', () => {
+        fetch('http://localhost:8088/loginHome//user/logout', {  // Change '/logout' to your actual logout endpoint
+            method: 'GET', // Use POST or GET based on your server's requirements
+            headers: {
+                'Content-Type': 'application/json',
+                // Add any required headers here, like authentication tokens
+            },
+            credentials: 'include', // Ensure cookies (if any) are included in the request
         })
-        .catch(error => console.error('Error during logout:', error));
+            .then(response => {
+                if (response.ok) {
+                    // Handle successful logout
+                    alert('Logged out successfully');
+                    window.location.href = '/login'; // Redirect to login page or another page
+                } else {
+                    // Handle logout failure
+                    alert('Logout failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred');
+            });
     });
 });
 
